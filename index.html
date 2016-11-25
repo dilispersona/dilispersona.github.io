@@ -1,0 +1,298 @@
+<!doctype html>
+
+<!--
+
+    Welcome to the light side of the source, young padawan.
+
+    One step closer to learn something interesting you are...
+
+                               ____                  
+                            _.' :  `._               
+                        .-.'`.  ;   .'`.-.           
+               __      / : ___\ ;  /___ ; \      __  
+             ,'_ ""--.:__;".-.";: :".-.":__;.--"" _`,
+             :' `.t""--.. '<@.`;_  ',@>` ..--""j.' `;
+                  `:-.._J '-.-'L__ `-- ' L_..-;'     
+                    "-.__ ;  .-"  "-.  : __.-"       
+                        L ' /.------.\ ' J           
+                         "-.   "--"   .-"            
+                        __.l"-:_JL_;-";.__           
+                     .-j/'.;  ;""""  / .'\"-.        
+                   .' /:`. "-.:     .-" .';  `.      
+                .-"  / ;  "-. "-..-" .-"  :    "-.   
+             .+"-.  : :      "-.__.-"      ;-._   \  
+             ; \  `.; ;                    : : "+. ; 
+             :  ;   ; ;                    : ;  : \: 
+             ;  :   ; :                    ;:   ;  : 
+            : \  ;  :  ;                  : ;  /  :: 
+            ;  ; :   ; :                  ;   :   ;: 
+            :  :  ;  :  ;                : :  ;  : ; 
+            ;\    :   ; :                ; ;     ; ; 
+            : `."-;   :  ;              :  ;    /  ; 
+             ;    -:   ; :              ;  : .-"   : 
+             :\     \  :  ;            : \.-"      : 
+              ;`.    \  ; :            ;.'_..--  / ; 
+              :  "-.  "-:  ;          :/."      .'  :
+               \         \ :          ;/  __        :
+                \       .-`.\        /t-""  ":-+.   :
+                 `.  .-"    `l    __/ /`. :  ; ; \  ;
+                   \   .-" .-"-.-"  .' .'j \  /   ;/ 
+                    \ / .-"   /.     .'.' ;_:'    ;  
+                     :-""-.`./-.'     /    `.___.'   
+                           \ `t  ._  /               
+                            "-.t-._:'                
+
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=1024" />-->
+    <title>Angular2 - presentation</title>
+
+    <script>
+        (function(d,ua){
+            if ((ua.indexOf('chrome') > -1) || (ua.indexOf('safari') > -1 && ua.indexOf("mobile") === -1)) {
+                d.className += " supported ";
+            }
+        })(document.documentElement, navigator.userAgent.toLowerCase());
+    </script>
+
+    <meta name="description" content="Angular2 and ReactiveX">
+    <meta name="author" content="" />
+
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu:700|Ubuntu+Mono|Crimson+Text:400,700,400italic" rel="stylesheet"
+    />
+    <!-- <link href="css/presentation.css" rel="stylesheet" />-->
+    <link href="css/style.css" rel="stylesheet" />
+
+    <script src="js/prefixfree.js"></script>
+</head>
+
+<body>
+
+    <div class="fallback-message">
+        <p>This presentation was build for latest <b>Chrome</b> or <b>Safari</b> browser.</p>
+        <p>You are viewing simplified view, but most of the CSS 3D will not work for you, sorry.</p>
+    </div>
+
+    <div id="impress">
+
+        <div id="title" class="step">
+            <h1>
+                <span class="short">A very short introduction to</span>
+                <span class="css">Angular2<span class="d3">&</span></span>
+                <span class="transforms">ReactiveX</span>
+            </h1>
+            <span class="author">
+        <i>by</i><br/>
+        <span class="name">Dileep</span> <a href="http://twitter.com/dilispersona">@dilispersona</a>
+            </span>
+        </div>
+
+
+        <div id="why" class="step slide" data-x="0" data-y="-1000">
+            <div class="vcenter">
+                <div class="slide-header" style="font-size:2em">In retrospect</div>
+
+                <div class="slide-content">
+                    <ul class="lv0_indent">
+                        <li>Mosaic, the first popular graphical Web browser</li>
+                        <li>Netscape Communications realized that the Web needed to become more dynamic, 1993</li>
+                        <li>They decided to develop a scripting language, easy to use, where the code could be written
+                            <span
+                                class="marginLeft">directly in the Web page markup</span>
+                        </li>
+                        <li>Brenden Eich</li>
+                        <!--<li>new cool tools (<a href="http://zeroturnaround.com/software/jrebel">jrebel</a>)-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="why" class="step slide" data-x="1000" data-y="-2000">
+            <div class="vcenter">
+                <div class="slide-header" style="font-size:2em">In retrospect</div>
+
+                <div class="slide-content">
+                    <ul class="lv0_indent">
+                        <li> Later in 96, JScript, a reverse-engineered implementation of Netscape's JavaScript, was <span class="marginLeft">part of Internet
+                            Explorer 3 </span></li>
+                        <li> Internet Explorer 3 also included Microsoft's first support for CSS and various extensions &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            to HTML, but in each case the implementation was noticeably different to that found in &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            Netscape Navigator at the time</li>
+                        <li> Browser wars. Standardization was needed </li>
+                        <li> Netscape submitted JavaScript to Ecma International to carve out a standard specification</li>
+                        <!--<li>new cool tools (<a href="http://zeroturnaround.com/software/jrebel">jrebel</a>)-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="why" class="step slide" data-x="2000" data-y="-3000">
+            <div class="vcenter">
+                <div class="slide-header" style="font-size:2em">In retrospect</div>
+
+                <div class="slide-content">
+                    <ul class="lv0_indent">
+                        <li> Ajax, Jesse James</li>
+                        <li> web applications where data can be loaded in the background, avoiding the need for full &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            page reloads and leading to more dynamic applications</li>
+                        <li> Prototype, jQuery, Dojo Toolkit, MooTools </li>
+                        <li> SPA. Angular, Backbone, React , Ember ...</li>
+                        <!--<li>new cool tools (<a href="http://zeroturnaround.com/software/jrebel">jrebel</a>)-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="support" class="step" data-x="-850" data-y="0" data-rotate="30" data-scale="0.4">
+            <h2>Angular</h2>
+            <div class="current">
+                <div class="angular"></div>
+                <h3>Open Source <b>Javascript</b> Framework</h3>
+                <ul>
+                    <li>get rid of difficulty <b>in maintaining initial <span class="marginLeft">codebase</span></b></li>
+                    <li>Code Production <b>became fast</b></li>
+                    <li>Developed by <b>Google</b></li>
+                    <li>Easily <b>testable</b> </li>
+                    <li><b>Actively supported by</b> Communities</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div id="transforms2d" class="step" data-x="-620" data-y="500" data-rotate="90" data-scale="0.5">
+            <h2>Key Features</h2>
+            <div class="current">
+                <div class="angular"></div>
+
+                <ul>
+                    <li>easy data binding,<b>two way data <span class="marginLeft">binding</span></b></li>
+                    <li>Reusable Components, <b>Directives</b></li>
+                    <li> <b>MVC</b> Design pattern</li>
+                    <li> <b>Routing</b> </li>
+                    <li><b>Templating</b> </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <div id="transforms3d" class="step" data-x="-30" data-y="540" data-rotate="190" data-scale="0.6">
+            <h2>How</h2>
+            <div class="current">
+                <div class="twoway"></div>
+                <ul>
+                    <li><b>Scope</b> is the glue between application controller and the <span class="marginLeft">view</span></li>
+                    <li>As the scope grows <b>affects performance</b></li>
+                    <li>Digest Cycle, <b>Dirty Checking </b> </li>
+                    <li>Tightly coupled entities like <b>controllers, views, <span class="marginLeft">services</span></b></li>
+                    <li>Evolving<b>Web</b> </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div id="perspective" class="step" data-x="450" data-y="250" data-rotate="100" data-scale="0.25">
+            <h2>Angular2</h2>
+            <div class="ng2"></div>
+            <ul>
+
+                <li>Everything is a <b>Component </b> </li>
+                <li><b>No Scope, digest cycle</b> No <span class="marginLeft">controller in Angular2</span></li>
+                <li>Better Dependency Injection <span class="marginLeft"><b>through Constructor</b></span></li>
+                <li>Loosely coupled <b></b></li>
+                <li>Typescript</li>
+                <li>Faster</li>
+            </ul>
+        </div>
+
+        <div id="transforms3d-cube" class="step" data-x="1000" data-y="700" data-rotate="10" data-scale="0.6">
+            <h2>Components</h2>
+            <div class="component"></div>
+             <div class="list">
+                    <p>Smart / Application Level Component</p>
+                    <p>Presentation / Pure Components</p>
+                </div>
+            <!----> 
+
+        </div>
+
+        <div id="remember" class="step" data-x="1250" data-y="70" data-rotate="30" data-scale="0.4">
+            <h2>Smart and Dumb</h2>
+             <div class="comp">
+                 <div class="dumb"></div>
+                    <div class="smart"></div>
+             </div>
+        </div>
+
+        <div id="demos" class="step" data-x="950" data-y="300" data-rotate="-60" data-scale="0.2">
+
+        </div>
+
+        <div id="learn" class="step" data-x="1050" data-y="360" data-rotate="-60" data-scale="0.2">
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="end" class="step" data-x="0" data-y="500" data-rotate="0" data-scale="2">
+            <span class="author">
+        <i>by</i><br/>
+        <span class="name">Dileep</span> <a href="http://twitter.com/dilispersona">@dilispersona</a>
+            </span>
+        </div>
+
+    </div>
+
+    <script src="js/impress.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="js/script.js"></script>
+
+
+</body>
+
+</html>
