@@ -183,7 +183,7 @@ code.snippet .comment { font-size: 0.8em; color: #777; }
 #title h1 {
     font-weight: bold;
     text-align: center;
-    font-size: 6em;
+    font-size: 5em;
     line-height: 1;
 
     transform-style: preserve-3d;
@@ -249,11 +249,11 @@ code.snippet .comment { font-size: 0.8em; color: #777; }
  * =============================================================================
  */
 
-#support { width: 760px }
+#angular { width: 760px }
 
-#support h2 { font-size: 2.5em; }
+#angular h2 { font-size: 2.5em; }
 
-#support .browser {
+#angular .browser {
     width: 240px;
     height: 240px;
     float: left;
@@ -267,14 +267,14 @@ code.snippet .comment { font-size: 0.8em; color: #777; }
 }
 
 
-#support code {
+#angular code {
     display: inline-block;
     background: rgba(255,255,255,0.5);
     border-radius: 10px;
     padding: 5px;
 }
 
-#support .version {
+#angular .version {
     font-family: "Ubuntu", sans-serif;
     color: rgba(255,255,255,0.85);
     text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
@@ -286,30 +286,30 @@ code.snippet .comment { font-size: 0.8em; color: #777; }
     width: 220px;
     text-align: right;
 }
-#support .browser:last-child { margin-right: 0 }
+#angular .browser:last-child { margin-right: 0 }
 
-#support .angular    { background-image: url(../img/angular.png); width:383px; height: 108px; }
-#support .chrome    { background-image: url(../img/chrome.png); }
-#support .android   { background-image: url(../img/android.png); }
+#angular .angular    { background-image: url(../img/angular.png); width:383px; height: 108px; }
+#angular .chrome    { background-image: url(../img/chrome.png); }
+#angular .android   { background-image: url(../img/android.png); }
 
-#support .firefox   { background-image: url(../img/firefox.png); }
-#support .ie        { background-image: url(../img/ie.png); }
-#support .opera     { background-image: url(../img/opera.png); }
+#angular .firefox   { background-image: url(../img/firefox.png); }
+#angular .ie        { background-image: url(../img/ie.png); }
+#angular .opera     { background-image: url(../img/opera.png); }
 
-#support .future,
-#support prefix,
-#support .version  {
+#angular .future,
+#angular prefix,
+#angular .version  {
     opacity: 1;
     transition: opacity 0.5s;
 }
 
-#support .disabled {
+#angular .disabled {
     opacity: 0.2;
     cursor: pointer;
 }
 
-#support .disabled .version,
-#support .disabled .prefix { opacity: 0 }
+#angular .disabled .version,
+#angular .disabled .prefix { opacity: 0 }
 
 /*
  * TRANSFORMS SLIDES COMMONS
@@ -405,11 +405,11 @@ code.snippet .comment { font-size: 0.8em; color: #777; }
 
 
 
-#transforms2d { width: 600px }
+#keyfeatures { width: 600px }
 
-#transforms2d .face { background: rgba(  0,153,255,1); }
+#keyfeatures .face { background: rgba(  0,153,255,1); }
 
-#transforms2d h2 { font-size: 3.5em; }
+#keyfeatures h2 { font-size: 3.5em; }
 
 
 
@@ -422,36 +422,36 @@ code.snippet .comment { font-size: 0.8em; color: #777; }
  * =============================================================================
  */
 
-#transforms3d { width: 940px; }
-#transforms3d-cube { width: 960px; }
+#how { width: 940px; }
+#how-cube { width: 960px; }
 
-#transforms3d .snippet,
-#transforms3d-cube .snippet { font-size: 0.9em; }
+#how .snippet,
+#how-cube .snippet { font-size: 0.9em; }
 
-#transforms3d .face { background: rgba(102, 51,255,1); }
+#how .face { background: rgba(102, 51,255,1); }
 
-#transforms3d-cube .cube {
+#how-cube .cube {
     transform-style: flat;
     transform: perspective(600px) rotateX(330deg) rotateY(320deg);
 }
 
-#transforms3d-cube .flip {
+#how-cube .flip {
     position: relative;
     transform: perspective(1000px) rotateX(0deg);
     transform-style: preserve-3d;
     transition: transform 1s ease-in-out;
 }
 
-#transforms3d-cube .flip.back {
+#how-cube .flip.back {
     transform: perspective(1000px) rotateX(180deg);
 }
 
-#transforms3d-cube .flip .snippet {
+#how-cube .flip .snippet {
     backface-visibility: hidden;
     transform-style: preserve-3d;
 }
 
-#transforms3d-cube .flip .back {
+#how-cube .flip .back {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     transform: rotateX(-180deg);
@@ -481,7 +481,7 @@ code.snippet .comment { font-size: 0.8em; color: #777; }
     backface-visibility: visible;
 }
 
-#transforms3d .twoway {
+#how .twoway {
     background-image: url(../img/scopeMV.png); width:403px; height: 329px; 
 }
 /*
@@ -491,11 +491,11 @@ code.snippet .comment { font-size: 0.8em; color: #777; }
 
 .step-perspective #title { pointer-events: none }
 
-#perspective { width: 600px; z-index: 100; height: 500px}
+#angular2 { width: 600px; z-index: 100; height: 500px}
 
-#perspective h2 { width: 550px }
+#angular2 h2 { width: 550px }
 
-#perspective .scene {
+#angular2 .scene {
     background-color: #FFF;
     width: 600px;
     height: 400px;
@@ -515,7 +515,7 @@ code.snippet .comment { font-size: 0.8em; color: #777; }
     transition: perspective 0.5s ease-in-out;
 }
 
-#perspective .cross {
+#angular2 .cross {
     width: 10000px; height: 10000px;
 
     position: absolute;
@@ -523,8 +523,8 @@ code.snippet .comment { font-size: 0.8em; color: #777; }
     cursor: move;
 }
 
-#perspective .cross:before,
-#perspective .cross:after {
+#angular2 .cross:before,
+#angular2 .cross:after {
     content: "";
     position: absolute;
     border: 0px dashed #AAA;
@@ -532,28 +532,28 @@ code.snippet .comment { font-size: 0.8em; color: #777; }
     bottom: 0; left: 0;
 }
 
-#perspective .cross:before { height: 50%; border-top-width: 2px; }
-#perspective .cross:after { width: 50%; border-right-width: 2px; }
+#angular2 .cross:before { height: 50%; border-top-width: 2px; }
+#angular2 .cross:after { width: 50%; border-right-width: 2px; }
 
-#perspective .box {
+#angular2 .box {
     width: 100px;
     height: 100px;
     transform-style: preserve-3d;
 }
 
-#perspective .top,
-#perspective .left,
-#perspective .right,
-#perspective .bottom,
-#perspective .front,
-#perspective .back {
+#angular2 .top,
+#angular2 .left,
+#angular2 .right,
+#angular2 .bottom,
+#angular2 .front,
+#angular2 .back {
     box-sizing: border-box;
     width: 100px; height: 100px;
     position: absolute;
 }
 
-#perspective .left:before,
-#perspective .right:before {
+#angular2 .left:before,
+#angular2 .right:before {
     content: "";
     box-sizing: border-box;
     height: 100px; width: 10000px;
@@ -564,23 +564,23 @@ code.snippet .comment { font-size: 0.8em; color: #777; }
 
 }
 
-#perspective .left:before {
+#angular2 .left:before {
     left: auto; right: 101px;
 }
 
-#perspective .box .front  { background: rgba(255,255,  0,.5); transform: translateZ(50px); }
-#perspective .box .top    { background: rgba(255,153,  0,.5); transform: translate(0px,-50px) rotateX(90deg); }
-#perspective .box .right  { background: rgba(255,  0,  0,.5); transform: translate(50px,0px) rotateY(90deg); }
-#perspective .box .bottom { background: rgba( 51,255,  0,.5); transform: translate(0px,50px) rotateX(-90deg); }
-#perspective .box .left   { background: rgba(102, 51,255,.5); transform: translate(-50px,0px) rotateY(-90deg); }
-#perspective .box .back   { background: rgba(  0,153,255,.5); transform: translateZ(-50px) rotateY(180deg); }
+#angular2 .box .front  { background: rgba(255,255,  0,.5); transform: translateZ(50px); }
+#angular2 .box .top    { background: rgba(255,153,  0,.5); transform: translate(0px,-50px) rotateX(90deg); }
+#angular2 .box .right  { background: rgba(255,  0,  0,.5); transform: translate(50px,0px) rotateY(90deg); }
+#angular2 .box .bottom { background: rgba( 51,255,  0,.5); transform: translate(0px,50px) rotateX(-90deg); }
+#angular2 .box .left   { background: rgba(102, 51,255,.5); transform: translate(-50px,0px) rotateY(-90deg); }
+#angular2 .box .back   { background: rgba(  0,153,255,.5); transform: translateZ(-50px) rotateY(180deg); }
 
-#perspective .box:nth-child(2) {
+#angular2 .box:nth-child(2) {
     position: absolute;
     top: 50px; left: 100px;
 }
 
-#perspective .box:nth-child(3) {
+#angular2 .box:nth-child(3) {
     position: absolute;
     top: 250px; left: 400px;
 /*    transform: translateZ(-300px);
@@ -588,7 +588,7 @@ code.snippet .comment { font-size: 0.8em; color: #777; }
 }
 
 
-#perspective .ng2{
+#angular2 .ng2{
     background-image: url(../img/ng2.png); width:572px; height: 224px; 
 }
 /*
