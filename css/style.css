@@ -107,6 +107,26 @@ code.snippet {
     padding: 5px 10px;
     border-radius: 10px;
     background: rgba(255,255,255,.5);
+    width:1200px;
+    font-size: 20px;
+    
+}
+code.snippet table tr{   
+   border-bottom: 1px dotted grey;
+   margin: 10px;
+}
+code.snippet p.highlight{
+    color: #FFF;
+    background-color: #107896;
+    font-size:16px;
+    padding: 15px;
+}
+span.notice{
+    font-size: 20px;    
+    font-weight: bold;
+    color:#107896; 
+    background-color: lightgray
+    
 }
 
 code.snippet .disabled {
@@ -122,10 +142,10 @@ code.snippet .comment { font-size: 0.8em; color: #777; }
 .step {
     width: 800px;
     padding: 20px;
-    border-radius: 20px;
-    
+    border-radius: 20px;    
     transition: 1s;
 }
+
 
 .step h2 {
     font-size: 3.5em;
@@ -712,6 +732,25 @@ span.marginLeft{
     left: 600px;
     width: 100%;
 }
+#differences .comp{
+    position: relative;
+    width: 100%;
+}
+#differences .comp .ng1 {
+    width: 648px;
+    height: 11520px;
+    background-image: url(../img/angular1.png); 
+}
+#differences .comp .ng2 {
+    width: 648px;
+    height: 1152px;
+    background-image: url(../img/angular2.png); 
+    position: absolute;
+    left:600px;
+    top:0px;
+}
+
+
 .comp{
     position: relative;
 }
@@ -724,3 +763,17 @@ span.marginLeft{
     left:600px;
     top:0px;     
 }
+
+
+#directives{
+    width: 760px;
+}
+
+#directives .directiveng1{
+     background-image: url(../img/directiveng1.png); width:481px; height: 235px;
+}
+
+#directive p{
+    margin:5px;
+}
+

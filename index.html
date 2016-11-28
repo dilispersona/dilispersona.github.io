@@ -100,8 +100,7 @@
                         <li>Mosaic, the first popular graphical Web browser</li>
                         <li>Netscape Communications realized that the Web needed to become more dynamic, 1993</li>
                         <li>They decided to develop a scripting language, easy to use, where the code could be written
-                            <span
-                                class="marginLeft">directly in the Web page markup</span>
+                            <span class="marginLeft">directly in the Web page markup</span>
                         </li>
                         <li>Brenden Eich</li>
                         <!--<li>new cool tools (<a href="http://zeroturnaround.com/software/jrebel">jrebel</a>)-->
@@ -207,32 +206,203 @@
                 <li>Faster</li>
             </ul>
         </div>
+        <div id="differences" class="step" data-x="1300" data-y="528" data-rotate="10" data-scale="0.2">
+            <h2>Differences</h2>
+            <code class="snippet">
+                   <div class="diff">
+                       <div class="ang1" style="width:550px;float:left;">
+                             <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Angular1</th>                                    
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1.Not built with <span class="notice">Mobile</span> support</td>                                    
+                                </tr>
+                                <tr>
+                                    <td>2.more choice for languages,ES5,ES6,Dart,<span class="notice">TypeScript</span> </td>                                
+                                </tr>
+                                <tr>
+                                    <td>3. <span class="notice">Controllers</span>and <span class="notice">$scope</span> are gone</td>                               
+                                </tr>
+                                <tr>
+                                    <td>4. using <span class="notice">ng-app</span> attribute to bootstrap or by 
+                                        <p class="highlight">                                          
+                                                            angular.element(document).ready(function() {
+                                                                angular.bootstrap(document, ['myApp']);
+                                                            });
+                                        </p>
+                                        <div style="height:20px; visibility:hidden"></div>
+                                        </td>                               
+                                </tr>
+                                <tr>
+                                    <td>5. <span class="notice">ng-repeat</span>  
+                                        <p class="highlight">
+                                            ng-repeat="technology in technologies"
+                                        </p>
+                                        </td>                               
+                                </tr>
+                                <tr>
+                                    <td>6. <span class="notice">ng-if</span>
+                                        <p class="highlight">
+                                            ng-if="technologies.length"
+                                        </p>
+                                        </td>                               
+                                </tr>
+                                <tr>
+                                    <td>7. Property binding <span class="notice">ng-bind</span>
+                                        <p class="highlight">
+                                            input ng-bind="technology.name"
+                                        </p>
+                                    </td>                               
+                                </tr>
+                                <tr>
+                                    <td>8. Event binding <span class="notice">ng-click</span>
+                                        <p class="highlight">
+                                            button ng-click="doSomething()"
+                                        </p>
+                                    </td>                               
+                                </tr>
+                                <tr>
+                                    <td>9. <span class="notice">ng-model</span> two way data binding
+                                        <p class="highlight">
+                                            input ng-model="technology.name"
+                                        </p>
+                                    </td>                               
+                                </tr>
+
+                                <tr>
+                                    <td>10. Can define Service in 5 different ways
+                                       
+                                        </td>                               
+                                </tr>
+                                 <tr>
+                                    <td>11. Use <span class="notice">$injector</span> service for Dependency Injection
+                                       
+                                        </td>                               
+                                </tr>
+                                
+                                </tbody>
+                            </table>
+                       </div>
+                       <div class="ang2" style="width:550px;float:right;">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Angular2</th>                                    
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1.mobile oriented.</td>                                    
+                                </tr>
+                                <tr>
+                                    <td>2. ES5, ES6, Dart</td>                                
+                                </tr>
+                                <tr>
+                                    <td>3.controllers are replaced with <span class="notice">"Components"</span></td>                               
+                                </tr>
+                                <tr>
+                                    <td>4.Only way to bootstrap
+                                        <p class="highlight">
+                                            import { bootstrap } from 'angular2/platform/browser';
+import { ProductComponent } from './product.component';
+ 
+bootstrap(ProductComponent);
+                                        </p>
+                                        </td>                               
+                                </tr>
+
+                                <tr>
+                                    <td>5. <span class="notice">*ngFor</span>
+                                        <p class="highlight">
+                                             *ngFor="let technology of technologies"
+                                        </p>
+                                        </td>                               
+                                </tr>
+                                <tr>
+                                    <td>6. <span class="notice">*ngIf
+                                        </span>
+                                            <p class="highlight">
+                                                *ngIf="technologies.length"
+                                            </p>
+                                        </td>                               
+                                </tr>
+                                <tr>
+                                    <td>7. One-way data -binding <span class="notice">using[]</span> 
+                                    <p class="highlight">
+                                        [value]="technology.name",
+                                        [style.color]="color"
+                                    </p>
+                                        </td>                               
+                                </tr>
+                                <tr>
+                                    <td>8. <span class="notice">(ngClick)</span>
+                                        <p class="highlight">
+                                           button (click)="doSomething()"
+                                        </p>
+                                    
+                                    </td>                               
+                                </tr>
+                                <tr>
+                                    <td>9. <span class="notice">([ngModel])</span> two way data binding
+                                        <p class="highlight">
+                                            input [(ngModel)]="technology.name"
+                                        </p>
+                                    </td>                                
+                                </tr>
+                                <tr>
+                                    <td>10.  class is the only way to define a service.
+                                        
+                                        </td>                               
+                                </tr>
+                                <tr>
+                                    <td>11. everything is class in Angular, so DI is achieved via constructor.
+                                        
+                                        </td>                               
+                                </tr>
+                                
+                                </tbody>
+                            </table>
+                       </div>
+                       <div style="clear:both"></div>
+                   </div>
+
+               </code>
+        </div>
 
         <div id="components" class="step" data-x="1000" data-y="1000" data-rotate="10" data-scale="0.6">
             <h2>Components</h2>
             <div class="component"></div>
-             <div class="list">
-                    <p>Smart / Application Level Component</p>
-                    <p>Presentation / Pure Components</p>
-                </div>
-            <!----> 
+            <div class="list">
+                <p>Smart / Application Level Component</p>
+                <p>Presentation / Pure Components</p>
+            </div>
+            <!---->
 
         </div>
 
         <div id="remember" class="step" data-x="1250" data-y="70" data-rotate="30" data-scale="0.4">
             <h2>Smart and Dumb</h2>
-             <div class="comp">
-                 <div class="dumb"></div>
-                    <div class="smart"></div>
-             </div>
+            <div class="comp">
+                <div class="dumb"></div>
+                <div class="smart"></div>
+            </div>
         </div>
 
-        <div id="demos" class="step" data-x="950" data-y="300" data-rotate="-60" data-scale="0.2">
-
+        <div id="directives" class="step" data-x="850" data-y="300" data-rotate="-60" data-scale="0.2">
+            <h2>Directives</h2>
+            <div class="directiveng1"></div>
+            <p>In Angular 1 we had the DDO (directive definition objects) which we used to develop our directive. </p>
+            <p>Confusing with transclusion , link , complie , scope and all</p>
+            <a href="https://plnkr.co/edit/5uo3rdI5X2RnxRyrgIh0?p=preview">ng2 Sample Directive</a>
         </div>
 
-        <div id="learn" class="step" data-x="1050" data-y="360" data-rotate="-60" data-scale="0.2">
-
+        <div id="reactiveX" class="step" data-x="1050" data-y="360" data-rotate="-60" data-scale="0.2">
+            <h2>ReactiveX</h2>
+            <a href="http://reactivex.io/">ReactiveX</a>
         </div>
 
 
