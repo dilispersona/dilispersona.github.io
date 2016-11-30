@@ -69,7 +69,7 @@
     <script src="js/prefixfree.js"></script>
 </head>
 
-<body>
+<body ng-app>
 
     <div class="fallback-message">
         <p>This presentation was build for latest <b>Chrome</b> or <b>Safari</b> browser.</p>
@@ -167,7 +167,12 @@
                 <div class="angular"></div>
 
                 <ul>
-                    <li>easy data binding,<b>two way data <span class="marginLeft">binding</span></b></li>
+                    <li>easy data binding,<b>two way data <span class="marginLeft">binding</span></b>
+                             <p  style="margin-left:2em; width: 400px">
+            Name: <input type="text" ng-model="input" size="40"><br>
+            Hello <b>{{input}}</b>
+            </p>
+                    </li>
                     <li>Reusable Components, <b>Directives</b></li>
                     <li> <b>MVC</b> Design pattern</li>
                     <li> <b>Routing</b> </li>
@@ -459,7 +464,8 @@ bootstrap(ProductComponent);
         </div>
 
     </div>
-
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/angular.min.js"></script>
     <script src="js/impress.js"></script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
