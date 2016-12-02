@@ -60,10 +60,11 @@
 
     <meta name="description" content="Angular2 and ReactiveX">
     <meta name="author" content="" />
-
+    <meta name="viewport" content="max-width=1024" />
     <link href="http://fonts.googleapis.com/css?family=Ubuntu:700|Ubuntu+Mono|Crimson+Text:400,700,400italic" rel="stylesheet"
     />
     <!-- <link href="css/presentation.css" rel="stylesheet" />-->
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
     <link href="css/style.css" rel="stylesheet" />
 
     <script src="js/prefixfree.js"></script>
@@ -168,10 +169,9 @@
 
                 <ul>
                     <li>easy data binding,<b>two way data <span class="marginLeft">binding</span></b>
-                             <p  style="margin-left:2em; width: 400px">
-            Name: <input type="text" ng-model="input" size="40"><br>
-            Hello <b>{{input}}</b>
-            </p>
+                        <p style="margin-left:2em; width: 400px">
+                            Name: <input type="text" ng-model="input" size="40"><br> Hello <b>{{input}}</b>
+                        </p>
                     </li>
                     <li>Reusable Components, <b>Directives</b></li>
                     <li> <b>MVC</b> Design pattern</li>
@@ -191,6 +191,7 @@
                     <li><b>Scope</b> is the glue between application controller and the <span class="marginLeft">view</span></li>
                     <li>As the scope grows <b>affects performance</b></li>
                     <li>Digest Cycle, <b>Dirty Checking </b> </li>
+                    <li class="substep">Slow performance <i class="fa-li fa fa-spinner fa-spin"></i></li>
                     <li>Tightly coupled entities like <b>controllers, views, <span class="marginLeft">services</span></b></li>
                     <li>Evolving<b>Web</b> </li>
                 </ul>
@@ -411,6 +412,20 @@ bootstrap(ProductComponent);
             <p>Observables, Asynchronous data stream</p>
             <p>DOM Events , Web Sockets , Ajax calls</p>
             <p>Eliminates the callback hell</p>
+            <code class="snippet2">
+                <span>x = getData();</span>
+                <span>y = getMoreData(x);</span>
+               <span> z = getMoreData(y);</span>
+            </code>
+            <code class="snippet2">
+                             <span>getData(function(x){</span>   
+                    <span>getMoreData(x, function(y){</span>
+                       <span> getMoreData(y, function(z){</span> 
+                           <span> ...</span>
+                       <span> });</span>
+                    <span> });</span>
+               <span> });</span>
+            </code>
         </div>
 
 

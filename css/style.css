@@ -110,6 +110,20 @@ code.snippet {
     font-size: 20px;
     
 }
+code.snippet2 {
+    display: block;
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.5);
+    width:300px;
+    font-size: 20px;
+    margin-top:5px    
+}
+code.snippet2 span{   
+    display: inline-block;
+    clear: both
+}
 code.snippet table tr{   
    border-bottom: 1px dotted grey;
    margin: 10px;
@@ -776,3 +790,10 @@ span.marginLeft{
     margin:5px;
 }
 
+.substep{
+    position:relative;
+   
+}
+.substep i{
+     margin-left: 12em;
+}
