@@ -400,10 +400,18 @@ bootstrap(ProductComponent);
 
         <div id="directives" class="step" data-x="850" data-y="300" data-rotate="-60" data-scale="0.2">
             <h2>Directives</h2>
-            <div class="directiveng1"></div>
+            <!--<div class="directiveng1"></div>-->
             <p>In Angular 1 we had the DDO (directive definition objects) which we used to develop our directive. </p>
             <p>Confusing with transclusion , link , complie , scope and all</p>
             <a href="https://plnkr.co/edit/5uo3rdI5X2RnxRyrgIh0?p=preview">ng2 Sample Directive</a>
+            <p><span class="highlight">Attribute Directives:</span> directives that change the behavior of a component or element
+                but don't affect the template
+                <span class="highlight">ngStyle, ngClass</span>
+            </p>
+            <p><span class="highlight">Structural Directives:</span> directives that change the behavior of a component or element
+                by affecting how the template is rendered
+                <span class="highlight">ngIf, ngFor, ngSwitch</span>
+            </p>
         </div>
 
         <div id="reactiveX" class="step" data-x="1050" data-y="360" data-rotate="-60" data-scale="0.2">
@@ -417,7 +425,7 @@ bootstrap(ProductComponent);
                 <span>y = getMoreData(x);</span>
                <span> z = getMoreData(y);</span>
             </code>
-            <code class="snippet2">
+            <code class="snippet2"> 
                              <span>getData(function(x){</span>   
                     <span>getMoreData(x, function(y){</span>
                        <span> getMoreData(y, function(z){</span> 
@@ -431,14 +439,11 @@ bootstrap(ProductComponent);
 
 
 
-
-
-
-
-
-
-
-
+        <div id="routing" class="step" data-x="-800" data-y="1000" data-rotate="-60" data-scale="0.2">
+            <h2>Routing</h2>
+            <div class="routingBg"></div>
+            <a href="https://plnkr.co/edit/UpHEteaI4Bypaf0AkD4B?p=preview">Child Routes</a>
+        </div>
 
 
 

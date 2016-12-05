@@ -134,7 +134,7 @@ code.snippet p.highlight{
     font-size:16px;
     padding: 15px;
 }
-span.notice{
+span.highlight,span.notice{
     font-size: 20px;    
     font-weight: bold;
     color:#107896; 
@@ -796,4 +796,7 @@ span.marginLeft{
 }
 .substep i{
      margin-left: 12em;
+}
+.routingBg{
+     background-image: url(../img/routing.png); width:1281px; height: 800px;
 }
