@@ -124,6 +124,35 @@ code.snippet2 span{
     display: inline-block;
     clear: both
 }
+code.snippet3 {
+    display: block;
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.5);
+    width:550px;
+    font-size: 14px;
+    margin-top:5px    
+}
+code.snippet3 span{   
+    display: block;
+    clear: both
+}
+code.snippet4 {
+    display: block;
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.5);
+    width:auto;
+    font-size: 14px;
+    margin-top:5px    
+}
+code.snippet4 span{   
+    display: block;
+    clear: both
+}
+
 code.snippet table tr{   
    border-bottom: 1px dotted grey;
    margin: 10px;
@@ -768,10 +797,12 @@ span.marginLeft{
     position: relative;
 }
 .comp .dumb{
-    background-image: url(../img/dumbComp.png); width:551px; height: 745px;
+   /*// background-image: url(../img/dumbComp.png); */
+  
 }
 .comp .smart{
-    background-image: url(../img/smartComp.png); width:619px; height: 707px;
+    /*background-image: url(../img/smartComp.png); */
+   
     position: absolute;
     left:600px;
     top:0px;     
@@ -797,6 +828,6 @@ span.marginLeft{
 .substep i{
      margin-left: 12em;
 }
-.routingBg{
-     background-image: url(../img/routing.png); width:1281px; height: 800px;
+#routing{
+    width:1281px; height: 800px;
 }

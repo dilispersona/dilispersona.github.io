@@ -381,20 +381,142 @@ bootstrap(ProductComponent);
 
         <div id="components" class="step" data-x="1000" data-y="1000" data-rotate="10" data-scale="0.6">
             <h2>Components</h2>
-            <div class="component"></div>
+           <!-- <div class="component"></div>
             <div class="list">
                 <p>Smart / Application Level Component</p>
                 <p>Presentation / Pure Components</p>
-            </div>
+            </div>-->
             <!---->
+
+            <code class="snippet3">
+                <span>import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';</span>
+                <span style="margin-bottom:20px">import {Lesson} from "../shared/model/lesson";</span>
+               <span>@Component({</span>
+               <span>selector: 'app-home',</span>
+               <span>template: `</span>
+               <span style="margin-left:50px;"><xmp><h2>All Lessons</h2></xmp></span>
+                   <span style="margin-left:50px;"><xmp><h4>Total Lessons: {{lessons?.length}}</h4></xmp></span>
+               <div style="margin-left:50px; color:blue;">
+                   
+                   <span><xmp><div class="lessons-list-container v-h-center-block-parent"></xmp></span>
+                    <span><xmp><table class="table lessons-list card card-strong"></xmp></span>
+               <span><xmp> <tbody></xmp></span>
+               <span><xmp><tr *ngFor="let lesson of lessons" (click)="selectLesson(lesson)"></xmp></span>
+               <span><xmp><td class="lesson-title"> {{lesson.description}} </td></xmp></span>
+               <span><xmp><td class="duration"></xmp>/span>
+               <span><xmp><i class="md-icon duration-icon">access_time</i></xmp></span>
+               <span><xmp> <span>{{lesson.duration}}</span></xmp></span>
+               <span> <xmp></td></xmp></span>
+               <span><xmp> </tr></xmp></span>
+                <span><xmp> </tbody></xmp></span>
+                 <span><xmp></table>  </xmp></span>
+                  <span><xmp>  `,</xmp></span>
+               </div>
+                   <span >  styleUrls: ['./home.component.css']</span>
+                    <span style="margin-bottom:20px">})</span>
+                     <span>export class HomeComponent implements OnInit {</span>
+                        <div  style="margin-left:50px">
+                            <span style="color:red">   constructor(private lessonsService: LessonsService) {}</span>
+
+                       <span>  ngOnInit() {</span>
+                        <span style="color:red"> this.lessonsService.findAllLessons()</span>
+                         <span> .do(console.log)</span>
+                          <span>  .subscribe(</span>
+                           <span style="color:red"> lessons => this.allLessons = lessons</span>
+                           <span> );}</span>
+                        </div>
+                    <span> selectLesson(lesson) {</span>
+                    <span>...</span>
+                    <span>}</span>
+            </code>
+          
+
+
+
 
         </div>
 
         <div id="remember" class="step" data-x="1250" data-y="70" data-rotate="30" data-scale="0.4">
             <h2>Smart and Dumb</h2>
             <div class="comp">
-                <div class="dumb"></div>
-                <div class="smart"></div>
+                <div class="dumb">
+
+                         <code class="snippet3">
+                <span>import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';</span>
+                <span style="margin-bottom:20px">import {Lesson} from "../shared/model/lesson";</span>
+               <span>@Component({</span>
+               <span>selector: 'lessons-list',</span>
+               <span>template: `</span>
+               <div style="margin-left:50px; color:blue;">
+                    <span><xmp><table class="table lessons-list card card-strong"></xmp></span>
+               <span><xmp> <tbody></xmp></span>
+               <span><xmp><tr *ngFor="let lesson of lessons" (click)="selectLesson(lesson)"></xmp></span>
+               <span><xmp><td class="lesson-title"> {{lesson.description}} </td></xmp></span>
+               <span><xmp><td class="duration"></xmp>/span>
+               <span><xmp><i class="md-icon duration-icon">access_time</i></xmp></span>
+               <span><xmp> <span>{{lesson.duration}}</span></xmp></span>
+               <span> <xmp></td></xmp></span>
+               <span><xmp> </tr></xmp></span>
+                <span><xmp> </tbody></xmp></span>
+                 <span><xmp></table>  </xmp></span>
+                  <span><xmp>  `,</xmp></span>
+               </div>
+                   <span > styleUrls: ['./lessons-list.component.css']</span>
+                    <span style="margin-bottom:20px">})</span>
+                     <span>export class LessonsListComponent {</span>
+                        <div  style="margin-left:50px">
+                            <span style="color:red">  @Input()</span>
+
+                       <span> lessons: Lesson[];</span>
+                        <span style="color:red"> @Output('lesson')</span>
+                         <span> lessonEmitter = new EventEmitter<Lesson>();</span>
+                          <span>  selectLesson(lesson:Lesson) {</span>
+                           <span>this.lessonEmitter.emit(lesson);</span>
+                        </div>
+                    <span>}}</span>
+            </code>
+
+
+                </div>
+                <div class="smart">
+                     <code class="snippet3">
+                <span>import { Component, OnInit } from '@angular/core';</span>
+                <span>import {LessonsService} from "../shared/model/lessons.service";</span>
+                <span  style="margin-bottom:20px; color:green">import {Lesson} from "../shared/model/lesson";</span>
+               <span>@Component({</span>
+               <span>selector: 'app-home',</span>
+               <span>template: `</span>
+               <span style="margin-left:50px;"><xmp><h2>All Lessons</h2></xmp></span>
+                   <span style="margin-left:50px;"><xmp><h4>Total Lessons: {{lessons?.length}}</h4></xmp></span>
+               <div style="margin-left:50px; color:blue;">
+                    <span><xmp><div class="lessons-list-container v-h-center-block-parent"></xmp></span>
+               <span><xmp>  <lessons-list [lessons]="lessons" (lesson)="selectLesson($event)"></lessons-list></xmp></span>
+               <span><xmp><tr *ngFor="let lesson of lessons" (click)="selectLesson(lesson)"></xmp></span>
+               <span><xmp> </div></xmp></span>
+              
+                  <span><xmp>  `,</xmp></span>
+               </div>
+                   <span > styleUrls: ['./home.component.css']</span>
+                    <span style="margin-bottom:20px">})</span>
+                     <span>export class HomeComponent implements OnInit</span>
+                        <div  style="margin-left:50px">
+                            
+
+                       <span> lessons: Lesson[];</span>
+                        <span style="color:red">constructor(private lessonsService: LessonsService) {}</span>
+                         <span> ngOnInit() {</span>
+                         <span>...</span>
+                         <span>}</span>
+                          <span>   selectLesson(lesson){</span>
+                           <span>...</span>
+                           <span>}</span>
+                        </div>
+                    <span>}}</span>
+            </code>
+
+
+
+                </div>
             </div>
         </div>
 
@@ -441,7 +563,152 @@ bootstrap(ProductComponent);
 
         <div id="routing" class="step" data-x="-800" data-y="1000" data-rotate="-60" data-scale="0.2">
             <h2>Routing</h2>
-            <div class="routingBg"></div>
+            <!--<div class="routingBg"></div>-->
+            <div>
+                <div style="width:350px;height:400px;float:left;margin:10px;border:2px solid green">
+                       <p style="font-size:18px; color:red">configure a couple of simple routes</p>
+                            <code class="snippet4">
+                <span>export const routeConfig:Routes = [</span>
+                <span> {</span>
+                
+               <span> path: 'home',</span>
+               <span>component: Home</span>
+               <span>template: `</span>          
+                   
+                   
+               <span>},</span>
+               <span>{</span>
+               <span> path: 'lessons',</span>  
+               <span> component: AllLessons</span>  
+               <span>},</span>
+               <span>{</span>
+               <span> path: '',</span>
+               <span>redirectTo: '/home',</span>
+               <span>pathMatch: 'full'</span>
+               <span>},</span>
+               <span>{</span>
+               <span> path: '**',</span>
+               <span>redirectTo: '/home',</span>
+               <span>pathMatch: 'full'</span>
+               <span>}</span>
+               <span>];</span>
+
+                   
+            </code>
+                </div>
+                <div style="width:350px; height:400px;float:left;margin:10px;border:2px solid green">
+                    <p style="font-size:18px; color:red">  Configuring a primary router outlet</p>
+                     <code class="snippet4">
+                <span>@Component({</span>
+                <span> selector:'app',</span>
+                
+               <span> template: `</span>
+               <span><xmp><main></xmp></span>
+               <span style="color:red"> <xmp><router-outlet></router-outlet></xmp> </span>          
+                   
+                   
+               <span><xmp></main> </xmp></span>
+               <span> `</span>
+               <span>})</span>  
+               <span> export class App {</span>  
+               <span>...</span>
+               <span>}</span>
+              
+
+                   
+            </code>
+                </div>
+                <div style="width:400px;height:400px;float:left;margin:10px;border:2px solid green">
+                    <p style="font-size:18px; color:red">Bootstrapping the router</p> 
+                     <code class="snippet4">
+                <span>import {RouterModule} from "@angular/router";</span>
+                <span> import {BrowserModule} from "@angular/platform-browser";</span>
+                
+               <span> import {RouterModule} from "@angular/router";</span>
+               <span style="color:red">@NgModule({</span>
+               <span> declarations: [App],</span>          
+                   
+                   
+               <span style="color:red">imports: [BrowserModule, RouterModule.forRoot(routeConfig)],</span>
+               <span> bootstrap: [App]</span>
+               <span> })</span>  
+               <span> export class AppModule {</span>  
+               <span>}</span>
+               <span>platformBrowserDynamic().bootstrapModule(AppModule);</span>
+              
+
+                   
+            </code>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+
+            <!--second One-->
+             <div>
+                <div style="width:350px;height:400px;float:left;margin:10px;border:2px solid green">
+                         <p style="font-size:18px; color:red">Navigation with the routerLink directive</p> 
+                           <code class="snippet4">
+                <span><xmp><ul class="top-menu"></xmp></span>
+                <span> <xmp><li></xmp></span>
+                
+               <span style="color:red"><xmp><a routerLink="">Home</a></xmp></span>
+               <span><xmp></li></xmp></span>
+                <span> <xmp><li></xmp></span>
+                
+               <span style="color:red"><xmp> <a routerLink="courses">Courses</a></xmp></span>
+               <span><xmp></li></xmp></span>
+                <span> <xmp><li></xmp></span>
+                
+               <span style="color:red"><xmp>  <a [routerLink]="['lessons']">Lessons</a></xmp></span>
+               <span><xmp></li></xmp></span>
+               <span><xmp></ul></xmp></span>
+              
+
+                   
+            </code>
+                </div>
+                <div style="width:350px; height:400px;float:left;margin:10px;border:2px solid green">
+                    <p style="font-size:18px; color:red"> Programmatic router navigation</p> 
+                     <code class="snippet4">
+                <span>constructor(private router:Router) {}</span>
+                <span> openCourse(course) {</span>
+                
+               <span style="color:red"> this.router.navigateByUrl(`/courses/${course.id}`);</span>
+               <span><xmp>}</xmp></span>
+               <span > showCoursePlayList(course) {</span>          
+                   
+                   
+               <span style="color:red"><xmp>this.router.navigate(['/courses',course.id]); </xmp></span>
+               <span> }</span>
+              
+              
+
+                   
+            </code>
+                </div>
+                <div style="width:400px;height:400px;float:left;margin:10px;border:2px solid green">
+                  <p style="font-size:18px; color:red"> read parameters between routes</p> 
+                     <code class="snippet4">
+                <span>constructor(router: Router) {</span>
+                <span style="color:red">  route.params.subscribe(</span>
+                
+               <span> params =>{</span>
+               <span>this.courseId = parseInt(params['id']);</span>
+               <span>  }</span>          
+                   
+                   
+               <span>);</span>
+             
+               <span>}</span>
+               
+              
+
+                   
+            </code>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+
             <a href="https://plnkr.co/edit/UpHEteaI4Bypaf0AkD4B?p=preview">Child Routes</a>
         </div>
 
