@@ -1,0 +1,205 @@
+@CHARSET "utf-8";
+   /*sans serif*/
+/*opensans*/
+font-face {
+    font-family: 'OpenSans-CondBold';
+    src: url('../fonts/opensans/opensans-condbold-webfont.html');
+    src: url('../fonts/opensans/opensans-condbold-webfontd41d.html?#iefix') format('embedded-opentype'),
+    url('../fonts/opensans/opensans-condbold-webfont-2.html') format('woff'),
+    url('../fonts/opensans/opensans-condbold-webfont-3.html') format('truetype'),
+    url('../fonts/opensans/opensans-condbold-webfont-4.html#open_sans_condensedbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OpenSans-CondLight';
+    src: url('../fonts/opensans/opensans-condlight-webfont.html');
+    src: url('../fonts/opensans/opensans-condlight-webfontd41d.html?#iefix') format('embedded-opentype'),
+    url('../fonts/opensans/opensans-condlight-webfont-2.html') format('woff'),
+    url('../fonts/opensans/opensans-condlight-webfont-3.html') format('truetype'),
+    url('../fonts/opensans/opensans-condlight-webfont-4.html#open_sanscondensed_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OpenSans-Light';
+    src: url('../fonts/opensans/opensans-light-webfont.html');
+    src: url('../fonts/opensans/opensans-light-webfontd41d.html?#iefix') format('embedded-opentype'),
+    url('../fonts/opensans/opensans-light-webfont-2.html') format('woff'),
+    url('../fonts/opensans/opensans-light-webfont-3.html') format('truetype'),
+    url('../fonts/opensans/opensans-light-webfont-4.html#open_sanslight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url('../fonts/opensans/opensans-regular-webfont.html');
+    src: url('../fonts/opensans/opensans-regular-webfontd41d.html?#iefix') format('embedded-opentype'),
+    url('../fonts/opensans/opensans-regular-webfont-2.html') format('woff'),
+    url('../fonts/opensans/opensans-regular-webfont-3.html') format('truetype'),
+    url('../fonts/opensans/opensans-regular-webfont-4.html#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*roboto*/
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('../fonts/roboto/roboto-medium-webfont.eot');
+    src: url('../fonts/roboto/roboto-medium-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/roboto/roboto-medium-webfont.woff') format('woff'),
+    url('../fonts/roboto/roboto-medium-webfont.ttf') format('truetype'),
+    url('../fonts/roboto/roboto-medium-webfont.svg#robotomedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../fonts/roboto/roboto-regular-webfont.eot');
+    src: url('../fonts/roboto/roboto-regular-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/roboto/roboto-regular-webfont.woff') format('woff'),
+    url('../fonts/roboto/roboto-regular-webfont.ttf') format('truetype'),
+    url('../fonts/roboto/roboto-regular-webfont.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto-Thin';
+    src: url('../fonts/roboto/roboto-thin-webfont.eot');
+    src: url('../fonts/roboto/roboto-thin-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/roboto/roboto-thin-webfont.woff') format('woff'),
+    url('../fonts/roboto/roboto-thin-webfont.ttf') format('truetype'),
+    url('../fonts/roboto/roboto-thin-webfont.svg#robotothin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*colab*/
+@font-face {
+    font-family: 'ColabBol';
+    src: url('../fonts/Colaborate/colabbol-webfont.eot');
+    src: url('../fonts/Colaborate/colabbol-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Colaborate/colabbol-webfont.woff') format('woff'),
+    url('../fonts/Colaborate/colabbol-webfont.ttf') format('truetype'),
+    url('../fonts/Colaborate/colabbol-webfont.svg#colaborate-boldregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ColabLight';
+    src: url('../fonts/Colaborate/colablig-webfont.eot');
+    src: url('../fonts/Colaborate/colablig-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Colaborate/colablig-webfont.woff') format('woff'),
+    url('../fonts/Colaborate/colablig-webfont.ttf') format('truetype'),
+    url('../fonts/Colaborate/colablig-webfont.svg#colaboratelightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*tulpenone*/
+@font-face {
+    font-family: 'tuno-regular';
+    src: url('../fonts/Tuplenone/tulpenone-regular-webfont.eot');
+    src: url('../fonts/Tuplenone/tulpenone-regular-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Tuplenone/tulpenone-regular-webfont.woff') format('woff'),
+    url('../fonts/Tuplenone/tulpenone-regular-webfont.ttf') format('truetype'),
+    url('../fonts/Tuplenone/tulpenone-regular-webfont.svg#tulpen_oneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*web-ser*/
+@font-face {
+    font-family: 'webser-regular';
+    src: url('../fonts/Webserveroff/Web_Serveroff-webfont.eot');
+    src: url('../fonts/Webserveroff/Web_Serveroff-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Webserveroff/Web_Serveroff-webfont.woff') format('woff'),
+    url('../fonts/Webserveroff/Web_Serveroff-webfont.ttf') format('truetype'),
+    url('../fonts/Webserveroff/Web_Serveroff-webfont.svg#web_serveroffregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'webser-italic';
+    src: url('../fonts/Webserveroff/Web_Serveroff-Italic-webfont.eot');
+    src: url('../fonts/Webserveroff/Web_Serveroff-Italic-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Webserveroff/Web_Serveroff-Italic-webfont.woff') format('woff'),
+    url('../fonts/Webserveroff/Web_Serveroff-Italic-webfont.ttf') format('truetype'),
+    url('../fonts/Webserveroff/Web_Serveroff-Italic-webfont.svg#web_serveroffitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/**symbol**/
+@font-face {
+    font-family: 'pulsarjs';
+    src: url('../fonts/Symbol/pulsarjs-webfont.eot');
+    src: url('../fonts/Symbol/pulsarjs-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Symbol/pulsarjs-webfont.woff') format('woff'),
+    url('../fonts/Symbol/pulsarjs-webfont.ttf') format('truetype'),
+    url('../fonts/Symbol/pulsarjs-webfont.svg#pulsarjsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'sosa-regular-webfont';
+    src: url('../fonts/Symbol/sosa-regular-webfont-webfont.eot');
+    src: url('../fonts/Symbol/sosa-regular-webfont-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Symbol/sosa-regular-webfont-webfont.woff') format('woff'),
+    url('../fonts/Symbol/sosa-regular-webfont-webfont.ttf') format('truetype'),
+    url('../fonts/Symbol/sosa-regular-webfont-webfont.svg#sosaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'socialico';
+    src: url('../fonts/Symbol/socialico-webfont.eot');
+    src: url('../fonts/Symbol/socialico-webfontd41d.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Symbol/socialico-webfont.woff') format('woff'),
+    url('../fonts/Symbol/socialico-webfont.ttf') format('truetype'),
+    url('../fonts/Symbol/socialico-webfont.svg#socialicoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+	font-family: "symbolic";
+	src: url("../fonts/symbol/socialico/Socialico.html") format("truetype");;
+}
+
+/*Font Webkit Start*/
+
+@font-face {
+    font-family: 'museo100';
+    src: url('../fonts/museo100-regular-webfont.eot');
+    src: url('../fonts/museo100-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/museo100-regular-webfont.woff') format('woff'), url('../fonts/museo100-regular-webfont.ttf') format('truetype'), url('../fonts/museo100-regular-webfont.svg#museo100') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'museo300';
+    src: url('fonts/museo300-regular-webfont.eot');
+    src: url('fonts/museo300-regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/museo300-regular-webfont.woff') format('woff'), url('fonts/museo300-regular-webfont.ttf') format('truetype'), url('fonts/museo300-regular-webfont.svg#museo300') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'museo500';
+    src: url('fonts/museo500-regular-webfont.eot');
+    src: url('fonts/museo500-regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/museo500-regular-webfont.woff') format('woff'), url('fonts/museo500-regular-webfont.ttf') format('truetype'), url('fonts/museo500-regular-webfont.svg#museo500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'museo700';
+    src: url('fonts/museo700-regular-webfont.eot');
+    src: url('fonts/museo700-regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/museo700-regular-webfont.woff') format('woff'), url('fonts/museo700-regular-webfont.ttf') format('truetype'), url('fonts/museo700-regular-webfont.svg#museo700') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'museo900';
+    src: url('fonts/museo900-regular-webfont.eot');
+    src: url('fonts/museo900-regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/museo900-regular-webfont.woff') format('woff'), url('fonts/museo900-regular-webfont.ttf') format('truetype'), url('fonts/museo900-regular-webfont.svg#museo900') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*Font Webkit End*/
