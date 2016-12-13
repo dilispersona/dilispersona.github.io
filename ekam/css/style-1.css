@@ -216,7 +216,7 @@ header#header h2.header-description{
     text-transform: uppercase;
 }
 header#header img{
-    opacity: 0.6;
+    /*opacity: 0.6;*/
 }
 /*2.1 header top*/
 .header-top{
