@@ -7,7 +7,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     /*border:0;*/
     /*font-size:100%;*/
     font-family: 'museo100',ColabLight, Helvetica, sans-serif;
-    /*color:#fff;*/
+    /*color: #000;*/
     /*transition: 0.3s;*/
     font-weight: normal;
 }
@@ -32,7 +32,7 @@ html, html a {
 /*1.3 body elem*/
 body {
     font-family: 'Roboto-Thin', sans-serif;
-    background:  url("../img/bg/bg2.jpg");
+   /* background:  url("../img/bg/bg2.jpg");
     background : -webkit-linear-gradient(top, rgba(0,0,0,0.3) 0%,rgba(0,0,0,.6) 50%, rgba(0,0,0,0.9) 100%),
     url("../img/bg/bg2.jpg") no-repeat 0px 0px;
     background : -o-linear-gradient(top, rgba(0,0,0,0.3) 0%,rgba(0,0,0,.6) 50%, rgba(0,0,0,0.9) 100%),
@@ -42,8 +42,9 @@ body {
     background : -ms-linear-gradient(top, rgba(0,0,0,0.3) 0%,rgba(0,0,0,.6) 50%, rgba(0,0,0,0.9) 100%),
     url("../img/bg/bg2.jpg") no-repeat 0px 0px;
     background : linear-gradient(top, rgba(0,0,0,0.3) 0%,rgba(0,0,0,.6) 50%, rgba(0,0,0,0.9) 100%),
-    url("../img/bg/bg2.jpg") no-repeat 0px 0px;
+    url("../img/bg/bg2.jpg") no-repeat 0px 0px;*/
     /*background-attachment: fixed;*/
+    background-color: #fff;
     background-size: 100% 100%;
     background-position: center;
     background-attachment: fixed;
@@ -196,7 +197,7 @@ header#header, x:-webkit-any-link {
     background-attachment: scroll;
 }
 header#header, header#header h2{
-    color:#fff;
+    color: #000;
     z-index: 2;
     text-transform: lowercase;
     font-family: 'webser-regular', ColabLight, Helvetica, Arial;
@@ -335,7 +336,7 @@ section.hh-main-content.white-bg>div>.row{
 section.hh-main-content.black-bg{
     background-color: #222;
     border-top: 0px solid rgba(117,188,42,0.8);
-    color: #fff;
+    color: #000;
     background: none;
 }
 section.hh-main-content.black-bg>div>.row{
@@ -345,7 +346,7 @@ section.hh-main-content.black-bg>div>.row{
 }
 
 section.hh-main-content.black-bg p, section.hh-main-content.black-bg h2{
-    color: #fff;
+    color: #ccc;
 }
 /*4 section hh-services-screen details and lists*/
 section.hh-main-content ul li{
@@ -409,7 +410,7 @@ section.hh-main-content.hh-contact-screen ul {
     margin: 0;
     margin-bottom: 1em;
     background: #333;
-    color: #fff;
+    color: #000;
     font-size: 2em;
     font-weight: normal;
 }
@@ -423,7 +424,7 @@ section.hh-main-content.hh-contact-screen ul li:before{
     left: -1.28em;
     content: attr(data-icon);
     font-size: 2.5em;
-    color: #FFF;
+    color: #000;
     font-family: "sosa-regular-webfont";
     z-index: 1;
     -webkit-transition: 0.5s;
@@ -577,11 +578,11 @@ section.hh-main-content.hh-about-us-screen ul li{
     border-radius: 100px;
 }
 section.hh-main-content.hh-about-us-screen ul li h3{
-    color:#ddd;
+    color:#b3aeae;
     border-bottom: 2px solid #BCFF7A;
 }
 section.hh-main-content.hh-about-us-screen ul li p{
-    color:#ddd;
+    color:#b3aeae;
     margin-bottom: 0px;
 }
 section.hh-main-content.hh-about-us-screen ul li img:hover{
@@ -716,9 +717,10 @@ p.swipe-comment{
         display: none;
     }
     header#header{
-        background:  url("../img/bg/bg2.jpg");
-        background-size: auto 100%;
-        background-attachment: scroll;
+        /*background:  url("../img/bg/bg2.jpg");*/
+       /* background-size: auto 100%;
+        background-attachment: scroll;*/
+        background-color: #fff;
     }
     .small-align-right{
         text-align: right;
