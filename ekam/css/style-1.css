@@ -154,8 +154,20 @@ video, object {
     display: none;
 }
 .menu .ul div{
-    border-bottom: #ccc dotted 1px;
+    border-bottom: 1px solid #ccc;
     padding-bottom: 1.5em;
+}
+.menu .ul div.to-services:nth-child(1):hover{
+    border-bottom: 2px dotted #eb252a;
+}
+.menu .ul div.to-services:nth-child(2):hover{
+    border-bottom: 2px dotted #f68921;
+}
+.menu .ul div.to-services:nth-child(3):hover{
+    border-bottom: 2px dotted #42b649;
+}
+.menu .ul div.to-services:nth-child(4):hover{
+    border-bottom: 2px dotted #227dc1;
 }
 .menu .ul div a{
     color: #fff;
