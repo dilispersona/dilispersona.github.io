@@ -12,33 +12,36 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
          <script type="text/javascript">
              (function(){
-             $(document).ready(function(){
-                        var myDivLoader1 = document.getElementById("card_1_loader");
-                    var myDiv1 = document.getElementById("card_1_pack");            
+                $(document).ready(function(){
+                                    var myDivLoader1 = document.getElementById("card_1_loader");
+                                var myDiv1 = document.getElementById("card_1_pack");            
 
-                    show1 = function(){
-                        myDivLoader1.style.display = "block";
-                        setTimeout(hide1, 1000);
-                    };
+                                show1 = function(){
+                                    myDivLoader1.style.display = "block";
+                                    setTimeout(hide1, 1000);
+                                };
 
-                    hide1 = function(){
-                        myDivLoader1.remove();
-                    };
+                                hide1 = function(){
+                                    myDivLoader1.remove();
+                                };
 
-                    hideLoader1 = function(){
-                        myDiv1.style.display = "none";
-                        setTimeout(showDiv1, 1000); 
-                    };
-                    showDiv1 = function(){
-                        myDiv1.style.display = "block";
-                    };
+                                hideLoader1 = function(){
+                                    myDiv1.style.display = "none";
+                                    setTimeout(showDiv1, 1000); 
+                                };
+                                showDiv1 = function(){
+                                    myDiv1.style.display = "block";
+                                };
 
-                    show1();
-                    hideLoader1();
-             })
+                                show1();
+                                hideLoader1();
+                        })                     
 
-             })();
+                })();
          
+          function updateUrl(name){
+                           window.location.href = "https://dilispersona.github.io/karen/" + name + ".html";
+                        } 
 
         </script>
        
@@ -31016,7 +31019,7 @@
                             <nav role="navigation" aria-label="Main" id="navigationMenuId">
                                 <ul class="NavigationMenu-module_list_delve fabric-module_clearfix_delve" data-selector="navigationMenu">
                                     <li>
-                                        <a class="NavigationMenu-module_link_delve fabric-module_o365button_delve" tabindex="0" role="link">
+                                        <a class="NavigationMenu-module_link_delve fabric-module_o365button_delve" tabindex="0" role="link" onclick="updateUrl('index')">
                                             <span class="NavigationMenu-module_iconHomeOutline_delve NavigationMenu-module_tagIcon_delve"></span>
                                             <span class="NavigationMenu-module_tagLabel_delve" data-selector="tagLabel">Home</span>
                                         </a>
