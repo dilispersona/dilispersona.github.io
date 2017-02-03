@@ -77,7 +77,7 @@
 
             show3 = function(){
                 myDivLoader3.style.display = "block";
-                setTimeout(hide3, 2500);
+                setTimeout(hide3, 3000);
             };
 
             hide3 = function(){
@@ -86,7 +86,7 @@
 
             hideLoader3 = function(){
                 myDiv3.style.display = "none";
-                setTimeout(showDiv3, 2500); 
+                setTimeout(showDiv3, 3000); 
             };
             showDiv3 = function(){
                 myDiv3.style.display = "block";
@@ -100,7 +100,7 @@
 
             show4 = function(){
                 myDivLoader4.style.display = "block";
-                setTimeout(hide4, 3000);
+                setTimeout(hide4, 4000);
             };
 
             hide4 = function(){
@@ -109,7 +109,7 @@
 
             hideLoader4 = function(){
                 myDiv4.style.display = "none";
-                setTimeout(showDiv4, 3000); 
+                setTimeout(showDiv4, 4000); 
             };
             showDiv4 = function(){
                 myDiv4.style.display = "block";
