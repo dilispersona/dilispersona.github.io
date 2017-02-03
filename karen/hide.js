@@ -118,6 +118,17 @@
             show4();
             hideLoader4();
 
+            // hide banner
+
+
+            $("#dismissInfoBoxButton").click(function(){
+                $("#infoBoxContainer").hide();
+            })
+
+
+        
+          
+
 
 
      })
