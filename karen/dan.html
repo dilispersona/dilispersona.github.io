@@ -7,13 +7,41 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="google" value="notranslate">
         <!-- g_wsaEnabled flag should be set to true for enabling SLAPI logging -->
-        <script type="text/javascript">
-            // <![CDATA[ 
+       
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+         <script type="text/javascript">
+             (function(){
+             $(document).ready(function(){
+                        var myDivLoader1 = document.getElementById("card_1_loader");
+                    var myDiv1 = document.getElementById("card_1_pack");            
 
+                    show1 = function(){
+                        myDivLoader1.style.display = "block";
+                        setTimeout(hide1, 1000);
+                    };
 
+                    hide1 = function(){
+                        myDivLoader1.remove();
+                    };
+
+                    hideLoader1 = function(){
+                        myDiv1.style.display = "none";
+                        setTimeout(showDiv1, 1000); 
+                    };
+                    showDiv1 = function(){
+                        myDiv1.style.display = "block";
+                    };
+
+                    show1();
+                    hideLoader1();
+             })
+
+             })();
          
 
         </script>
+       
         <link rel="shortcut icon" href="https://cie814173-my.sharepoint.com/_layouts/15/images/ME.ico?rev=44" type="image/vnd.microsoft.icon" id="favicon">
         <title>Delve – danj@cie814173.onmicrosoft.com – work</title>
         <style type="text/css">
@@ -31336,7 +31364,78 @@
                                             </div>
                                         </div>
                                         <div class="BaseContentPaneBox-module_msGrid_delve fabric-module_ms-Grid_delve">
-                                            <div class="BaseContentPaneBox-module_msGridRow_delve fabric-module_ms-Grid-row_delve">
+
+
+                                            <div class="UnifiedCardPanel-module_cardRow_delve" id="card_1_loader">
+                                                <div class="UnifiedCardPanel-module_ghostCardCompact_delve UnifiedCardPanel-module_compactCard_delve">
+                                                  <div class="loader"></div>
+                                                    <div class="GhostCardSmall-module_unified_delve">
+                                                        <div class="GhostCardSmall-module_tidbit_delve">
+                                                            <div class="GhostCardSmall-module_tidbitImage_delve GhostCardSmall-module_animate_delve"></div>
+                                                            <div class="GhostCardSmall-module_tidbitName_delve GhostCardSmall-module_animate_delve"></div>
+                                                            <div class="GhostCardSmall-module_tidbitAction_delve GhostCardSmall-module_animate_delve"></div>
+                                                        </div>
+                                                        <div class="GhostCardSmall-module_image_delve">
+                                                            <div class="GhostCardSmall-module_doctype_delve">
+                                                                <div class="GhostCardSmall-module_doctypeText_delve GhostCardSmall-module_animate_delve"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="GhostCardSmall-module_title_delve GhostCardSmall-module_animate_delve"></div>
+                                                        <div class="GhostCardSmall-module_titleSecondRow_delve GhostCardSmall-module_animate_delve"></div>
+                                                        <div class="GhostCardSmall-module_location_delve GhostCardSmall-module_animate_delve"></div>
+                                                        <div class="GhostCardSmall-module_views_delve GhostCardSmall-module_animate_delve"></div>
+                                                        <div class="GhostCardSmall-module_actionBar_delve"></div>
+                                                    </div>
+                                                </div>
+                                                
+                                                 <div class="UnifiedCardPanel-module_ghostCardCompact_delve UnifiedCardPanel-module_compactCard_delve">
+                                                  <div class="loader"></div>
+                                                    <div class="GhostCardSmall-module_unified_delve">
+                                                        <div class="GhostCardSmall-module_tidbit_delve">
+                                                            <div class="GhostCardSmall-module_tidbitImage_delve GhostCardSmall-module_animate_delve"></div>
+                                                            <div class="GhostCardSmall-module_tidbitName_delve GhostCardSmall-module_animate_delve"></div>
+                                                            <div class="GhostCardSmall-module_tidbitAction_delve GhostCardSmall-module_animate_delve"></div>
+                                                        </div>
+                                                        <div class="GhostCardSmall-module_image_delve">
+                                                            <div class="GhostCardSmall-module_doctype_delve">
+                                                                <div class="GhostCardSmall-module_doctypeText_delve GhostCardSmall-module_animate_delve"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="GhostCardSmall-module_title_delve GhostCardSmall-module_animate_delve"></div>
+                                                        <div class="GhostCardSmall-module_titleSecondRow_delve GhostCardSmall-module_animate_delve"></div>
+                                                        <div class="GhostCardSmall-module_location_delve GhostCardSmall-module_animate_delve"></div>
+                                                        <div class="GhostCardSmall-module_views_delve GhostCardSmall-module_animate_delve"></div>
+                                                        <div class="GhostCardSmall-module_actionBar_delve"></div>
+                                                    </div>
+                                                </div>
+                                                
+                                               
+                                                <div class="UnifiedCardPanel-module_ghostCardCompact_delve UnifiedCardPanel-module_compactCard_delve">
+                                                  <div class="loader"></div>
+                                                    <div class="GhostCardSmall-module_unified_delve">
+                                                        <div class="GhostCardSmall-module_tidbit_delve">
+                                                            <div class="GhostCardSmall-module_tidbitImage_delve GhostCardSmall-module_animate_delve"></div>
+                                                            <div class="GhostCardSmall-module_tidbitName_delve GhostCardSmall-module_animate_delve"></div>
+                                                            <div class="GhostCardSmall-module_tidbitAction_delve GhostCardSmall-module_animate_delve"></div>
+                                                        </div>
+                                                        <div class="GhostCardSmall-module_image_delve">
+                                                            <div class="GhostCardSmall-module_doctype_delve">
+                                                                <div class="GhostCardSmall-module_doctypeText_delve GhostCardSmall-module_animate_delve"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="GhostCardSmall-module_title_delve GhostCardSmall-module_animate_delve"></div>
+                                                        <div class="GhostCardSmall-module_titleSecondRow_delve GhostCardSmall-module_animate_delve"></div>
+                                                        <div class="GhostCardSmall-module_location_delve GhostCardSmall-module_animate_delve"></div>
+                                                        <div class="GhostCardSmall-module_views_delve GhostCardSmall-module_animate_delve"></div>
+                                                        <div class="GhostCardSmall-module_actionBar_delve"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="BaseContentPaneBox-module_msGridRow_delve fabric-module_ms-Grid-row_delve" id="card_1_pack">
                                                 <div class="ModifiedItemsBox-module_document1_delve fabric-module_ms-Grid-col_delve pulse-responsive-module_ms-u-sm12_delve pulse-responsive-module_ms-u-md12_delve pulse-responsive-module_ms-u-lg6_delve pulse-responsive-module_ms-u-xl4_delve pulse-responsive-module_ms-u-xxl3_delve">
                                                     <div class="UnifiedCard-module_containerBorder_delve UnifiedCard-module_container_delve" aria-label="Visio 2013. Video. Dan Jump January 10. To navigate inside the card press enter key and tab key thereafter. To get back focus on the card press escape key" tabindex="0" data-selector="contentCard">
                                                         <div>
