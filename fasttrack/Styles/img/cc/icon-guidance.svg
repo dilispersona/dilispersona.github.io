@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>graph</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Partners-&amp;-Field---Dashboard" sketch:type="MSArtboardGroup" transform="translate(-330.000000, -1226.000000)" fill="#000000">
+            <g id="Panel---Insights-&amp;-Guidance" sketch:type="MSLayerGroup" transform="translate(292.000000, 1053.000000)">
+                <path d="M41.0597059,188.0381 L54.575,188.0381 L54.575,189.6381 L38.575,189.6381 L38.575,173.6381 L40.175,173.6381 L40.175,186.456924 L41.775,183.8781 L45.3514706,185.271041 L47.0267647,179.943982 L51.5632353,178.776924 L53.2008824,175.972218 L54.575,176.781629 L52.5985294,180.151041 L48.2879412,181.261629 L46.3679412,187.379276 L42.4338235,185.854571 L41.0597059,188.0381 Z" id="graph" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

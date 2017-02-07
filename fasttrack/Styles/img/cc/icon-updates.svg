@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="15px" height="17px" viewBox="0 0 15 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-updates</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Success-Plan---Overview" sketch:type="MSArtboardGroup" transform="translate(-49.000000, -459.000000)" fill="#000000">
+            <g id="Side---Panel" sketch:type="MSLayerGroup" transform="translate(32.000000, 199.000000)">
+                <g id="Plan-Updates" transform="translate(0.000000, 245.000000)" sketch:type="MSShapeGroup">
+                    <path d="M17.524,15.9358 L17.524,31.9358 L31.5663529,31.9358 L31.5663529,15.9358 L17.524,15.9358 Z M19.5569412,21.9405059 L24.5451765,21.9405059 L24.5451765,22.9381529 L19.5569412,22.9381529 L19.5569412,21.9405059 Z M19.5569412,23.9358 L24.5451765,23.9358 L24.5451765,24.9334471 L19.5569412,24.9334471 L19.5569412,23.9358 Z M19.5569412,25.9310941 L24.5451765,25.9310941 L24.5451765,26.9287412 L19.5569412,26.9287412 L19.5569412,25.9310941 Z M29.5334118,29.9593294 L24.5451765,29.9593294 L24.5451765,28.9616824 L29.5334118,28.9616824 L29.5334118,29.9593294 Z M29.5334118,19.9640353 L19.5569412,19.9640353 L19.5569412,17.9687412 L29.5334118,17.9687412 L29.5334118,19.9640353 Z" id="icon"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
