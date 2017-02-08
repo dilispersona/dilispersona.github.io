@@ -1,0 +1,23 @@
+.seperator{
+    height: 10px;
+    clear: both;
+}
+.profile-body.customers{
+    margin-top: 70px;
+}
+.dashboard-customer.customer-tab{
+    padding: 19px;
+    min-height: 150px !important;
+}
+.profile-body.second-row{
+    float: right;
+}
+.profile-body .well.customer-tab{
+    padding: 0;
+}
+.dashboard-customer.dashboard-customer.customer-tab .panel-body .cust-info{
+    margin-bottom: 0;
+}
+.mb-20{
+    margin-left: 247px;
+}
