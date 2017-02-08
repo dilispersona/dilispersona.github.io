@@ -6477,11 +6477,11 @@ div.table .dropdown-menu li div {
 }
 
 .dashboard-customer .panel-body .company-info.list>div {
-    margin-bottom: 20px
+    margin-bottom: 0px
 }
 
 .dashboard-customer .panel-body .company-info.list p {
-    padding: 8px 0
+    padding: 20px 0
 }
 
 .dashboard-customer .panel-body .company-info .col-xs-4 {
@@ -6499,10 +6499,10 @@ div.table .dropdown-menu li div {
     padding: 14px
 }
 
-.dashboard-customer .panel-body .company-info .active,
+/*.dashboard-customer .panel-body .company-info .active,
 .dashboard-customer .panel-body .company-info .block:hover {
     background: #eaeaea
-}
+}*/
 
 .dashboard-customer .panel-body .company-info h4 {
     font-family: 'SegoeUI-Light';
@@ -6524,7 +6524,7 @@ div.table .dropdown-menu li div {
 }
 
 .dashboard-customer .panel-body .company-info p {
-    font-size: .75rem;
+    font-size: .80rem;
     font-family: 'SegoeUI-Light';
     padding: 12px 0 30px
 }

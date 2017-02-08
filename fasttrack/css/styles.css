@@ -3,7 +3,7 @@
     clear: both;
 }
 .profile-body.customers{
-    margin-top: 70px;
+    margin-top: 80px;
 }
 .dashboard-customer.customer-tab{
     padding: 19px;
@@ -20,4 +20,130 @@
 }
 .mb-20{
     margin-left: 247px;
+    margin-bottom: 10px !important;
 }
+.my-customers{
+     margin-left: 270px;
+     font-size: 13px;
+     margin-bottom: 15px;
+}
+.icon-customer{
+    font-size: 1.7rem;
+    font-family: 'SegoeUI-SemiLight';
+    color: #7e7e7e;
+    padding:0 !important;
+}
+.my-customers a{
+    color:#000;
+    font-weight: 600;
+    padding: 5px 5px;
+}
+.my-customers a:hover, a:active{
+    color:#0078d7;
+    text-decoration: underline;
+
+}
+.my-customers-count{
+    border-bottom: 1px solid #e6e6e6;
+    padding: 5px 5px;    
+}
+.my-customers-count h4{
+    font-size: 1.7rem;
+    font-family: 'SegoeUI-SemiLight';
+    color:#7e7e7e;
+    margin: 5px 0 10px 5px;
+}
+.pagination>li>a {
+    margin-right:10px;   
+}
+.pagination>li.active a, .pagination>li.active a:hover{
+     background-color: #fff;
+     color:#000;
+}
+.pagination>li>a{
+    border:none !important;
+}
+.pagination>li>a:hover{
+    border: 1px solid #0078d7 !important;
+    background-color: #fff !important; 
+}
+
+.cust-img{
+
+}
+.cust-data{
+    border:1px solid #c8c8c8;
+    height: 140px;
+    border-left:none;
+    margin-left:-15px;
+}
+.cust-icons {
+ margin:0 !important;
+ padding:0 !important;
+}
+.cust-icons span{
+    display: inline-block;
+    height: 70px;
+    border:1px solid #c8c8c8;
+    width: 100%;  
+    padding:17px;      
+}
+.cust-icons span a{
+    font-size: 1.4em;
+}
+.cust-icons span:hover{
+    background-color:  #0078d7;
+}
+.cust-icons span .glyphicon{
+    color:#000 !important;
+}
+
+.cust-data .company-data div  h4{
+    margin-top:10px;
+    width:70%;    
+}
+.cust-data .company-data div  h4 .glyphicon{
+    color:#000;
+    font-size: 13px;
+}
+.cust-data .company-data h4 a{
+    font-weight:bold;
+    margin-bottom: 5px;
+}
+.cust-data .company-data h4 + a{
+    float: right;
+    font-size: .8em;
+    color: #0078d7;
+    width:20%;
+    margin-top:-15px;
+}
+.cust-data .company-data div h6{
+    font-size:1em;
+    color:#b8bdc1;
+    margin-left:10px;
+    padding:10px;
+}
+.cust-data .company-data p{
+    margin-left:20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
