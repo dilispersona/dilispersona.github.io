@@ -68,14 +68,14 @@
     background-color: #fff !important; 
 }
 
-.cust-img{
 
-}
 .cust-data{
     border:1px solid #c8c8c8;
     height: 140px;
     border-left:none;
     margin-left:-15px;
+    padding-right:0 !important;
+    padding-left:5px !important;
 }
 .cust-icons {
  margin:0 !important;
@@ -86,10 +86,10 @@
     height: 70px;
     border:1px solid #c8c8c8;
     width: 100%;  
-    padding:17px;      
+    padding:22px;      
 }
 .cust-icons span a{
-    font-size: 1.4em;
+    font-size: .8em;
 }
 .cust-icons span:hover{
     background-color:  #0078d7;
@@ -99,8 +99,15 @@
 }
 
 .cust-data .company-data div  h4{
-    margin-top:10px;
-    width:70%;    
+    margin-top:10px;    
+}
+.cust-data .company-data .col-xs-10, .cust-data .company-data .col-xs-9{
+    padding-left: 0 !important;
+     padding-right: 0 !important;
+}
+.cust-data .company-data .col-xs-2,.cust-data .company-data .col-xs-3 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 .cust-data .company-data div  h4 .glyphicon{
     color:#000;
@@ -110,12 +117,21 @@
     font-weight:bold;
     margin-bottom: 5px;
 }
-.cust-data .company-data h4 + a{
-    float: right;
-    font-size: .8em;
+.cust-data .company-data .seedetails{
+    display: block;
+    font-size: .80em;
     color: #0078d7;
-    width:20%;
-    margin-top:-15px;
+    margin-top: 15px; 
+    text-align: center;
+}
+.cust-data.allcustomers .company-data .seedetails{
+    font-size:.64em;
+}
+.cust-data.allcustomers .company-data .seedetails:first-child{
+    margin-left:55px;
+}
+.cust-data.allcustomers .company-data .seedetails:last-child{
+    margin-top:38px;
 }
 .cust-data .company-data div h6{
     font-size:1em;
@@ -126,24 +142,104 @@
 .cust-data .company-data p{
     margin-left:20px;
 }
+.pagination li a{
+    color:#000;
+     font-size: 16px;
+}
+.pagination li:last-child > a{
+    font-weight: bold;
+}
 
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+.customers-back{
+    margin-top:50px;
+}
+.customers-back .back-to-customers{
+    margin:20px 10px;
+}
+.customers-back .back-to-customers h2{
+    font-size: 1.7rem;
+    font-family: 'SegoeUI-SemiLight';
+    color: #7e7e7e;
+}
+.customers-back .back-to-customers h2 span{
+    font-style: italic;
+}
+.my-customers-back{    
+    margin-top: -50px;
+}
+.company-picture.allcustomers, .company-picture.allcustomers img, .cust-data.allcustomers{
+    height: 110px !important;
+}
+.cust-data.allcustomers p{
+    padding: 0 !important;
+}
+.cust-data.allcustomers div h4{
+    width:none !important;
+}
+.cust-data.allcustomers .col-xs-9 p{
+    margin-top: -5px;
+}
 
+/*Summary*/
+ul,ol{
+    list-style: none;
+}
+.summary{
+    background-color: #f4f4f4;
+    height:210px;
+    font-size: .74em;
+    padding:15px;
+    border: 1px solid #c8c8c8; 
+    border-left:4px solid #c8c8c8; 
+    border-top: none;
+}
+.summary .row.title{
+    text-align: center;    
+}
+.summary .data ul li{
+    padding:4px;
+}
+.summary .row.title div:first-child{
+    border-right:1px solid #c8c8c8;    
+}
+.summary .row.title div a{
+    color: #000;
+}
+.summary .row.title div a:hover{
+    border-bottom: 3px solid #0078d7;
+}
 
+.summary .data .col-xs-8{
+    font-weight: bold;
+    padding: 15px 0 0 0 !important;
+}
+.summary .see-more{
+    text-align: right;
+    color: #0078d7;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.summary.success-plan{
+    height:275px;
+}
+.summary.success-plan table{
+    margin-top:20px;
+}
+.summary.success-plan table tr{
+    text-align: left
+}
+.summary.success-plan table tr td:first-child{
+    width:30%;
+}
 
