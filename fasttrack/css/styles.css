@@ -245,8 +245,11 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:sans-serif;-ms-text-
 .my-customers-back{    
     margin-top: -50px;
 }
-.company-picture.allcustomers, .company-picture.allcustomers img, .cust-data.allcustomers{
+.company-picture.allcustomers, .cust-data.allcustomers{
     height: 115px !important;
+}
+.company-picture.allcustomers img{
+    height: 113px !important;
 }
 .cust-data.allcustomers{
     border-right: 1px solid #c8c8c8;
