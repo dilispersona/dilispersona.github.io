@@ -105,7 +105,7 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:sans-serif;-ms-text-
     margin: -5px 0 15px 5px;
 }
 .dashboard-customer .pagination{
-    margin: 10px 13px;
+    margin: 10px 10px;
 }
 
 .pagination>li>a {
@@ -202,11 +202,11 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:sans-serif;-ms-text-
     font-size:.9em;
     color:#9f9a92;
     margin-left:10px;
-    padding:10px;
+    padding:5px;
     font-family: 'SegoeUI-SemiLight';
 }
 .cust-data .company-data p{
-    margin-left:20px;
+    margin-left:15px;
 }
 .pagination li a{
     color:#000;
@@ -255,7 +255,7 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:sans-serif;-ms-text-
     border-right: 1px solid #c8c8c8;
     padding-top: 10px;
     margin-left:-58px;
-    width:81%;
+    width:82%;
 }
 .cust-data.allcustomers p{
     padding: 0 !important;
