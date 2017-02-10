@@ -367,3 +367,6 @@ ul,ol{
 .cust-data.allcustomers .no-tenant{
     color: #e81839;
 }
+.dashboard-customer .panel-body .company-info .company-picture.allcustomers {
+    width:71%;
+}
