@@ -254,6 +254,8 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:sans-serif;-ms-text-
 .cust-data.allcustomers{
     border-right: 1px solid #c8c8c8;
     padding-top: 10px;
+    margin-left:-36px;
+    width:78%;
 }
 .cust-data.allcustomers p{
     padding: 0 !important;
