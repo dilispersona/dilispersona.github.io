@@ -246,16 +246,16 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:sans-serif;-ms-text-
     margin-top: -50px;
 }
 .company-picture.allcustomers, .cust-data.allcustomers{
-    height: 115px !important;
+    height: 100px !important;
 }
 .company-picture.allcustomers img{
-    height: 113px !important;
+    height: 98px !important;
 }
 .cust-data.allcustomers{
     border-right: 1px solid #c8c8c8;
     padding-top: 10px;
-    margin-left:-36px;
-    width:78%;
+    margin-left:-58px;
+    width:81%;
 }
 .cust-data.allcustomers p{
     padding: 0 !important;
