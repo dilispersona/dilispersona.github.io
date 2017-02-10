@@ -10,7 +10,7 @@ GitHub: https://github.com/CKGrafico/Segoe-mdl2-assets-css
 }
 
 [class^="mdl2-"]::before, [class*="mdl2-"]::before {
-  font-size: 1.8pc;
+  font-size: 1.2pc;
 }
 
 .mdl2-heart-legacy::before  { content: '\e006'; } 
@@ -299,4 +299,8 @@ GitHub: https://github.com/CKGrafico/Segoe-mdl2-assets-css
 .mdl2-battery-saver-8::before  { content: '\e86b'; } 
 .mdl2-battery-saver-9::before  { content: '\ea94'; } 
 .mdl2-battery-saver-10::before  { content: '\ea95'; }
-.mdl2-pinned::before { content: 'E840';}
+.mdl2-pinned::before { content: '\E840'; }
+.mdl2-trash::before { content:  '\E107' }
+.mdl2-backarrow::before { content: '\E112' }
+.mdl2-plus::before { content: '\E109' }
+.mdl2-nextarrow::after { content: '\E013' }
