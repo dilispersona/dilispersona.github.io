@@ -7,15 +7,24 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="google" value="notranslate">
         <!-- g_wsaEnabled flag should be set to true for enabling SLAPI logging -->
-        <script type="text/javascript">
-            // <![CDATA[ 
-
-
-            var g_wsaEnabled = true;
-        // ]]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+         <script type="text/javascript">
+            
+         
+          function updateUrl(name){
+                           window.location.href = "https://dilispersona.github.io/karen/" + name + ".html";
+                        } 
+         $(document).ready(function(){
+              $("#meetingHoursTrendDetailsLink").click(function(){
+               $("#mainContainer").show();
+          });              
+            $(".FixedDataTable-module_closeButton_delve.fabric-module_ms-Icon_delve.fabric-module_ms-Icon--x_delve").click(function(){
+	            $("#mainContainer").hide();
+            });
+         })
 
         </script>
-        <link rel="shortcut icon" href="https://cie814173-my.sharepoint.com/_layouts/15/images/ME.ico?rev=44" type="image/vnd.microsoft.icon" id="favicon">
+        <!--<link rel="shortcut icon" href="https://cie814173-my.sharepoint.com/_layouts/15/images/ME.ico?rev=44" type="image/vnd.microsoft.icon" id="favicon">-->
         <title>Delve – MyAnalytics</title>
         <style type="text/css">
             .fabric-module_clearfix_delve,.fabric-module_ms-u-clearfix_delve {
@@ -19727,8 +19736,8 @@
                 animation-name: SearchBox-module__fadeIn-rtl___2x0Gr;
             }
         </style>
-        <link rel="stylesheet" href="./Delve – MyAnalytics_files/data.theme" type="text/css" id="shellThemeLink">
-        <link rel="stylesheet" type="text/css" href="./Delve – MyAnalytics_files/shellg2pluscss_891570d8.css">
+        <!--<link rel="stylesheet" href="./Delve – MyAnalytics_files/data.theme" type="text/css" id="shellThemeLink">
+        <link rel="stylesheet" type="text/css" href="./Delve – MyAnalytics_files/shellg2pluscss_891570d8.css">-->
         
         <style type="text/css">
             .PreFetchedHeaderImages-module_preFetchedImage_delve {
@@ -32099,7 +32108,7 @@
                                         <button aria-hidden="true" class="SearchBoxMagnifierButton-module__magnifierButton___3vo7v SearchBoxMagnifierButton-module__empty___2smvE " type="button" tabindex="-1">
                                             <i class="SearchBoxMagnifierButton-module__icon___rgrgQ icons__searchux-icon___2iTOC icons__icon-search___2Napx"></i>
                                         </button>
-                                        <input type="search" class="SearchBox-module__input___3eFkl" aria-label="Search box. Press enter to submit. Use arrows to navigate search suggestions and result suggestions below." aria-autocomplete="list" aria-owns="" aria-haspopup="true" spellcheck="false" autocomplete="off" autocorrect="false" placeholder="Search" value="" data-nav="true">
+                                        <input type="search" class="SearchBox-module__input___3eFkl" aria-label="Search box. Press enter to submit. Use arrows to navigate search suggestions and result suggestions below." aria-autocomplete="list" aria-owns="" aria-haspopup="true" spellcheck="false" autocomplete="off" autocorrect="false" placeholder="" value="" data-nav="true">
                                         <button class="SearchBoxClearButton-module__clearButton___2qEY9 SearchBoxButton-module__button___3F1iy SearchBoxClearButton-module__hidden___2zo_r SearchBoxButton-module__hidden___1SWrv" type="button" title="Clear Search Input" aria-label="Clear Search Input">
                                             <i class="SearchBoxClearButton-module__icon___8FjM3 SearchBoxButton-module__icon___31-99 icons__searchux-icon___2iTOC icons__icon-clear-search___2qemc"></i>
                                         </button>
@@ -32115,7 +32124,7 @@
                             <nav role="navigation" aria-label="Main" id="navigationMenuId">
                                 <ul class="NavigationMenu-module_list_delve fabric-module_clearfix_delve" data-selector="navigationMenu">
                                     <li>
-                                        <a class="NavigationMenu-module_link_delve fabric-module_o365button_delve" tabindex="0" role="link">
+                                        <a class="NavigationMenu-module_link_delve fabric-module_o365button_delve" tabindex="0" role="link"  onclick="updateUrl('index')">
                                             <span class="NavigationMenu-module_iconHomeOutline_delve NavigationMenu-module_tagIcon_delve"></span>
                                             <span class="NavigationMenu-module_tagLabel_delve" data-selector="tagLabel">Home</span>
                                         </a>
@@ -32123,7 +32132,7 @@
                                     <li>
                                         <a class="NavigationMenu-module_me_delve fabric-module_o365button_delve" tabindex="0" role="link">
                                             <div class="NavigationMenu-module_personImageWrapper_delve" role="">
-                                                <div class="NavigationMenu-module_personImage_delve NavigationMenu-module_circularImage_delve" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=karenb@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                <div class="NavigationMenu-module_personImage_delve NavigationMenu-module_circularImage_delve" style="background-image: url(anonymous.jpg);"></div>
                                             </div>
                                             <span class="NavigationMenu-module_tagLabel_delve" data-selector="tagLabel">Me</span>
                                         </a>
@@ -32151,7 +32160,7 @@
                                         <div class="PersonSuggestion-module_flipContainer_delve">
                                             <a class="PersonSuggestion-module_link_delve" tabindex="0" role="link">
                                                 <div class="PersonSuggestion-module_personImageWrapper_delve" role="">
-                                                    <div class="PersonSuggestion-module_personImage_delve PersonSuggestion-module_circularImage_delve" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=juliani@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                    <div class="PersonSuggestion-module_personImage_delve PersonSuggestion-module_circularImage_delve" style="background-image: url(anonymous.jpg);"></div>
                                                 </div>
                                                 <span class="PersonSuggestion-module_tagLabel_delve" data-selector="tagLabel">
                                                     <span>Julian Isla</span>
@@ -32163,7 +32172,7 @@
                                         <div class="PersonSuggestion-module_flipContainer_delve">
                                             <a class="PersonSuggestion-module_link_delve" tabindex="0" role="link">
                                                 <div class="PersonSuggestion-module_personImageWrapper_delve" role="">
-                                                    <div class="PersonSuggestion-module_personImage_delve PersonSuggestion-module_circularImage_delve" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=spencerl@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                    <div class="PersonSuggestion-module_personImage_delve PersonSuggestion-module_circularImage_delve" style="background-image: url(anonymous.jpg);"></div>
                                                 </div>
                                                 <span class="PersonSuggestion-module_tagLabel_delve" data-selector="tagLabel">
                                                     <span>Spencer Low</span>
@@ -32175,7 +32184,7 @@
                                         <div class="PersonSuggestion-module_flipContainer_delve">
                                             <a class="PersonSuggestion-module_link_delve" tabindex="0" role="link">
                                                 <div class="PersonSuggestion-module_personImageWrapper_delve" role="">
-                                                    <div class="PersonSuggestion-module_personImage_delve PersonSuggestion-module_circularImage_delve" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=veronicaq@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                    <div class="PersonSuggestion-module_personImage_delve PersonSuggestion-module_circularImage_delve" style="background-image: url(anonymous.jpg);"></div>
                                                 </div>
                                                 <span class="PersonSuggestion-module_tagLabel_delve" data-selector="tagLabel">
                                                     <span>Veronica Quek</span>
@@ -32187,7 +32196,7 @@
                                         <div class="PersonSuggestion-module_flipContainer_delve">
                                             <a class="PersonSuggestion-module_link_delve" tabindex="0" role="link">
                                                 <div class="PersonSuggestion-module_personImageWrapper_delve" role="">
-                                                    <div class="PersonSuggestion-module_personImage_delve PersonSuggestion-module_circularImage_delve" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=mollyc@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                    <div class="PersonSuggestion-module_personImage_delve PersonSuggestion-module_circularImage_delve" style="background-image: url(anonymous.jpg);"></div>
                                                 </div>
                                                 <span class="PersonSuggestion-module_tagLabel_delve" data-selector="tagLabel">
                                                     <span>Molly Clark</span>
@@ -32199,7 +32208,7 @@
                                         <div class="PersonSuggestion-module_flipContainer_delve">
                                             <a class="PersonSuggestion-module_link_delve" tabindex="0" role="link">
                                                 <div class="PersonSuggestion-module_personImageWrapper_delve" role="">
-                                                    <div class="PersonSuggestion-module_personImage_delve PersonSuggestion-module_circularImage_delve" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=tyc@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                    <div class="PersonSuggestion-module_personImage_delve PersonSuggestion-module_circularImage_delve" style="background-image: url(anonymous.jpg);"></div>
                                                 </div>
                                                 <span class="PersonSuggestion-module_tagLabel_delve" data-selector="tagLabel">
                                                     <span>Ty Carlson</span>
@@ -32211,7 +32220,7 @@
                                         <div class="PersonSuggestion-module_flipContainer_delve">
                                             <a class="PersonSuggestion-module_link_delve" tabindex="0" role="link">
                                                 <div class="PersonSuggestion-module_personImageWrapper_delve" role="">
-                                                    <div class="PersonSuggestion-module_personImage_delve PersonSuggestion-module_circularImage_delve" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=reneel@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                    <div class="PersonSuggestion-module_personImage_delve PersonSuggestion-module_circularImage_delve" style="background-image: url(anonymous.jpg);"></div>
                                                 </div>
                                                 <span class="PersonSuggestion-module_tagLabel_delve" data-selector="tagLabel">
                                                     <span>Renee Lo</span>
@@ -32223,7 +32232,7 @@
                                         <div class="PersonSuggestion-module_flipContainer_delve">
                                             <a class="PersonSuggestion-module_link_delve" tabindex="0" role="link">
                                                 <div class="PersonSuggestion-module_personImageWrapper_delve" role="">
-                                                    <div class="PersonSuggestion-module_personImage_delve PersonSuggestion-module_circularImage_delve" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=jeffh@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                    <div class="PersonSuggestion-module_personImage_delve PersonSuggestion-module_circularImage_delve" style="background-image: url(anonymous.jpg);"></div>
                                                 </div>
                                                 <span class="PersonSuggestion-module_tagLabel_delve" data-selector="tagLabel">
                                                     <span>Jeff Hay</span>
@@ -32298,7 +32307,7 @@
                                                 </div>
                                                 <div class="WeekCardSummary-module_weekCardContent_delve fabric-module_ms-Grid-row_delve">
                                                     <div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve">
-                                                        <a class="WeekTypeCard-module_linkDecoration_delve" aria-label="You spent 4.5 hours in Meeting hours. Your goal is Less than: 10 hours" tabindex="0">
+                                                        <div class="WeekTypeCard-module_linkDecoration_delve" aria-label="You spent 4.5 hours in Meeting hours. Your goal is Less than: 10 hours" tabindex="0">
                                                             <div aria-hidden="true" class="WeekTypeCard-module_progressContainerTopRow_delve fabric-module_ms-Grid-row_delve">
                                                                 <div class="WeekTypeCard-module_rowColLeft_delve fabric-module_ms-Grid-col_delve" aria-label="Meeting hours">Meeting hours</div>
                                                                 <div class="WeekTypeCard-module_rowColRight_delve fabric-module_ms-Grid-col_delve">
@@ -32321,10 +32330,10 @@
                                                                     <a class="HyperLink-module_editGoalLink_delve" id="meetings" role="link" href="javascript:void(0)" aria-label="Edit Meeting hours goal">Edit goal</a>
                                                                 </div>
                                                             </div>
-                                                        </a>
+                                                        </div>
                                                     </div>
                                                     <div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve">
-                                                        <a class="WeekTypeCard-module_linkDecoration_delve" aria-label="You spent 0 hours in Email hours. Your goal is Less than: 10 hours" tabindex="0">
+                                                        <div class="WeekTypeCard-module_linkDecoration_delve" aria-label="You spent 0 hours in Email hours. Your goal is Less than: 10 hours" tabindex="0">
                                                             <div aria-hidden="true" class="WeekTypeCard-module_progressContainerTopRow_delve fabric-module_ms-Grid-row_delve">
                                                                 <div class="WeekTypeCard-module_rowColLeft_delve fabric-module_ms-Grid-col_delve" aria-label="Email hours">Email hours</div>
                                                                 <div class="WeekTypeCard-module_rowColRight_delve fabric-module_ms-Grid-col_delve">
@@ -32347,10 +32356,10 @@
                                                                     <a class="HyperLink-module_editGoalLink_delve" id="emails" role="link" href="javascript:void(0)" aria-label="Edit Email hours goal">Edit goal</a>
                                                                 </div>
                                                             </div>
-                                                        </a>
+                                                        </div>
                                                     </div>
                                                     <div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve">
-                                                        <a class="WeekTypeCard-module_linkDecoration_delve" aria-label="You spent 39.5 hours in Focus hours. Your goal is More than: 10 hours" tabindex="0">
+                                                        <div class="WeekTypeCard-module_linkDecoration_delve" aria-label="You spent 39.5 hours in Focus hours. Your goal is More than: 10 hours" tabindex="0">
                                                             <div aria-hidden="true" class="WeekTypeCard-module_progressContainerTopRow_delve fabric-module_ms-Grid-row_delve">
                                                                 <div class="WeekTypeCard-module_rowColLeft_delve fabric-module_ms-Grid-col_delve" aria-label="Focus hours">Focus hours</div>
                                                                 <div class="WeekTypeCard-module_rowColRight_delve fabric-module_ms-Grid-col_delve">
@@ -32373,10 +32382,10 @@
                                                                     <a class="HyperLink-module_editGoalLink_delve" id="focushours" role="link" href="javascript:void(0)" aria-label="Edit Focus hours goal">Edit goal</a>
                                                                 </div>
                                                             </div>
-                                                        </a>
+                                                        </div>
                                                     </div>
                                                     <div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve">
-                                                        <a class="WeekTypeCard-module_linkDecoration_delve" aria-label="You spent 1 hours in After hours. Your goal is Less than: 0 hours" tabindex="0">
+                                                        <div class="WeekTypeCard-module_linkDecoration_delve" aria-label="You spent 1 hours in After hours. Your goal is Less than: 0 hours" tabindex="0">
                                                             <div aria-hidden="true" class="WeekTypeCard-module_progressContainerTopRow_delve fabric-module_ms-Grid-row_delve">
                                                                 <div class="WeekTypeCard-module_rowColLeft_delve fabric-module_ms-Grid-col_delve" aria-label="After hours">After hours</div>
                                                                 <div class="WeekTypeCard-module_rowColRight_delve fabric-module_ms-Grid-col_delve">
@@ -32399,7 +32408,7 @@
                                                                     <a class="HyperLink-module_editGoalLink_delve" id="afterhours" role="link" href="javascript:void(0)" aria-label="Edit After hours goal">Edit goal</a>
                                                                 </div>
                                                             </div>
-                                                        </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -32498,7 +32507,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=juliani@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Julian Isla (juliani@cie814173.onmicrosoft.com)">Julian Isla</div>
@@ -32527,7 +32536,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=spencerl@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Spencer Low (spencerl@cie814173.onmicrosoft.com)">Spencer Low</div>
@@ -32540,7 +32549,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=gregw@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Greg Winston (gregw@cie814173.onmicrosoft.com)">Greg Winston</div>
@@ -32553,7 +32562,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=jamier@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Jamie Reding (jamier@cie814173.onmicrosoft.com)">Jamie Reding</div>
@@ -32596,7 +32605,7 @@
                                                             <div class="YouAndManager-module_subTitleRow_delve">
                                                                 <div class="YouAndManager-module_managerCol_delve">
                                                                     <div class="YouAndManager-module_personaPhotoClass_delve" role="">
-                                                                        <div class="YouAndManager-module_roundImage_delve personImage circularImage" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=juliani@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                        <div class="YouAndManager-module_roundImage_delve personImage circularImage" style="background-image: url(anonymous.jpg);"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="YouAndManager-module_subTitle_delve" aria-label="You collaborated with Julian Isla">You collaborated with Julian Isla</div>
@@ -32742,7 +32751,791 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="WorkHoursDetail-module_viewDetails_delve pulse-responsive-module_ms-u-hiddenSm_delve WorkHoursDetail-module_showViewDetails_delve">
-                                                                    <a id="meetingHoursTrendDetailsLink" aria-label="View Meeting hours details" tabindex="0" href="javascript:void(0)">View details</a>
+                                                                    <a id="meetingHoursTrendDetailsLink" aria-label="View Meeting hours details" tabindex="0">View details</a>
+
+
+
+
+
+
+                      <div class="FixedDataTable-module_container_delve fabric-module_ms-u-scaleUpIn100_delve" id="mainContainer" tabindex="0" style="display:none;">
+                                                                            <div>
+                                                                                <div class="FixedDataTable-module_titleDescriptionContainer_delve">
+                                                                                    <div class="FixedDataTable-module_titleRow_delve">
+                                                                                        <div class="FixedDataTable-module_leftColumn_delve">
+                                                                                            <div class="FixedDataTable-module_title_delve fabric-module_ms-font-weight-semilight_delve" tabindex="0">Meeting hours</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="FixedDataTable-module_description_delve fabric-module_ms-font-weight-regular_delve" tabindex="0" aria-label="Your list of meetings for the week">Your list of meetings for the week</div>
+                                                                                </div>
+                                                                                <div id="mainFocusElementCollaborationTabletrue" class="FixedDataTable-module_outerDivDetailsClass_delve" tabindex="0">
+                                                                                    <div id="meetingDetails" role="grid" class="FixedDataTable-module_tableClassDetailsPane_delve">
+                                                                                        <div class="fixedDataTableLayout_main public_fixedDataTable_main" style="height: 440px; width: 960px;">
+                                                                                            <div class="fixedDataTableLayout_rowsContainer" style="height: 438px; width: 960px;">
+                                                                                                <div class="fixedDataTableColumnResizerLineLayout_main fixedDataTableColumnResizerLineLayout_hiddenElem public_fixedDataTableColumnResizerLine_main" style="width: 0px; height: 440px; left: 0px;">
+                                                                                                    <div class="fixedDataTableColumnResizerLineLayout_mouseArea" style="height: 440px;"></div>
+                                                                                                </div>
+                                                                                                <div class="fixedDataTableRowLayout_rowWrapper" style="width: 960px; height: 40px; z-index: 1; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;">
+                                                                                                    <div class="fixedDataTableRowLayout_main public_fixedDataTableRow_main fixedDataTableLayout_header public_fixedDataTable_header" style="width: 960px; height: 40px;">
+                                                                                                        <div class="fixedDataTableRowLayout_body" role="row">
+                                                                                                            <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 0px; z-index: 2; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;"></div>
+                                                                                                            </div>
+                                                                                                            <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 948px; z-index: 0; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;">
+                                                                                                                    <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 0px;">
+                                                                                                                        <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1" style="height: 40px; width: 100px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                    <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                        <div class="FixedDataTable-module_headerClass_delve fabric-module_ms-font-weight-semilight_delve" title="Included" id="included" role="columnheader" aria-sort="ascending" style="width: 95px;">
+                                                                                                                                            <div class="FixedDataTable-module_sortLabel_delve FixedDataTable-module_ellipsisText_delve">Included  </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 388px; left: 100px;">
+                                                                                                                        <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1" style="height: 40px; width: 388px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                    <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                        <div class="FixedDataTable-module_headerClass_delve fabric-module_ms-font-weight-semilight_delve" id="meetingName" role="columnheader" aria-filter="filtering" style="width: 383px;">
+                                                                                                                                            <div class="FixedDataTable-module_filterLabel_delve FixedDataTable-module_ellipsisText_delve" title="Meeting name">Meeting name  </div>
+                                                                                                                                            <div class="FixedDataTable-module_msIcon_delve fabric-module_ms-Icon_delve FixedDataTable-module_filterIconNotApplied_delve FixedDataTable-module_headerClass_delve fabric-module_ms-font-weight-semilight_delve" tabindex="0" aria-label="Filter button"></div>
+                                                                                                                                            <input type="text" id="filter_input" class="FixedDataTable-module_inputBox_delve" tabindex="-1" aria-label="No filter value" value="" maxlength="20" placeholder="Filter by Meeting name" style="display: none;">
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 200px; left: 488px;">
+                                                                                                                        <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1" style="height: 40px; width: 200px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                    <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                        <div class="FixedDataTable-module_headerClass_delve fabric-module_ms-font-weight-semilight_delve" id="organizer" role="columnheader" aria-filter="filtering" style="width: 195px;">
+                                                                                                                                            <div class="FixedDataTable-module_filterLabel_delve FixedDataTable-module_ellipsisText_delve" title="Organizer">Organizer  </div>
+                                                                                                                                            <div class="FixedDataTable-module_msIcon_delve fabric-module_ms-Icon_delve FixedDataTable-module_filterIconNotApplied_delve FixedDataTable-module_headerClass_delve fabric-module_ms-font-weight-semilight_delve" tabindex="0" aria-label="Filter button"></div>
+                                                                                                                                            <input type="text" id="filter_input" class="FixedDataTable-module_inputBox_delve" tabindex="-1" aria-label="No filter value" value="" maxlength="20" placeholder="Filter by Organizer" style="display: none;">
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 688px;">
+                                                                                                                        <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1" style="height: 40px; width: 100px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                    <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                        <div class="FixedDataTable-module_headerClass_delve fabric-module_ms-font-weight-semilight_delve" title="Hours" id="duration" role="columnheader" aria-sort="ascending" style="width: 95px;">
+                                                                                                                                            <div class="FixedDataTable-module_sortLabel_delve FixedDataTable-module_ellipsisText_delve">Hours  </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 160px; left: 788px;">
+                                                                                                                        <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1" style="height: 40px; width: 160px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                    <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                        <div class="FixedDataTable-module_headerClass_delve fabric-module_ms-font-weight-semilight_delve" title="Date" id="date" role="columnheader" aria-sort="ascending" style="width: 155px;">
+                                                                                                                                            <div class="FixedDataTable-module_sortLabel_delve FixedDataTable-module_ellipsisText_delve">Date  </div>
+                                                                                                                                            <div class="FixedDataTable-module_msIcon_delve fabric-module_ms-Icon_delve FixedDataTable-module_msIconSortUp_delve FixedDataTable-module_headerClass_delve fabric-module_ms-font-weight-semilight_delve"></div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div style="position: absolute; pointer-events: auto; transform: translate3d(0px, 40px, 0px); backface-visibility: hidden;">
+                                                                                                    <div class="fixedDataTableRowLayout_rowWrapper" style="width: 960px; height: 40px; z-index: 0; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;">
+                                                                                                        <div class="fixedDataTableRowLayout_main public_fixedDataTableRow_main public_fixedDataTableRow_even public_fixedDataTable_bodyRow" style="width: 960px; height: 40px;">
+                                                                                                            <div class="fixedDataTableRowLayout_body" role="row">
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 0px; z-index: 2; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;"></div>
+                                                                                                                </div>
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 948px; z-index: 0; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;">
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 0px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <span tabindex="0" aria-label="Included" class="MeetingDetailsTable-module_icon_check_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--check_delve" role="gridcell"></span>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 388px; left: 100px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 388px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="MeetingDetailsTable-module_meeting_name_delve">
+                                                                                                                                                <a href="https://outlook.office365.com/owa/?viewmodel=ICalendarItemDetailsViewModelFactory&amp;ItemID=AAMkAGVkMjk2ODFlLWI3OTMtNDQ5MC04MzhhLWFkOGY2M2U0ZDdiMwFRAAgI1EJZm9SAAEYAAAAAJgdBLxLaq0qP0L46cnL2oQcAADkJhW0%2Fh0WYSDojG4WouAAAAAABDQAAADkJhW0%2Fh0WYSDojG4WouAAAAABs6QAAEA%3D%3D" target="_blank">
+                                                                                                                                                    <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Daily Touch Point Meeting" role="gridcell" aria-label="Daily Touch Point Meeting" style="width: 339.2px;">Daily Touch Point Meeting</div>
+                                                                                                                                                </a>
+                                                                                                                                                <div tabindex="0" aria-label="is Recurring" class="MeetingDetailsTable-module_icon_recurring_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--refresh_delve"></div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 200px; left: 488px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 200px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="You" role="gridcell" aria-label="You" style="width: 190px;">You</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 688px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="0.5" role="gridcell" aria-label="0.5" style="width: 90px;">0.5</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 160px; left: 788px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 160px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Sun, 1/22" role="gridcell" aria-label="Sun, 1/22" style="width: 150px;">Sun, 1/22</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="fixedDataTableRowLayout_rowWrapper" style="width: 960px; height: 40px; z-index: 0; transform: translate3d(0px, 40px, 0px); backface-visibility: hidden;">
+                                                                                                        <div class="fixedDataTableRowLayout_main public_fixedDataTableRow_main public_fixedDataTableRow_highlighted public_fixedDataTableRow_odd public_fixedDataTable_bodyRow" style="width: 960px; height: 40px;">
+                                                                                                            <div class="fixedDataTableRowLayout_body" role="row">
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 0px; z-index: 2; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;"></div>
+                                                                                                                </div>
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 948px; z-index: 0; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;">
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 0px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <span tabindex="0" aria-label="Included" class="MeetingDetailsTable-module_icon_check_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--check_delve" role="gridcell"></span>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 388px; left: 100px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 388px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="MeetingDetailsTable-module_meeting_name_delve">
+                                                                                                                                                <a href="https://outlook.office365.com/owa/?viewmodel=ICalendarItemDetailsViewModelFactory&amp;ItemID=AAMkAGVkMjk2ODFlLWI3OTMtNDQ5MC04MzhhLWFkOGY2M2U0ZDdiMwFRAAgI1EMixj5AAEYAAAAAJgdBLxLaq0qP0L46cnL2oQcAADkJhW0%2Fh0WYSDojG4WouAAAAAABDQAAADkJhW0%2Fh0WYSDojG4WouAAAAABs6QAAEA%3D%3D" target="_blank">
+                                                                                                                                                    <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Daily Touch Point Meeting" role="gridcell" aria-label="Daily Touch Point Meeting" style="width: 339.2px;">Daily Touch Point Meeting</div>
+                                                                                                                                                </a>
+                                                                                                                                                <div tabindex="0" aria-label="is Recurring" class="MeetingDetailsTable-module_icon_recurring_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--refresh_delve"></div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 200px; left: 488px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 200px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="You" role="gridcell" aria-label="You" style="width: 190px;">You</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 688px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="0.5" role="gridcell" aria-label="0.5" style="width: 90px;">0.5</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 160px; left: 788px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 160px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Mon, 1/23" role="gridcell" aria-label="Mon, 1/23" style="width: 150px;">Mon, 1/23</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="fixedDataTableRowLayout_rowWrapper" style="width: 960px; height: 40px; z-index: 0; transform: translate3d(0px, 80px, 0px); backface-visibility: hidden;">
+                                                                                                        <div class="fixedDataTableRowLayout_main public_fixedDataTableRow_main public_fixedDataTableRow_even public_fixedDataTable_bodyRow" style="width: 960px; height: 40px;">
+                                                                                                            <div class="fixedDataTableRowLayout_body" role="row">
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 0px; z-index: 2; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;"></div>
+                                                                                                                </div>
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 948px; z-index: 0; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;">
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 0px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <span tabindex="0" aria-label="Included" class="MeetingDetailsTable-module_icon_check_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--check_delve" role="gridcell"></span>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 388px; left: 100px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 388px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="MeetingDetailsTable-module_meeting_name_delve">
+                                                                                                                                                <a href="https://outlook.office365.com/owa/?viewmodel=ICalendarItemDetailsViewModelFactory&amp;ItemID=AAMkAGVkMjk2ODFlLWI3OTMtNDQ5MC04MzhhLWFkOGY2M2U0ZDdiMwFRAAgI1EPr8KgAAEYAAAAAJgdBLxLaq0qP0L46cnL2oQcAADkJhW0%2Fh0WYSDojG4WouAAAAAABDQAAADkJhW0%2Fh0WYSDojG4WouAAAAABs6AAAEA%3D%3D" target="_blank">
+                                                                                                                                                    <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Weekly Inventory Review" role="gridcell" aria-label="Weekly Inventory Review" style="width: 339.2px;">Weekly Inventory Review</div>
+                                                                                                                                                </a>
+                                                                                                                                                <div tabindex="0" aria-label="is Recurring" class="MeetingDetailsTable-module_icon_recurring_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--refresh_delve"></div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 200px; left: 488px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 200px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="You" role="gridcell" aria-label="You" style="width: 190px;">You</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 688px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="0.5" role="gridcell" aria-label="0.5" style="width: 90px;">0.5</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 160px; left: 788px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 160px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Tue, 1/24" role="gridcell" aria-label="Tue, 1/24" style="width: 150px;">Tue, 1/24</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="fixedDataTableRowLayout_rowWrapper" style="width: 960px; height: 40px; z-index: 0; transform: translate3d(0px, 120px, 0px); backface-visibility: hidden;">
+                                                                                                        <div class="fixedDataTableRowLayout_main public_fixedDataTableRow_main public_fixedDataTableRow_highlighted public_fixedDataTableRow_odd public_fixedDataTable_bodyRow" style="width: 960px; height: 40px;">
+                                                                                                            <div class="fixedDataTableRowLayout_body" role="row">
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 0px; z-index: 2; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;"></div>
+                                                                                                                </div>
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 948px; z-index: 0; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;">
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 0px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <span tabindex="0" aria-label="Included" class="MeetingDetailsTable-module_icon_check_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--check_delve" role="gridcell"></span>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 388px; left: 100px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 388px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="MeetingDetailsTable-module_meeting_name_delve">
+                                                                                                                                                <a href="https://outlook.office365.com/owa/?viewmodel=ICalendarItemDetailsViewModelFactory&amp;ItemID=AAMkAGVkMjk2ODFlLWI3OTMtNDQ5MC04MzhhLWFkOGY2M2U0ZDdiMwFRAAgI1EPr8KgAAEYAAAAAJgdBLxLaq0qP0L46cnL2oQcAADkJhW0%2Fh0WYSDojG4WouAAAAAABDQAAADkJhW0%2Fh0WYSDojG4WouAAAAABs6QAAEA%3D%3D" target="_blank">
+                                                                                                                                                    <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Daily Touch Point Meeting" role="gridcell" aria-label="Daily Touch Point Meeting" style="width: 339.2px;">Daily Touch Point Meeting</div>
+                                                                                                                                                </a>
+                                                                                                                                                <div tabindex="0" aria-label="is Recurring" class="MeetingDetailsTable-module_icon_recurring_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--refresh_delve"></div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 200px; left: 488px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 200px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="You" role="gridcell" aria-label="You" style="width: 190px;">You</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 688px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="0.5" role="gridcell" aria-label="0.5" style="width: 90px;">0.5</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 160px; left: 788px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 160px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Tue, 1/24" role="gridcell" aria-label="Tue, 1/24" style="width: 150px;">Tue, 1/24</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="fixedDataTableRowLayout_rowWrapper" style="width: 960px; height: 40px; z-index: 0; transform: translate3d(0px, 160px, 0px); backface-visibility: hidden;">
+                                                                                                        <div class="fixedDataTableRowLayout_main public_fixedDataTableRow_main public_fixedDataTableRow_even public_fixedDataTable_bodyRow" style="width: 960px; height: 40px;">
+                                                                                                            <div class="fixedDataTableRowLayout_body" role="row">
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 0px; z-index: 2; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;"></div>
+                                                                                                                </div>
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 948px; z-index: 0; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;">
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 0px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <span tabindex="0" aria-label="Included" class="MeetingDetailsTable-module_icon_check_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--check_delve" role="gridcell"></span>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 388px; left: 100px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 388px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="MeetingDetailsTable-module_meeting_name_delve">
+                                                                                                                                                <a href="https://outlook.office365.com/owa/?viewmodel=ICalendarItemDetailsViewModelFactory&amp;ItemID=AAMkAGVkMjk2ODFlLWI3OTMtNDQ5MC04MzhhLWFkOGY2M2U0ZDdiMwFRAAgI1ES1GxHAAEYAAAAAJgdBLxLaq0qP0L46cnL2oQcAADkJhW0%2Fh0WYSDojG4WouAAAAAABDQAAADkJhW0%2Fh0WYSDojG4WouAAAAABs6QAAEA%3D%3D" target="_blank">
+                                                                                                                                                    <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Daily Touch Point Meeting" role="gridcell" aria-label="Daily Touch Point Meeting" style="width: 339.2px;">Daily Touch Point Meeting</div>
+                                                                                                                                                </a>
+                                                                                                                                                <div tabindex="0" aria-label="is Recurring" class="MeetingDetailsTable-module_icon_recurring_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--refresh_delve"></div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 200px; left: 488px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 200px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="You" role="gridcell" aria-label="You" style="width: 190px;">You</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 688px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="0.5" role="gridcell" aria-label="0.5" style="width: 90px;">0.5</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 160px; left: 788px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 160px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Wed, 1/25" role="gridcell" aria-label="Wed, 1/25" style="width: 150px;">Wed, 1/25</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="fixedDataTableRowLayout_rowWrapper" style="width: 960px; height: 40px; z-index: 0; transform: translate3d(0px, 200px, 0px); backface-visibility: hidden;">
+                                                                                                        <div class="fixedDataTableRowLayout_main public_fixedDataTableRow_main public_fixedDataTableRow_highlighted public_fixedDataTableRow_odd public_fixedDataTable_bodyRow" style="width: 960px; height: 40px;">
+                                                                                                            <div class="fixedDataTableRowLayout_body" role="row">
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 0px; z-index: 2; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;"></div>
+                                                                                                                </div>
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 948px; z-index: 0; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;">
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 0px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <span tabindex="0" aria-label="Included" class="MeetingDetailsTable-module_icon_check_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--check_delve" role="gridcell"></span>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 388px; left: 100px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 388px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="MeetingDetailsTable-module_meeting_name_delve">
+                                                                                                                                                <a href="https://outlook.office365.com/owa/?viewmodel=ICalendarItemDetailsViewModelFactory&amp;ItemID=AAMkAGVkMjk2ODFlLWI3OTMtNDQ5MC04MzhhLWFkOGY2M2U0ZDdiMwFRAAgI1EV%2BRXuAAEYAAAAAJgdBLxLaq0qP0L46cnL2oQcAADkJhW0%2Fh0WYSDojG4WouAAAAAABDQAAADkJhW0%2Fh0WYSDojG4WouAAAAABs6QAAEA%3D%3D" target="_blank">
+                                                                                                                                                    <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Daily Touch Point Meeting" role="gridcell" aria-label="Daily Touch Point Meeting" style="width: 339.2px;">Daily Touch Point Meeting</div>
+                                                                                                                                                </a>
+                                                                                                                                                <div tabindex="0" aria-label="is Recurring" class="MeetingDetailsTable-module_icon_recurring_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--refresh_delve"></div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 200px; left: 488px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 200px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="You" role="gridcell" aria-label="You" style="width: 190px;">You</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 688px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="0.5" role="gridcell" aria-label="0.5" style="width: 90px;">0.5</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 160px; left: 788px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 160px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Thu, 1/26" role="gridcell" aria-label="Thu, 1/26" style="width: 150px;">Thu, 1/26</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="fixedDataTableRowLayout_rowWrapper" style="width: 960px; height: 40px; z-index: 0; transform: translate3d(0px, 240px, 0px); backface-visibility: hidden;">
+                                                                                                        <div class="fixedDataTableRowLayout_main public_fixedDataTableRow_main public_fixedDataTableRow_even public_fixedDataTable_bodyRow" style="width: 960px; height: 40px;">
+                                                                                                            <div class="fixedDataTableRowLayout_body" role="row">
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 0px; z-index: 2; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;"></div>
+                                                                                                                </div>
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 948px; z-index: 0; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;">
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 0px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <span tabindex="0" aria-label="Included" class="MeetingDetailsTable-module_icon_check_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--check_delve" role="gridcell"></span>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 388px; left: 100px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 388px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="MeetingDetailsTable-module_meeting_name_delve">
+                                                                                                                                                <a href="https://outlook.office365.com/owa/?viewmodel=ICalendarItemDetailsViewModelFactory&amp;ItemID=AAMkAGVkMjk2ODFlLWI3OTMtNDQ5MC04MzhhLWFkOGY2M2U0ZDdiMwFRAAgI1EZHb%2BVAAEYAAAAAJgdBLxLaq0qP0L46cnL2oQcAADkJhW0%2Fh0WYSDojG4WouAAAAAABDQAAADkJhW0%2Fh0WYSDojG4WouAAAAABs6QAAEA%3D%3D" target="_blank">
+                                                                                                                                                    <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Daily Touch Point Meeting" role="gridcell" aria-label="Daily Touch Point Meeting" style="width: 339.2px;">Daily Touch Point Meeting</div>
+                                                                                                                                                </a>
+                                                                                                                                                <div tabindex="0" aria-label="is Recurring" class="MeetingDetailsTable-module_icon_recurring_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--refresh_delve"></div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 200px; left: 488px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 200px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="You" role="gridcell" aria-label="You" style="width: 190px;">You</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 688px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="0.5" role="gridcell" aria-label="0.5" style="width: 90px;">0.5</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 160px; left: 788px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 160px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Fri, 1/27" role="gridcell" aria-label="Fri, 1/27" style="width: 150px;">Fri, 1/27</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="fixedDataTableRowLayout_rowWrapper" style="width: 960px; height: 40px; z-index: 0; transform: translate3d(0px, 280px, 0px); backface-visibility: hidden;">
+                                                                                                        <div class="fixedDataTableRowLayout_main public_fixedDataTableRow_main public_fixedDataTableRow_highlighted public_fixedDataTableRow_odd public_fixedDataTable_bodyRow" style="width: 960px; height: 40px;">
+                                                                                                            <div class="fixedDataTableRowLayout_body" role="row">
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 0px; z-index: 2; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;"></div>
+                                                                                                                </div>
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 948px; z-index: 0; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;">
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 0px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <span tabindex="0" aria-label="Included" class="MeetingDetailsTable-module_icon_check_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--check_delve" role="gridcell"></span>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 388px; left: 100px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 388px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="MeetingDetailsTable-module_meeting_name_delve">
+                                                                                                                                                <a href="https://outlook.office365.com/owa/?viewmodel=ICalendarItemDetailsViewModelFactory&amp;ItemID=AAMkAGVkMjk2ODFlLWI3OTMtNDQ5MC04MzhhLWFkOGY2M2U0ZDdiMwFRAAgI1EZHb%2BVAAEYAAAAAJgdBLxLaq0qP0L46cnL2oQcAADkJhW0%2Fh0WYSDojG4WouAAAAAABDQAAADkJhW0%2Fh0WYSDojG4WouAAAAABs5wAAEA%3D%3D" target="_blank">
+                                                                                                                                                    <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Sales Operations Strategy Meeting" role="gridcell" aria-label="Sales Operations Strategy Meeting" style="width: 339.2px;">Sales Operations Strategy Meeting</div>
+                                                                                                                                                </a>
+                                                                                                                                                <div tabindex="0" aria-label="is Recurring" class="MeetingDetailsTable-module_icon_recurring_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--refresh_delve"></div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 200px; left: 488px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 200px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="You" role="gridcell" aria-label="You" style="width: 190px;">You</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 688px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="0.5" role="gridcell" aria-label="0.5" style="width: 90px;">0.5</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 160px; left: 788px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 160px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Fri, 1/27" role="gridcell" aria-label="Fri, 1/27" style="width: 150px;">Fri, 1/27</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="fixedDataTableRowLayout_rowWrapper" style="width: 960px; height: 40px; z-index: 0; transform: translate3d(0px, 320px, 0px); backface-visibility: hidden;">
+                                                                                                        <div class="fixedDataTableRowLayout_main public_fixedDataTableRow_main public_fixedDataTableRow_even public_fixedDataTable_bodyRow fixedDataTableLayout_hasBottomBorder public_fixedDataTable_hasBottomBorder" style="width: 960px; height: 40px;">
+                                                                                                            <div class="fixedDataTableRowLayout_body" role="row">
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 0px; z-index: 2; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;"></div>
+                                                                                                                </div>
+                                                                                                                <div class="fixedDataTableCellGroupLayout_cellGroupWrapper" style="height: 40px; left: 0px;">
+                                                                                                                    <div class="fixedDataTableCellGroupLayout_cellGroup" style="height: 40px; position: absolute; width: 948px; z-index: 0; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden;">
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 0px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <span tabindex="0" aria-label="Included" class="MeetingDetailsTable-module_icon_check_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--check_delve" role="gridcell"></span>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 388px; left: 100px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 388px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="MeetingDetailsTable-module_meeting_name_delve">
+                                                                                                                                                <a href="https://outlook.office365.com/owa/?viewmodel=ICalendarItemDetailsViewModelFactory&amp;ItemID=AAMkAGVkMjk2ODFlLWI3OTMtNDQ5MC04MzhhLWFkOGY2M2U0ZDdiMwFRAAgI1EcQmk8AAEYAAAAAJgdBLxLaq0qP0L46cnL2oQcAADkJhW0%2Fh0WYSDojG4WouAAAAAABDQAAADkJhW0%2Fh0WYSDojG4WouAAAAABs6QAAEA%3D%3D" target="_blank">
+                                                                                                                                                    <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Daily Touch Point Meeting" role="gridcell" aria-label="Daily Touch Point Meeting" style="width: 339.2px;">Daily Touch Point Meeting</div>
+                                                                                                                                                </a>
+                                                                                                                                                <div tabindex="0" aria-label="is Recurring" class="MeetingDetailsTable-module_icon_recurring_delve MeetingDetailsTable-module_icon_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--refresh_delve"></div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 200px; left: 488px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 200px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="You" role="gridcell" aria-label="You" style="width: 190px;">You</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 100px; left: 688px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 100px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="0.5" role="gridcell" aria-label="0.5" style="width: 90px;">0.5</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="fixedDataTableCellLayout_main public_fixedDataTableCell_main" style="height: 40px; width: 160px; left: 788px;">
+                                                                                                                            <div class="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1 FixedDataTable-module_cellClassLeft_delve fabric-module_ms-font-weight-semilight_delve" style="height: 40px; width: 160px;">
+                                                                                                                                <div class="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
+                                                                                                                                    <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
+                                                                                                                                        <div class="public_fixedDataTableCell_cellContent">
+                                                                                                                                            <div class="PersonalInsightsCommonStyles-module_ellipsisText_delve" title="Sat, 1/28" role="gridcell" aria-label="Sat, 1/28" style="width: 150px;">Sat, 1/28</div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <button class="FixedDataTable-module_closeButton_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--x_delve" title="Close" aria-label="Close"></button>
+                                                                            </div>
+                                                                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
                                                                     <!-- react-empty: 76396 -->
                                                                 </div>
                                                             </div>
