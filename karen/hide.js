@@ -1,5 +1,8 @@
  (function(){
-     $(document).ready(function(){
+     $(document).ready(function(){           
+
+                         
+
             $(".o365cs-notifications-toastControl").hide();
             var myDivLoader = document.getElementById("card_0_loader");
             var myDiv = document.getElementById("card_0_pack");            
@@ -123,8 +126,7 @@
 
             $("#dismissInfoBoxButton").click(function(){
                 $("#infoBoxContainer").hide();
-            })
-
+            })      
 
         
           

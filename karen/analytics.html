@@ -8,8 +8,82 @@
         <meta name="google" value="notranslate">
         <!-- g_wsaEnabled flag should be set to true for enabling SLAPI logging -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <!--<script src="angular.min.js"></script>-->
-        <!--<script src="slide.js"></script>-->
+       
+        <script src="angular.min.js"></script>
+        <script>
+            var app = angular.module("analyticsApp", []); 
+            app.controller("myCtrl", function($scope) {
+                $scope.goal1 = 10;
+                $scope.goal2 = 10;
+                $scope.goal3 = 10;
+                $scope.goal4 = 10;
+                $scope.edit_goal_title = ""; 
+                $scope.tab = 'important';
+                $scope.editGoal = function(title){
+                    $scope.edit_goal_title = title;
+                }   
+                $scope.saveGoal = function(goal){                    
+                    if($scope.edit_goal_title === 'Meeting'){
+                         $scope.goal1 = goal;
+                         if(goal < 10){
+                             $(".goal1").css("background-color", "#8a306d");
+                             $(".goal1").css("width", goal + "%");
+                         }else{
+                             $(".goal1").css("background-color", "#6cc5a6");
+                              $(".goal1").css("width", goal + "%");
+                         }
+                    }else if($scope.edit_goal_title === 'Email'){
+                         $scope.goal2 = goal;
+                         if(goal < 10){
+                             $(".goal2").css("background-color", "#8a306d");
+                              $(".goal2").css("width", goal + "%");
+                         }else{
+                             $(".goal2").css("background-color", "#6cc5a6");
+                              $(".goal2").css("width", goal + "%");
+                         }
+                    }else if($scope.edit_goal_title === 'Focus'){
+                         $scope.goal3 = goal;
+                         if(goal < 10){
+                             $(".goal3").css("background-color", "#8a306d");
+                              $(".goal3").css("width", goal + "%");
+                         }else{
+                             $(".goal3").css("background-color", "#6cc5a6");
+                              $(".goal3").css("width", goal + "%");
+                         }
+                    }else{
+                         $scope.goal4 = goal;
+                         if(goal < 10){
+                             $(".goal4").css("background-color", "#8a306d");
+                              $(".goal4").css("width", goal + "%");
+                         }else{
+                             $(".goal4").css("background-color", "#6cc5a6");
+                              $(".goal4").css("width", goal + "%");
+                         }
+                    }
+                   
+                    $(".EditGoal-module_scrollRegion_delve").hide();
+                }
+
+                $scope.showTab = function(title){
+                    $scope.tab = title;
+                    if(title == 'top'){
+                        $("#pinnedUsersTab").removeClass("SummarySection-module_selectedTab_delve");
+                        $("#topCollaboratorsTab").addClass("SummarySection-module_selectedTab_delve");
+                    }else if(title == 'important'){
+                        $("#pinnedUsersTab").addClass("SummarySection-module_selectedTab_delve");
+                        $("#topCollaboratorsTab").removeClass("SummarySection-module_selectedTab_delve");
+                    }
+                }
+
+
+
+            });
+        </script>
+
+
+
+
+        
          <script type="text/javascript">
             
          
@@ -17,9 +91,40 @@
                            window.location.href = "https://dilispersona.github.io/karen/" + name + ".html";
                         } 
          $(document).ready(function(){
-              $("#meetingHoursTrendDetailsLink").click(function(){
-               $(".FixedDataTable-module_container_delve.meeting-hours").show();
-          });              
+
+
+          
+            $('#content2').hide();
+            $("#loader2").delay(800).fadeOut();
+            $('#content2').delay(1000).fadeIn();
+
+            var loader1 = document.getElementById("loader1");
+            var content1 = document.getElementById("content1");
+
+            show_loader1 = function(){
+                loader1.style.display = "block";
+                setTimeout(hide_loader1, 2000); 
+            };
+
+            hide_loader1 = function(){
+                loader1.style.display = "none";
+            };
+
+            hide_content1 = function(){
+                content1.style.display = "none";
+                setTimeout(show_content1, 2000); 
+            };
+            show_content1 = function(){
+                content1.style.display = "block";
+            };
+
+            show_loader1();
+            hide_content1();
+
+
+            $("#meetingHoursTrendDetailsLink").click(function(){
+                $(".FixedDataTable-module_container_delve.meeting-hours").show();
+            });              
             $(".FixedDataTable-module_closeButton_delve.meeting-hours").click(function(){
 	            $(".FixedDataTable-module_container_delve.meeting-hours").hide();
             });
@@ -59,6 +164,20 @@
             $(".FixedDataTable-module_closeButton_delve.meeting-habbits").click(function(){
                  $(".FixedDataTable-module_scrollRegion_delve.meeting-habbits").hide();
             })
+
+            var x = 0, y =0;
+
+            $("#nextCarouselBtn").click(function(){
+                
+             x += -16.66;  
+                $(".CollaboratorCarousel-module_slideWrapper_delve").css("transform","translateX("+x+"%)");
+            });
+
+            $("#prevCarouselBtn").click(function(){
+                x += 16.66;
+                $(".CollaboratorCarousel-module_slideWrapper_delve").css("transform","translateX("+x+"%)");
+            })
+
 
 
          })
@@ -21863,7 +21982,7 @@
             }
 
             html[dir=ltr] .Utility-module_progressScoreLimit_delve,html[dir=rtl] .Utility-module_progressScoreLimit_delve {
-                background-color: #eaeaea
+                background-color: #8a306d
             }
 
             html[dir=ltr] .Utility-module_progressScoreUnderLimit_delve,html[dir=rtl] .Utility-module_progressScoreUnderLimit_delve {
@@ -24501,7 +24620,7 @@
             }
 
             html[dir=ltr] .EditGoal-module_buttons_delve .EditGoal-module_saveButton_delve,html[dir=rtl] .EditGoal-module_buttons_delve .EditGoal-module_saveButton_delve {
-                margin: 4px;
+                
                 background-color: #0078d7
             }
 
@@ -31502,7 +31621,7 @@
             }
         </style>
     </head>
-    <body style="margin: 0px;" id="body" data-gr-c-s-loaded="true" data-activeflights="activitytags fallbackcards yammer yammerauth delveavailability tnarrow firstrun storycards topicactions videocards externalcontent peoplepages socialreadinglist pulsepadlock trendingintenantfallback pulsewebaatest resourcecatalog attachments profileheaderintegration switch switchactivitytags switchfinale attachmenterrormessage enablestories contenttypefilter enablefeatureavailabilitycheckresponse clientflight1 clientflight9 clientflight11 clientflight12 clientflight14 clientflight15 clientflight16 clientflight19 clientflight20 clientflight23 clientflight24 clientflight25 clientflight26 clientflight35 clientflight45 clientflight47 clientflight48 clientflight50">
+    <body ng-app="analyticsApp" ng-controller="myCtrl"  style="margin: 0px;" id="body" data-gr-c-s-loaded="true" data-activeflights="activitytags fallbackcards yammer yammerauth delveavailability tnarrow firstrun storycards topicactions videocards externalcontent peoplepages socialreadinglist pulsepadlock trendingintenantfallback pulsewebaatest resourcecatalog attachments profileheaderintegration switch switchactivitytags switchfinale attachmenterrormessage enablestories contenttypefilter enablefeatureavailabilitycheckresponse clientflight1 clientflight9 clientflight11 clientflight12 clientflight14 clientflight15 clientflight16 clientflight19 clientflight20 clientflight23 clientflight24 clientflight25 clientflight26 clientflight35 clientflight45 clientflight47 clientflight48 clientflight50">
         <div id="shellTop"></div>
         <div id="pulseRoot">
             <div data-reactroot="" class="">
@@ -32534,14 +32653,14 @@
                                                 <div class="EditGoal-module_container_delve fabric-module_ms-u-scaleUpIn100_delve fabric-module_ms-font-m_delve">
                                                     <div class="EditGoal-module_content_delve">
                                                         <div>
-                                                            <div class="EditGoal-module_title_delve" id="editgoal" tabindex="0" aria-label="Set your weekly Meeting hours goal">Set your weekly Meeting hours goal</div>
+                                                            <div class="EditGoal-module_title_delve" id="editgoal" tabindex="0" aria-label="Set your weekly Meeting hours goal">Set your weekly {{edit_goal_title}} hours goal</div>
                                                             <span tabindex="0">Less than:</span>
-                                                            <input type="text" id="goal_input" class="EditGoal-module_input_delve" value="10" tabindex="0" aria-labelledby="editgoal">
+                                                            <input type="text" id="goal_input" class="EditGoal-module_input_delve" value="10" tabindex="0" aria-labelledby="editgoal" ng-model="goal">
                                                             <span tabindex="0" aria-label="hours">(hrs)</span>
                                                         </div>
                                                         <div class="EditGoal-module_notes_delve fabric-module_ms-font-weight-semilight_delve" tabindex="0" aria-label="All goals are evaluated weekly. Please enter a valid number between 0 - 40.">All goals are evaluated weekly. Please enter a valid number between 0 - 40.</div>
                                                         <div class="EditGoal-module_buttons_delve">
-                                                            <button class="EditGoal-module_saveButton_delve" tabindex="0" aria-label="Save">Save</button>
+                                                            <button class="EditGoal-module_saveButton_delve" tabindex="0" aria-label="Save" ng-click="saveGoal(goal)">Save</button>
                                                             <button class="EditGoal-module_cancelButton_delve" tabindex="0" aria-label="Cancel">Cancel</button>
                                                         </div>
                                                         <button class="EditGoal-module_closeButton_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--x_delve" title="Close" tabindex="0"></button>
@@ -32566,7 +32685,39 @@
                                                         <a id="timeSettings" tabindex="0" href="javascript:void(0)" aria-label="Time settings">Time settings</a>
                                                     </div>
                                                 </div>
-                                                <div class="WeekCardSummary-module_weekCardContent_delve fabric-module_ms-Grid-row_delve">
+
+
+<div class="WeekCardSummary-module_weekCardContent_delve fabric-module_ms-Grid-row_delve" id="loader2">
+    <div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve WeekTypeCard-module_loadingCard_delve">
+        <div class="LoadingCard-module_card_delve">
+            <div class="LoadingCard-module_innerContentSmall_delve" aria-label="Loading..." title="Loading..."></div>
+        </div>
+    </div>
+    <div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve WeekTypeCard-module_loadingCard_delve">
+        <div class="LoadingCard-module_card_delve">
+            <div class="LoadingCard-module_innerContentSmall_delve" aria-label="Loading..." title="Loading..."></div>
+        </div>
+    </div>
+    <div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve WeekTypeCard-module_loadingCard_delve">
+        <div class="LoadingCard-module_card_delve">
+            <div class="LoadingCard-module_innerContentSmall_delve" aria-label="Loading..." title="Loading..."></div>
+        </div>
+    </div>
+    <div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve WeekTypeCard-module_loadingCard_delve">
+        <div class="LoadingCard-module_card_delve">
+            <div class="LoadingCard-module_innerContentSmall_delve" aria-label="Loading..." title="Loading..."></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                                                <div class="WeekCardSummary-module_weekCardContent_delve fabric-module_ms-Grid-row_delve" id="content2">
                                                     <div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve">
                                                         <div class="WeekTypeCard-module_linkDecoration_delve" aria-label="You spent 4.5 hours in Meeting hours. Your goal is Less than: 10 hours" tabindex="0">
                                                             <div aria-hidden="true" class="WeekTypeCard-module_progressContainerTopRow_delve fabric-module_ms-Grid-row_delve">
@@ -32577,18 +32728,18 @@
                                                             </div>
                                                             <div class="">
                                                                 <div aria-hidden="true" class="WeekTypeCard-module_row_delve fabric-module_ms-Grid-row_delve WeekTypeCard-module_cardDataRow_delve fabric-module_ms-Grid-row_delve">
-                                                                    <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">4.5</div>
+                                                                    <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">45</div>
                                                                     <div class="WeekTypeCard-module_progressContainerRow_delve pulse-responsive-module_ms-u-sm8_delve fabric-module_ms-Grid-col_delve">
-                                                                        <div class="WeekTypeCard-module_goalText_delve fabric-module_ms-Grid-row_delve">Goal &lt;10 hrs</div>
+                                                                        <div class="WeekTypeCard-module_goalText_delve fabric-module_ms-Grid-row_delve">Goal &gt; {{goal1}} hrs</div>
                                                                         <div class="WeekTypeCard-module_progressRow_delve fabric-module_ms-Grid-row_delve">
-                                                                            <div class="Utility-module_progressScoreUnderLimit_delve WeekTypeCard-module_progressBar_delve" style="width: 45%;"></div>
-                                                                            <div class="WeekTypeCard-module_progressScoreLimit_delve" style="width: 55%;"></div>
+                                                                            <div class="Utility-module_progressScoreUnderLimit_delve WeekTypeCard-module_progressBar_delve goal1" style="width: 45%;"></div>
+                                                                            <!--<div class="WeekTypeCard-module_progressScoreLimit_delve" style="width: 55%;"></div>-->
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div aria-hidden="true" class="WeekTypeCard-module_cardBottomText_delve fabric-module_ms-font-weight-semilight_delve">hrs</div>
                                                                 <div class="WeekTypeCard-module_editGoals_delve pulse-responsive-module_ms-u-hiddenSm_delve">
-                                                                    <a class="HyperLink-module_editGoalLink_delve" id="meetings" role="link" href="javascript:void(0)" aria-label="Edit Meeting hours goal">Edit goal</a>
+                                                                    <a class="HyperLink-module_editGoalLink_delve" id="meetings" role="link" href="javascript:void(0)" aria-label="Edit Meeting hours goal" ng-click="editGoal('Meeting')">Edit goal</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -32603,18 +32754,18 @@
                                                             </div>
                                                             <div class="">
                                                                 <div aria-hidden="true" class="WeekTypeCard-module_row_delve fabric-module_ms-Grid-row_delve WeekTypeCard-module_cardDataRow_delve fabric-module_ms-Grid-row_delve">
-                                                                    <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">0</div>
+                                                                    <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">5</div>
                                                                     <div class="WeekTypeCard-module_progressContainerRow_delve pulse-responsive-module_ms-u-sm8_delve fabric-module_ms-Grid-col_delve">
-                                                                        <div class="WeekTypeCard-module_goalText_delve fabric-module_ms-Grid-row_delve">Goal &lt;10 hrs</div>
+                                                                        <div class="WeekTypeCard-module_goalText_delve fabric-module_ms-Grid-row_delve">Goal &lt;{{goal2}} hrs</div>
                                                                         <div class="WeekTypeCard-module_progressRow_delve fabric-module_ms-Grid-row_delve">
-                                                                            <div class="Utility-module_progressScoreLimit_delve WeekTypeCard-module_progressBar_delve" style="width: 0%;"></div>
-                                                                            <div class="WeekTypeCard-module_progressScoreLimit_delve" style="width: 100%;"></div>
+                                                                            <div class="Utility-module_progressScoreLimit_delve WeekTypeCard-module_progressBar_delve goal2" style="width: 5%;"></div>
+                                                                            <!--<div class="WeekTypeCard-module_progressScoreLimit_delve" style="width: 0%;"></div>-->
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div aria-hidden="true" class="WeekTypeCard-module_cardBottomText_delve fabric-module_ms-font-weight-semilight_delve">hrs</div>
                                                                 <div class="WeekTypeCard-module_editGoals_delve pulse-responsive-module_ms-u-hiddenSm_delve">
-                                                                    <a class="HyperLink-module_editGoalLink_delve" id="emails" role="link" href="javascript:void(0)" aria-label="Edit Email hours goal">Edit goal</a>
+                                                                    <a class="HyperLink-module_editGoalLink_delve" id="emails" role="link" href="javascript:void(0)" aria-label="Edit Email hours goal" ng-click="editGoal('Email')">Edit goal</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -32631,16 +32782,16 @@
                                                                 <div aria-hidden="true" class="WeekTypeCard-module_row_delve fabric-module_ms-Grid-row_delve WeekTypeCard-module_cardDataRow_delve fabric-module_ms-Grid-row_delve">
                                                                     <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">39.5</div>
                                                                     <div class="WeekTypeCard-module_progressContainerRow_delve pulse-responsive-module_ms-u-sm8_delve fabric-module_ms-Grid-col_delve">
-                                                                        <div class="WeekTypeCard-module_goalText_delve fabric-module_ms-Grid-row_delve">Goal &gt;10 hrs</div>
+                                                                        <div class="WeekTypeCard-module_goalText_delve fabric-module_ms-Grid-row_delve">Goal &gt;{{goal3}} hrs</div>
                                                                         <div class="WeekTypeCard-module_progressRow_delve fabric-module_ms-Grid-row_delve">
-                                                                            <div class="Utility-module_progressScoreUnderLimit_delve WeekTypeCard-module_progressBar_delve" style="width: 100%;"></div>
-                                                                            <div class="WeekTypeCard-module_progressScoreLimit_delve" style="width: 0%;"></div>
+                                                                            <div class="Utility-module_progressScoreUnderLimit_delve WeekTypeCard-module_progressBar_delve goal3" style="width: 39.5%;"></div>
+                                                                            <!--<div class="WeekTypeCard-module_progressScoreLimit_delve" style="width: 0%;"></div>-->
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div aria-hidden="true" class="WeekTypeCard-module_cardBottomText_delve fabric-module_ms-font-weight-semilight_delve">hrs</div>
                                                                 <div class="WeekTypeCard-module_editGoals_delve pulse-responsive-module_ms-u-hiddenSm_delve">
-                                                                    <a class="HyperLink-module_editGoalLink_delve" id="focushours" role="link" href="javascript:void(0)" aria-label="Edit Focus hours goal">Edit goal</a>
+                                                                    <a class="HyperLink-module_editGoalLink_delve" id="focushours" role="link" href="javascript:void(0)" aria-label="Edit Focus hours goal" ng-click="editGoal('Focus')">Edit goal</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -32657,16 +32808,16 @@
                                                                 <div aria-hidden="true" class="WeekTypeCard-module_row_delve fabric-module_ms-Grid-row_delve WeekTypeCard-module_cardDataRow_delve fabric-module_ms-Grid-row_delve">
                                                                     <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">1</div>
                                                                     <div class="WeekTypeCard-module_progressContainerRow_delve pulse-responsive-module_ms-u-sm8_delve fabric-module_ms-Grid-col_delve">
-                                                                        <div class="WeekTypeCard-module_goalText_delve fabric-module_ms-Grid-row_delve">Goal &lt;0 hrs</div>
+                                                                        <div class="WeekTypeCard-module_goalText_delve fabric-module_ms-Grid-row_delve">Goal &lt;{{goal4}} hrs</div>
                                                                         <div class="WeekTypeCard-module_progressRow_delve fabric-module_ms-Grid-row_delve">
-                                                                            <div class="Utility-module_progressScoreOverLimit_delve WeekTypeCard-module_progressBar_delve" style="width: 100%;"></div>
-                                                                            <div class="WeekTypeCard-module_progressScoreLimit_delve" style="width: 0%;"></div>
+                                                                            <div class="Utility-module_progressScoreOverLimit_delve WeekTypeCard-module_progressBar_delve goal4" style="width: 1%;"></div>
+                                                                            <!--<div class="WeekTypeCard-module_progressScoreLimit_delve" style="width: 0%;"></div>-->
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div aria-hidden="true" class="WeekTypeCard-module_cardBottomText_delve fabric-module_ms-font-weight-semilight_delve">hrs</div>
                                                                 <div class="WeekTypeCard-module_editGoals_delve pulse-responsive-module_ms-u-hiddenSm_delve">
-                                                                    <a class="HyperLink-module_editGoalLink_delve" id="afterhours" role="link" href="javascript:void(0)" aria-label="Edit After hours goal">Edit goal</a>
+                                                                    <a class="HyperLink-module_editGoalLink_delve" id="afterhours" role="link" href="javascript:void(0)" aria-label="Edit After hours goal" ng-click="editGoal('After')">Edit goal</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -32735,8 +32886,8 @@
                                                 <div class="SummarySection-module_tabContainer_delve fabric-module_ms-Grid-row_delve">
                                                     <div class="SummarySection-module_tabList_delve fabric-module_ms-Grid-col_delve" role="region" aria-label="Organization and groups">
                                                         <div class="SummarySection-module_tab_delve">
-                                                            <span id="pinnedUsersTab" aria-label="Important tab" class="BaseTabSwitcher-module_tabName_delve fabric-module_ms-font-xl_delve fabric-module_ms-font-weight-semilight_delve SummarySection-module_selectedTab_delve fabric-module_ms-font-weight-semibold_delve" tabindex="0">Important</span>
-                                                            <span id="topCollaboratorsTab" aria-label="Top collaborators tab" class="BaseTabSwitcher-module_tabName_delve fabric-module_ms-font-xl_delve fabric-module_ms-font-weight-semilight_delve " tabindex="0">Top collaborators</span>
+                                                            <span id="pinnedUsersTab" aria-label="Important tab" class="BaseTabSwitcher-module_tabName_delve fabric-module_ms-font-xl_delve fabric-module_ms-font-weight-semilight_delve SummarySection-module_selectedTab_delve fabric-module_ms-font-weight-semibold_delve" tabindex="0" ng-click="showTab('important')" >Important</span>
+                                                            <span id="topCollaboratorsTab" aria-label="Top collaborators tab" class="BaseTabSwitcher-module_tabName_delve fabric-module_ms-font-xl_delve fabric-module_ms-font-weight-semilight_delve " tabindex="0" ng-click="showTab('top')">Top collaborators</span>
                                                         </div>
                                                     </div>
                                                     <div class="SummarySection-module_searchList_delve">
@@ -32748,7 +32899,799 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="SummarySection-module_collaborationContent_delve fabric-module_ms-Grid-row_delve">
+
+
+
+ <div class="SummarySection-module_collaborationContent_delve fabric-module_ms-Grid-row_delve" ng-show="tab == 'top'">
+                                                    <div class="SummarySection-module_collaborationContentBottomLeft_delve fabric-module_ms-Grid-col_delve pulse-responsive-module_ms-u-sm12_delve">
+                                                        <!-- react-empty: 754 -->
+                                                        <div tabindex="-1">
+                                                            <div>
+                                                                <div aria-label="" tabindex="-1" class="PersonalInsightsCommonStyles-module_errorDisplayHide_delve"></div>
+                                                            </div>
+                                                            <div class="CollaboratorCarousel-module_hCard_delve CollaboratorCarousel-module_carousel_delve " tabindex="-1" id="collaboratorCarousel">
+                                                                <div class="CollaboratorCarousel-module_nav_delve">
+                                                                    <div class="CollaboratorCarousel-module_stepLeft_delve">
+                                                                        <a aria-disabled="false" class="CollaboratorCarousel-module_previous_delve" href="javascript:void(0)" tabindex="0" aria-label="Press to move to the previous Carousel slide" id="prevCarouselBtn"></a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="CollaboratorCarousel-module_slideWrapper_delve" tabindex="-1" style="transform: translateX(0%); width: 600%;">
+
+
+
+
+                                                                     <article class="CollaboratorCarousel-module_slideSingle_delve fabric-module_ms-font-l_delve fabric-module_ms-font-weight-semilight_delve" tabindex="-1" style="width: 16.67%;">
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainerExtra_delve CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Molly Clark Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=mollyc@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Molly Clark (mollyc@cie814173.onmicrosoft.com)">Molly Clark</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Molly Clark" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard40" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Sanjay Shah Total time 4 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=sanjays@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Sanjay Shah (sanjays@cie814173.onmicrosoft.com)">Sanjay Shah</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Sanjay Shah" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard41" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4 hrs">4 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Sven Mortensen Total time 4 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=svenm@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Sven Mortensen (svenm@cie814173.onmicrosoft.com)">Sven Mortensen</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Sven Mortensen" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard42" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4 hrs">4 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Eric Gruber Total time 2 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=ericg@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Eric Gruber (ericg@cie814173.onmicrosoft.com)">Eric Gruber</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Eric Gruber" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard43" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="2 hrs">2 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </article>
+
+
+
+
+                                                                    <article class="CollaboratorCarousel-module_slideSingle_delve fabric-module_ms-font-l_delve fabric-module_ms-font-weight-semilight_delve  slider1" tabindex="-1" style="width: 16.67%;" id="artcle1">
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainerExtra_delve CollaboratorCard-module_pinnedUserContainer_delve" id="headOfPinneeList" tabindex="0" aria-label="Collaboration Details for user Greg Winston Total time 5.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=gregw@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Greg Winston (gregw@cie814173.onmicrosoft.com)">Greg Winston</div>
+                                                                                <button title="Remove star" class="PersonalInsightsCommonStyles-module_icon_pin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--star_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Remove star Greg Winston" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard00" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="5.5 hrs">5.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Jamie Reding Total time 5.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=jamier@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Jamie Reding (jamier@cie814173.onmicrosoft.com)">Jamie Reding</div>
+                                                                                <button title="Remove star" class="PersonalInsightsCommonStyles-module_icon_pin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--star_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Remove star Jamie Reding" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard01" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="5.5 hrs">5.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Allie Bellew Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=allieb@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Allie Bellew (allieb@cie814173.onmicrosoft.com)">Allie Bellew</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Allie Bellew" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard02" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Julian Isla Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=juliani@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Julian Isla (juliani@cie814173.onmicrosoft.com)">Julian Isla</div>
+                                                                                <button title="Remove star" class="PersonalInsightsCommonStyles-module_icon_pin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--star_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Remove star Julian Isla" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard03" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </article>
+                                                                    <article class="CollaboratorCarousel-module_slideSingle_delve fabric-module_ms-font-l_delve fabric-module_ms-font-weight-semilight_delve " tabindex="-1" style="width: 16.67%;" id="artcle2">
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainerExtra_delve CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Renee Lo Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=reneel@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Renee Lo (reneel@cie814173.onmicrosoft.com)">Renee Lo</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Renee Lo" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard10" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Spencer Low Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=spencerl@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Spencer Low (spencerl@cie814173.onmicrosoft.com)">Spencer Low</div>
+                                                                                <button title="Remove star" class="PersonalInsightsCommonStyles-module_icon_pin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--star_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Remove star Spencer Low" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard11" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Kelly Krout Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=kellyk@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Kelly Krout (kellyk@cie814173.onmicrosoft.com)">Kelly Krout</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Kelly Krout" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard12" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Alan Steiner Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=alans@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Alan Steiner (alans@cie814173.onmicrosoft.com)">Alan Steiner</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Alan Steiner" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard13" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </article>
+                                                                    <article class="CollaboratorCarousel-module_slideSingle_delve fabric-module_ms-font-l_delve fabric-module_ms-font-weight-semilight_delve " tabindex="-1" style="width: 16.67%;" id="artcle3">
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainerExtra_delve CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Amy Alberts Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=amya@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Amy Alberts (amya@cie814173.onmicrosoft.com)">Amy Alberts</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Amy Alberts" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard20" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Carlos Grilo Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=carlosg@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Carlos Grilo (carlosg@cie814173.onmicrosoft.com)">Carlos Grilo</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Carlos Grilo" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard21" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Ty Carlson Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=tyc@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Ty Carlson (tyc@cie814173.onmicrosoft.com)">Ty Carlson</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Ty Carlson" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard22" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Veronica Quek Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=veronicaq@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Veronica Quek (veronicaq@cie814173.onmicrosoft.com)">Veronica Quek</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Veronica Quek" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard23" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </article>
+                                                                    <article class="CollaboratorCarousel-module_slideSingle_delve fabric-module_ms-font-l_delve fabric-module_ms-font-weight-semilight_delve " tabindex="-1" style="width: 16.67%;" id="artcle4">
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainerExtra_delve CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Jeff Hay Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=jeffh@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Jeff Hay (jeffh@cie814173.onmicrosoft.com)">Jeff Hay</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Jeff Hay" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard30" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Christa Geller Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=christag@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Christa Geller (christag@cie814173.onmicrosoft.com)">Christa Geller</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Christa Geller" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard31" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Alicia Thomber Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=aliciat@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Alicia Thomber (aliciat@cie814173.onmicrosoft.com)">Alicia Thomber</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Alicia Thomber" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard32" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Diane Prescott Total time 4.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=dianep@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Diane Prescott (dianep@cie814173.onmicrosoft.com)">Diane Prescott</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Diane Prescott" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard33" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="4.5 hrs">4.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </article>
+                                                                   
+                                                                    <article class="CollaboratorCarousel-module_slideSingle_delve fabric-module_ms-font-l_delve fabric-module_ms-font-weight-semilight_delve " tabindex="-1" style="width: 16.67%;">
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainerExtra_delve CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Anne Weiler Total time 1.5 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=annew@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Anne Weiler (annew@cie814173.onmicrosoft.com)">Anne Weiler</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Anne Weiler" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard50" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="1.5 hrs">1.5 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user David So Total time 1 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=davids@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="David So (davids@cie814173.onmicrosoft.com)">David So</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user David So" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard51" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="1 hrs">1 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Dan Jump Total time 1 hrs
+                            Read percent Not applicable
+                            Response time Not applicable">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=danj@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Dan Jump (danj@cie814173.onmicrosoft.com)">Dan Jump</div>
+                                                                                <button title="Star user" class="PersonalInsightsCommonStyles-module_icon_unPin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--starPlus_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Star user Dan Jump" tabindex="0"></button>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard52" aria-hidden="true">
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Total time">Total time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">
+                                                                                        <div role="gridcell">
+                                                                                            <span title="1 hrs">1 hrs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerWhite_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Emails you read">Read percent</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                    <div class="CollaboratorCard-module_userDataLeft_delve" title="Your response time">Response time</div>
+                                                                                    <div class="CollaboratorCard-module_userDataRight_delve">-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </article>
+                                                                </div>
+                                                                <div class="CollaboratorCarousel-module_nav_delve">
+                                                                    <div class="CollaboratorCarousel-module_stepRight_delve">
+                                                                        <a aria-disabled="false" class="CollaboratorCarousel-module_next_delve" href="javascript:void(0)" tabindex="0" aria-label="Press to move to the next Carousel slide" id="nextCarouselBtn" ></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="SummarySection-module_detailsLink_delve">
+                                                            <a id="activeCollabDetails" aria-label="View Key contacts details" tabindex="0">View details</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+
+
+
+<div class="SummarySection-module_collaborationContent_delve fabric-module_ms-Grid-row_delve" id="loader1">
+    <div class="SummarySection-module_collaborationContentBottomLeft_delve fabric-module_ms-Grid-col_delve pulse-responsive-module_ms-u-sm12_delve">
+        <div tabindex="-1" class="CollaboratorCarousel-module_hCard_delve CollaboratorCarousel-module_carousel_delve">
+            <div class="CollaboratorCarousel-module_loadingIcon_delve">
+                <div class="LoadingCard-module_card_delve">
+                    <div class="LoadingCard-module_innerContentNetworkFourCards_delve" aria-label="Loading..." title="Loading..."></div>
+                </div>
+            </div>
+        </div>
+        <!-- react-empty: 5204 -->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                                                <div class="SummarySection-module_collaborationContent_delve fabric-module_ms-Grid-row_delve" id="content1" ng-show="tab == 'important'">
                                                     <div class="SummarySection-module_collaborationContentBottomLeft_delve fabric-module_ms-Grid-col_delve pulse-responsive-module_ms-u-sm12_delve">
                                                         <div tabindex="-1">
                                                             <div>
@@ -32761,7 +33704,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="CollaboratorCarousel-module_slideWrapper_delve" tabindex="-1" style="transform: translateX(0%); width: 100%;">
-                                                        <article class="CollaboratorCarousel-module_slideSingle_delve fabric-module_ms-font-l_delve fabric-module_ms-font-weight-semilight_delve CollaboratorCarousel-module_visibleSlide_delve" tabindex="-1" style="width: 100%;">
+                                                        <article class="CollaboratorCarousel-module_slideSingle_delve fabric-module_ms-font-l_delve fabric-module_ms-font-weight-semilight_delve" tabindex="-1" style="width: 100%;" >
                                                                         <div class="CollaboratorCard-module_pinnedUserContainerExtra_delve CollaboratorCard-module_pinnedUserContainer_delve" id="headOfPinneeList" tabindex="0" aria-label="Collaboration Details for user Jamie Reding Total time 5.5 hrs
                             Read percent Not applicable
                             Response time Not applicable">
