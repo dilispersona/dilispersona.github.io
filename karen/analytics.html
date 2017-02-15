@@ -8,8 +8,283 @@
         <meta name="google" value="notranslate">
         <!-- g_wsaEnabled flag should be set to true for enabling SLAPI logging -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-       
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        
         <script src="angular.min.js"></script>
+
+        <script>
+            
+            $(document).ready(function(){
+
+                Highcharts.chart('highcharts-10', {
+                        chart: {
+                            type: 'column',
+                            marginBottom:75   
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        title: {
+                            text: ''
+                        },
+                        xAxis: {
+                            categories: ['Sun, 2/6', 'Mon, 2/7', 'Tue, 2/8', 'Wed, 2/9', 'Thu, 2/10', 'Fri, 2/11', 'Sat, 2/12']
+                        },
+                         yAxis: {                            
+                            labels: {
+                                enabled: false
+                            },
+                            title:''
+                        },
+                        exporting: { 
+                            enabled: false
+                        },                        
+                        legend: {
+                            align: 'center',                           
+                            verticalAlign: 'bottom',                            
+                            floating: true,
+                            backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                            borderColor: '#CCC',
+                            borderWidth: 1,
+                            shadow: false,
+                            margin:50
+                        },                        
+                        plotOptions: {
+                            column: {
+                                stacking: 'normal',
+                                pointWidth: 70,                                
+                                dataLabels: {
+                                    enabled: true,
+                                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                                }
+                            }
+                        },
+                        series: [{
+                            name: 'Meetings',
+                            data: [0.5, 1, 0.5, 1, 1,1,0.5],
+                            color:'#e6e6e6'
+                        }, {
+                            name: 'Focus',
+                            data: [ 0, 8.5, 7.5, 8.5, 6.5, 8.5, 0],
+                            color:'#6dc8c0'
+                        }]
+                    });
+
+                    //After hours right side graph
+
+
+                     Highcharts.chart('highcharts-12', {
+                        chart: {
+                            type: 'column',
+                            marginBottom:75   
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        title: {
+                            text: ''
+                        },
+                        xAxis: {
+                            categories: ['Sun, 2/6', 'Mon, 2/7', 'Tue, 2/8', 'Wed, 2/9', 'Thu, 2/10', 'Fri, 2/11', 'Sat, 2/12']
+                        },
+                         yAxis: {                            
+                            labels: {
+                                enabled: false
+                            },
+                            title:''
+                        },
+                        exporting: { 
+                            enabled: false
+                        },                        
+                        legend: {
+                            align: 'center',                           
+                            verticalAlign: 'bottom',                            
+                            floating: true,
+                            backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                            borderColor: '#CCC',
+                            borderWidth: 1,
+                            shadow: false,
+                            margin:50
+                        },                        
+                        plotOptions: {
+                            column: {
+                                stacking: 'normal',
+                                pointWidth: 70,                                
+                                dataLabels: {
+                                    enabled: true,
+                                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                                }
+                            }
+                        },
+                        series: [{
+                            name: 'Meetings',
+                            data: [0.5, 0, 0, 0, 0,0,0.5],
+                            color:'#e6e6e6'
+                        }, {
+                            name: 'Email',
+                            data: [ 0, 0, 0, 0, 0, 0, 0],
+                            color:'#6dc8c0'
+                        }]
+                    });
+
+
+
+                    // Meeting hours.................
+
+                   Highcharts.chart('meetingHours', {
+                        chart: {
+                            type: 'line'
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        xAxis: {
+                            categories: 'Weeks'
+                        },
+                        exporting: { 
+                            enabled: false
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Hours'
+                            }
+                        },                        
+                        series: [{
+                            name: 'Actual',
+                            data: [4.5,4.5,4.5,4.5],
+                            color:'#f7c712'
+                        }, {
+                            name: 'Goal',
+                            data: [.5,.5,.5,.5],
+                            color:'#6cc5a6'
+                        }]
+                    });
+
+                 //Email hours ............
+
+                  Highcharts.chart('emailHours', {
+                        chart: {
+                            type: 'line'
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        xAxis: {
+                            categories: 'Weeks'
+                        },
+                        exporting: { 
+                            enabled: false
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Hours'
+                            }
+                        },                        
+                        series: [{
+                            name: 'Actual',
+                            data: [0,0,0,0],
+                            color:'#f7c712'
+                        }, {
+                            name: 'Goal',
+                            data: [.5,.5,.5,.5],
+                            color:'#6cc5a6'
+                        }]
+                    });
+
+                    //Focus Hours ................
+
+                     Highcharts.chart('focusHours', {
+                        chart: {
+                            type: 'line'
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        xAxis: {
+                            categories: 'Weeks'
+                        },
+                        exporting: { 
+                            enabled: false
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Hours'
+                            }
+                        },                        
+                        series: [{
+                            name: 'Actual',
+                            data: [39.5,39.5,39.5,39.5],
+                            color:'#f7c712'
+                        }, {
+                            name: 'Goal',
+                            data: [0,0,0,0],
+                            color:'#6cc5a6'
+                        }]
+                    });
+
+                    //After hours .................
+
+
+                     Highcharts.chart('afterHours', {
+                        chart: {
+                            type: 'line'
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        xAxis: {
+                            categories: 'Weeks'
+                        },
+                        exporting: { 
+                            enabled: false
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Hours'
+                            }
+                        },                        
+                        series: [{
+                            name: 'Actual',
+                            data: [1,1,1,1],
+                            color:'#f7c712'
+                        }, {
+                            name: 'Goal',
+                            data: [0,0,0,0],
+                            color:'#6cc5a6'
+                        }]
+                    });   
+
+
+            })
+
+        </script>
+
+
         <script>
             var app = angular.module("analyticsApp", []); 
             app.controller("myCtrl", function($scope) {
@@ -70,6 +345,7 @@
                         $("#pinnedUsersTab").removeClass("SummarySection-module_selectedTab_delve");
                         $("#topCollaboratorsTab").addClass("SummarySection-module_selectedTab_delve");
                     }else if(title == 'important'){
+                        $(".CollaboratorCarousel-module_slideWrapper_delve").css("transform","translateX("+0+"%)");
                         $("#pinnedUsersTab").addClass("SummarySection-module_selectedTab_delve");
                         $("#topCollaboratorsTab").removeClass("SummarySection-module_selectedTab_delve");
                     }
@@ -32727,7 +33003,7 @@
 
 
                                                 <div class="WeekCardSummary-module_weekCardContent_delve fabric-module_ms-Grid-row_delve" id="content2">
-                                                    <div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve">
+                                                   <a href="#Meetings"><div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve">                                                       
                                                         <div class="WeekTypeCard-module_linkDecoration_delve" aria-label="You spent 4.5 hours in Meeting hours. Your goal is Less than: 10 hours" tabindex="0">
                                                             <div aria-hidden="true" class="WeekTypeCard-module_progressContainerTopRow_delve fabric-module_ms-Grid-row_delve">
                                                                 <div class="WeekTypeCard-module_rowColLeft_delve fabric-module_ms-Grid-col_delve" aria-label="Meeting hours">Meeting hours</div>
@@ -32737,23 +33013,24 @@
                                                             </div>
                                                             <div class="">
                                                                 <div aria-hidden="true" class="WeekTypeCard-module_row_delve fabric-module_ms-Grid-row_delve WeekTypeCard-module_cardDataRow_delve fabric-module_ms-Grid-row_delve">
-                                                                    <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">45</div>
+                                                                    <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">4.5</div>
                                                                     <div class="WeekTypeCard-module_progressContainerRow_delve pulse-responsive-module_ms-u-sm8_delve fabric-module_ms-Grid-col_delve">
-                                                                        <div class="WeekTypeCard-module_goalText_delve fabric-module_ms-Grid-row_delve">Goal &gt; {{goal1}} hrs</div>
+                                                                        <div class="WeekTypeCard-module_goalText_delve fabric-module_ms-Grid-row_delve">Goal &lt; {{goal1}} hrs</div>
                                                                         <div class="WeekTypeCard-module_progressRow_delve fabric-module_ms-Grid-row_delve">
-                                                                            <div class="Utility-module_progressScoreUnderLimit_delve WeekTypeCard-module_progressBar_delve goal1" style="width: 45%;"></div>
+                                                                            <div class="Utility-module_progressScoreLimit_delve WeekTypeCard-module_progressBar_delve goal1" style="width: 4.5%;"></div>
                                                                             <!--<div class="WeekTypeCard-module_progressScoreLimit_delve" style="width: 55%;"></div>-->
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div aria-hidden="true" class="WeekTypeCard-module_cardBottomText_delve fabric-module_ms-font-weight-semilight_delve">hrs</div>
                                                                 <div class="WeekTypeCard-module_editGoals_delve pulse-responsive-module_ms-u-hiddenSm_delve">
-                                                                    <a class="HyperLink-module_editGoalLink_delve" id="meetings" role="link" href="javascript:void(0)" aria-label="Edit Meeting hours goal" ng-click="editGoal('Meeting')">Edit goal</a>
+                                                                    <a class="HyperLink-module_editGoalLink_delve"  role="link" href="javascript:void(0)" aria-label="Edit Meeting hours goal" ng-click="editGoal('Meeting')">Edit goal</a>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve">
+                                                    </div></a>
+
+                                                    <a href="#Email"><div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve">
                                                         <div class="WeekTypeCard-module_linkDecoration_delve" aria-label="You spent 0 hours in Email hours. Your goal is Less than: 10 hours" tabindex="0">
                                                             <div aria-hidden="true" class="WeekTypeCard-module_progressContainerTopRow_delve fabric-module_ms-Grid-row_delve">
                                                                 <div class="WeekTypeCard-module_rowColLeft_delve fabric-module_ms-Grid-col_delve" aria-label="Email hours">Email hours</div>
@@ -32778,8 +33055,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve">
+                                                    </div></a>
+                                                    <a href="#Focus"><div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve">
                                                         <div class="WeekTypeCard-module_linkDecoration_delve" aria-label="You spent 39.5 hours in Focus hours. Your goal is More than: 10 hours" tabindex="0">
                                                             <div aria-hidden="true" class="WeekTypeCard-module_progressContainerTopRow_delve fabric-module_ms-Grid-row_delve">
                                                                 <div class="WeekTypeCard-module_rowColLeft_delve fabric-module_ms-Grid-col_delve" aria-label="Focus hours">Focus hours</div>
@@ -32804,8 +33081,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve">
+                                                    </div></a>
+                                                    <a href="#After"><div class="WeekTypeCard-module_cardSize_delve fabric-module_ms-font-m_delve pulse-responsive-module_ms-u-sm3_delve pulse-responsive-module_ms-u-md3_delve fabric-module_ms-Grid-col_delve">
                                                         <div class="WeekTypeCard-module_linkDecoration_delve" aria-label="You spent 1 hours in After hours. Your goal is Less than: 0 hours" tabindex="0">
                                                             <div aria-hidden="true" class="WeekTypeCard-module_progressContainerTopRow_delve fabric-module_ms-Grid-row_delve">
                                                                 <div class="WeekTypeCard-module_rowColLeft_delve fabric-module_ms-Grid-col_delve" aria-label="After hours">After hours</div>
@@ -32830,7 +33107,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div></a>
                                                 </div>
                                             </div>
                                             <div class="Insights-module_carousel_delve slideActive0" tabindex="0" aria-label="Food for thought">
@@ -32936,7 +33213,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=mollyc@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Molly Clark (mollyc@cie814173.onmicrosoft.com)">Molly Clark</div>
@@ -32967,7 +33244,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=sanjays@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Sanjay Shah (sanjays@cie814173.onmicrosoft.com)">Sanjay Shah</div>
@@ -32998,7 +33275,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=svenm@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Sven Mortensen (svenm@cie814173.onmicrosoft.com)">Sven Mortensen</div>
@@ -33029,7 +33306,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=ericg@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Eric Gruber (ericg@cie814173.onmicrosoft.com)">Eric Gruber</div>
@@ -33066,7 +33343,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=gregw@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Greg Winston (gregw@cie814173.onmicrosoft.com)">Greg Winston</div>
@@ -33097,7 +33374,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=jamier@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Jamie Reding (jamier@cie814173.onmicrosoft.com)">Jamie Reding</div>
@@ -33128,7 +33405,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=allieb@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Allie Bellew (allieb@cie814173.onmicrosoft.com)">Allie Bellew</div>
@@ -33159,7 +33436,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=juliani@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Julian Isla (juliani@cie814173.onmicrosoft.com)">Julian Isla</div>
@@ -33192,7 +33469,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=reneel@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Renee Lo (reneel@cie814173.onmicrosoft.com)">Renee Lo</div>
@@ -33223,7 +33500,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=spencerl@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Spencer Low (spencerl@cie814173.onmicrosoft.com)">Spencer Low</div>
@@ -33254,7 +33531,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=kellyk@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Kelly Krout (kellyk@cie814173.onmicrosoft.com)">Kelly Krout</div>
@@ -33285,7 +33562,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=alans@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Alan Steiner (alans@cie814173.onmicrosoft.com)">Alan Steiner</div>
@@ -33318,7 +33595,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=amya@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Amy Alberts (amya@cie814173.onmicrosoft.com)">Amy Alberts</div>
@@ -33349,7 +33626,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=carlosg@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Carlos Grilo (carlosg@cie814173.onmicrosoft.com)">Carlos Grilo</div>
@@ -33380,7 +33657,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=tyc@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Ty Carlson (tyc@cie814173.onmicrosoft.com)">Ty Carlson</div>
@@ -33411,7 +33688,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=veronicaq@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Veronica Quek (veronicaq@cie814173.onmicrosoft.com)">Veronica Quek</div>
@@ -33444,7 +33721,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=jeffh@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Jeff Hay (jeffh@cie814173.onmicrosoft.com)">Jeff Hay</div>
@@ -33475,7 +33752,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=christag@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Christa Geller (christag@cie814173.onmicrosoft.com)">Christa Geller</div>
@@ -33506,7 +33783,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=aliciat@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Alicia Thomber (aliciat@cie814173.onmicrosoft.com)">Alicia Thomber</div>
@@ -33537,7 +33814,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=dianep@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Diane Prescott (dianep@cie814173.onmicrosoft.com)">Diane Prescott</div>
@@ -33571,7 +33848,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=annew@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Anne Weiler (annew@cie814173.onmicrosoft.com)">Anne Weiler</div>
@@ -33602,7 +33879,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=davids@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="David So (davids@cie814173.onmicrosoft.com)">David So</div>
@@ -33633,7 +33910,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=danj@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Dan Jump (danj@cie814173.onmicrosoft.com)">Dan Jump</div>
@@ -33823,7 +34100,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=jamier@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -33917,7 +34194,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=gregw@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette"style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -34011,7 +34288,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=allieb@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -34105,7 +34382,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=juliani@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -34199,7 +34476,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=reneel@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -34293,7 +34570,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=spencerl@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -34387,7 +34664,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=kellyk@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -34481,7 +34758,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=alans@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -34575,7 +34852,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=amya@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -34669,7 +34946,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=carlosg@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -34763,7 +35040,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=tyc@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -34857,7 +35134,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=veronicaq@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -34951,7 +35228,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=jeffh@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -35045,7 +35322,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=christag@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -35139,7 +35416,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=aliciat@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -35233,7 +35510,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=dianep@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -35327,7 +35604,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=mollyc@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -35421,7 +35698,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=sanjays@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -35515,7 +35792,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=svenm@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -35609,7 +35886,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=ericg@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -35703,7 +35980,7 @@
                                                                 <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                     <div class="public_fixedDataTableCell_cellContent">
                                                                         <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=annew@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -35844,7 +36121,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=jamier@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Jamie Reding (jamier@cie814173.onmicrosoft.com)">Jamie Reding</div>
@@ -35875,7 +36152,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=gregw@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Greg Winston (gregw@cie814173.onmicrosoft.com)">Greg Winston</div>
@@ -35906,7 +36183,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=spencerl@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Spencer Low (spencerl@cie814173.onmicrosoft.com)">Spencer Low</div>
@@ -35937,7 +36214,7 @@
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
                                                                                 <div class="CollaboratorCard-module_userImage_delve">
                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=juliani@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Julian Isla (juliani@cie814173.onmicrosoft.com)">Julian Isla</div>
@@ -36123,7 +36400,7 @@
                                                                                                                             <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                                                                                 <div class="public_fixedDataTableCell_cellContent">
                                                                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=jamier@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                                                                     </div>
                                                                                                                                 </div>
                                                                                                                             </div>
@@ -36217,7 +36494,7 @@
                                                                                                                             <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                                                                                 <div class="public_fixedDataTableCell_cellContent">
                                                                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=gregw@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                                                                     </div>
                                                                                                                                 </div>
                                                                                                                             </div>
@@ -36311,7 +36588,7 @@
                                                                                                                             <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                                                                                 <div class="public_fixedDataTableCell_cellContent">
                                                                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=spencerl@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                                                                     </div>
                                                                                                                                 </div>
                                                                                                                             </div>
@@ -36405,7 +36682,7 @@
                                                                                                                             <div class="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                                                                                                                                 <div class="public_fixedDataTableCell_cellContent">
                                                                                                                                     <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
-                                                                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(&quot;/_vti_bin/DelveApi.ashx/people/profileimage?userId=juliani@cie814173.onmicrosoft.com&amp;size=L&quot;);"></div>
+                                                                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
                                                                                                                                     </div>
                                                                                                                                 </div>
                                                                                                                             </div>
@@ -36604,7 +36881,7 @@
                                         <div>
                                             <div class="SectionSeparator-module_row_delve" style="max-width: 1052px;">
                                                 <hr class="SectionSeparator-module_line_delve">
-                                                <div tabindex="-1" aria-label="Meetings" class="SectionSeparator-module_box_delve fabric-module_ms-font-weight-semilight_delve" role="heading" aria-level="2">Meetings</div>
+                                                <div tabindex="-1" aria-label="Meetings" class="SectionSeparator-module_box_delve fabric-module_ms-font-weight-semilight_delve" role="heading" aria-level="2"><a id="Meetings"></a> Meetings</div>
                                             </div>
                                             <div class="DetailSection-module_row_delve fabric-module_ms-Grid-row_delve">
                                                 <div class="DetailSection-module_component_delve fabric-module_ms-Grid-col_delve pulse-responsive-module_ms-u-sm4_delve pulse-responsive-module_ms-u-md4_delve" id="meetings_details">
@@ -36652,12 +36929,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="WorkHoursDetail-module_trend_delve">
-                                                                    <div class="WorkHoursTrendChart-module_comingSoon_delve">
-                                                                        <div class="WorkHoursTrendChart-module_messagePosition_delve" aria-label="We don&#39;t have enough data to tell your story.">
-                                                                            <div class="WorkHoursTrendChart-module_messageBoxInner_delve">
-                                                                                <div class="WorkHoursTrendChart-module_messagePositionInner_delve">We don't have enough data to tell your story.</div>
-                                                                            </div>
-                                                                        </div>
+                                                                    <div class="WorkHoursTrendChart-module_comingSoon_delve" id="meetingHours">
+                                                                        
                                                                     </div>
                                                                 </div>
                                                                 <div class="WorkHoursDetail-module_viewDetails_delve pulse-responsive-module_ms-u-hiddenSm_delve WorkHoursDetail-module_showViewDetails_delve">
@@ -38419,7 +38692,7 @@
                                             </div>
                                             <div class="SectionSeparator-module_row_delve" style="max-width: 1052px;">
                                                 <hr class="SectionSeparator-module_line_delve">
-                                                <div tabindex="-1" aria-label="Email" class="SectionSeparator-module_box_delve fabric-module_ms-font-weight-semilight_delve" role="heading" aria-level="2">Email</div>
+                                                <div tabindex="-1" aria-label="Email" class="SectionSeparator-module_box_delve fabric-module_ms-font-weight-semilight_delve" role="heading" aria-level="2"><a id="Email">Email</a></div>
                                             </div>
                                             <div class="DetailSection-module_row_delve fabric-module_ms-Grid-row_delve">
                                                 <div class="DetailSection-module_component_delve fabric-module_ms-Grid-col_delve pulse-responsive-module_ms-u-sm4_delve pulse-responsive-module_ms-u-md4_delve" id="emails_details">
@@ -38467,12 +38740,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="WorkHoursDetail-module_trend_delve">
-                                                                    <div class="WorkHoursTrendChart-module_comingSoon_delve">
-                                                                        <div class="WorkHoursTrendChart-module_messagePosition_delve" aria-label="We don&#39;t have enough data to tell your story.">
-                                                                            <div class="WorkHoursTrendChart-module_messageBoxInner_delve">
-                                                                                <div class="WorkHoursTrendChart-module_messagePositionInner_delve">We don't have enough data to tell your story.</div>
-                                                                            </div>
-                                                                        </div>
+                                                                    <div class="WorkHoursTrendChart-module_comingSoon_delve" id="emailHours">
+                                                                        
                                                                     </div>
                                                                 </div>
                                                                 <div class="WorkHoursDetail-module_viewDetails_delve pulse-responsive-module_ms-u-hiddenSm_delve WorkHoursDetail-module_showViewDetails_delve">
@@ -39227,7 +39496,7 @@
                                             </div>
                                             <div class="SectionSeparator-module_row_delve" style="max-width: 1052px;">
                                                 <hr class="SectionSeparator-module_line_delve">
-                                                <div tabindex="-1" aria-label="Focus hours" class="SectionSeparator-module_box_delve fabric-module_ms-font-weight-semilight_delve" role="heading" aria-level="2">Focus hours</div>
+                                                <div tabindex="-1" aria-label="Focus hours" class="SectionSeparator-module_box_delve fabric-module_ms-font-weight-semilight_delve" role="heading" aria-level="2"><a id="Focus">Focus hours</a></div>
                                             </div>
                                             <div class="DetailSection-module_row_delve fabric-module_ms-Grid-row_delve">
                                                 <div class="DetailSection-module_component_delve fabric-module_ms-Grid-col_delve pulse-responsive-module_ms-u-sm4_delve pulse-responsive-module_ms-u-md4_delve" id="focushours_details">
@@ -39275,12 +39544,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="WorkHoursDetail-module_trend_delve">
-                                                                    <div class="WorkHoursTrendChart-module_comingSoon_delve">
-                                                                        <div class="WorkHoursTrendChart-module_messagePosition_delve" aria-label="We don&#39;t have enough data to tell your story.">
-                                                                            <div class="WorkHoursTrendChart-module_messageBoxInner_delve">
-                                                                                <div class="WorkHoursTrendChart-module_messagePositionInner_delve">We don't have enough data to tell your story.</div>
-                                                                            </div>
-                                                                        </div>
+                                                                    <div class="WorkHoursTrendChart-module_comingSoon_delve" id="focusHours">
+                                                                       
                                                                     </div>
                                                                 </div>
                                                                 <div class="WorkHoursDetail-module_viewDetails_delve pulse-responsive-module_ms-u-hiddenSm_delve">
@@ -39302,305 +39567,13 @@
                                                                 <div tabindex="0" aria-label="You are on chart Focus habits. On Sun, 1/22 you spent 0.5 hours in meetings and had 0 hours in focus time., On Mon, 1/23 you spent 0.5 hours in meetings and had 8.5 hours in focus time., On Tue, 1/24 you spent 1 hours in meetings and had 7.5 hours in focus time., On Wed, 1/25 you spent 0.5 hours in meetings and had 8.5 hours in focus time., On Thu, 1/26 you spent 0.5 hours in meetings and had 8.5 hours in focus time., On Fri, 1/27 you spent 1 hours in meetings and had 6.5 hours in focus time., On Sat, 1/28 you spent 0.5 hours in meetings and had 0 hours in focus time., " class="Chart-module_outerDiv_delve">
                                                                     <div aria-hidden="true" id="focusTimeDetailChart" data-highcharts-chart="5">
                                                                         <div class="highcharts-container" id="highcharts-10" style="position: relative; overflow: hidden; width: 660px; height: 356px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                                                                            <svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="660" height="356" focusable="false">
-                                                                                <desc>Created with Highcharts 4.1.8</desc>
-                                                                                <defs>
-                                                                                    <pattern id="highcharts-default-pattern-0" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                        <path d="M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11" stroke="#7cb5ec" stroke-width="2"></path>
-                                                                                    </pattern>
-                                                                                    <pattern id="highcharts-default-pattern-1" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                        <path d="M 0 10 L 10 0 M -1 1 L 1 -1 M 9 11 L 11 9" stroke="#434348" stroke-width="2"></path>
-                                                                                    </pattern>
-                                                                                    <pattern id="highcharts-default-pattern-2" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                        <path d="M 3 0 L 3 10 M 8 0 L 8 10" stroke="#90ed7d" stroke-width="2"></path>
-                                                                                    </pattern>
-                                                                                    <pattern id="highcharts-default-pattern-3" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                        <path d="M 0 3 L 10 3 M 0 8 L 10 8" stroke="#f7a35c" stroke-width="2"></path>
-                                                                                    </pattern>
-                                                                                    <pattern id="highcharts-default-pattern-4" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                        <path d="M 0 3 L 5 3 L 5 0 M 5 10 L 5 7 L 10 7" stroke="#8085e9" stroke-width="2"></path>
-                                                                                    </pattern>
-                                                                                    <pattern id="highcharts-default-pattern-5" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                        <path d="M 3 3 L 8 3 L 8 8 L 3 8 Z" stroke="#f15c80" stroke-width="2"></path>
-                                                                                    </pattern>
-                                                                                    <pattern id="highcharts-default-pattern-6" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                        <path d="M 5 5 m -4 0 a 4 4 0 1 1 8 0 a 4 4 0 1 1 -8 0" stroke="#e4d354" stroke-width="2"></path>
-                                                                                    </pattern>
-                                                                                    <pattern id="highcharts-default-pattern-7" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                        <path d="M 10 3 L 5 3 L 5 0 M 5 10 L 5 7 L 0 7" stroke="#2b908f" stroke-width="2"></path>
-                                                                                    </pattern>
-                                                                                    <pattern id="highcharts-default-pattern-8" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                        <path d="M 2 5 L 5 2 L 8 5 L 5 8 Z" stroke="#f45b5b" stroke-width="2"></path>
-                                                                                    </pattern>
-                                                                                    <pattern id="highcharts-default-pattern-9" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                        <path d="M 0 0 L 5 10 L 10 0" stroke="#91e8e1" stroke-width="2"></path>
-                                                                                    </pattern>
-                                                                                    <pattern id="custom-pattern" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                        <path d="M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11" stroke="#7cb5ec" stroke-width="3"></path>
-                                                                                    </pattern>
-                                                                                    <clippath id="highcharts-11">
-                                                                                        <rect x="0" y="0" width="640" height="263"></rect>
-                                                                                    </clippath>
-                                                                                </defs>
-                                                                                <rect x="0" y="0" width="660" height="356" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect>
-                                                                                <g class="highcharts-grid" zIndex="1"></g>
-                                                                                <g class="highcharts-grid" zIndex="1"></g>
-                                                                                <g class="highcharts-axis" zIndex="2">
-                                                                                    <path fill="none" d="M 100.5 273 L 100.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                    <path fill="none" d="M 192.5 273 L 192.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                    <path fill="none" d="M 283.5 273 L 283.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                    <path fill="none" d="M 375.5 273 L 375.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                    <path fill="none" d="M 466.5 273 L 466.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                    <path fill="none" d="M 558.5 273 L 558.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                    <path fill="none" d="M 650.5 273 L 650.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                    <path fill="none" d="M 9.5 273 L 9.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                    <path fill="none" d="M 10 273.5 L 650 273.5" stroke="#C0D0E0" stroke-width="1" zIndex="7" visibility="visible"></path>
-                                                                                </g>
-                                                                                <g class="highcharts-axis" zIndex="2"></g>
-                                                                                <g class="highcharts-series-group" zIndex="3">
-                                                                                    <g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)" clip-path="url(#highcharts-11)">
-                                                                                        <rect x="3" y="251" width="85" height="13" fill="#e6e6e6" rx="0" ry="0"></rect>
-                                                                                        <rect x="95" y="27" width="85" height="13" fill="#e6e6e6" rx="0" ry="0"></rect>
-                                                                                        <rect x="186" y="40" width="85" height="27" fill="#e6e6e6" rx="0" ry="0"></rect>
-                                                                                        <rect x="278" y="27" width="85" height="13" fill="#e6e6e6" rx="0" ry="0"></rect>
-                                                                                        <rect x="369" y="27" width="85" height="13" fill="#e6e6e6" rx="0" ry="0"></rect>
-                                                                                        <rect x="460" y="67" width="85" height="26" fill="#e6e6e6" rx="0" ry="0"></rect>
-                                                                                        <rect x="552" y="251" width="85" height="13" fill="#e6e6e6" rx="0" ry="0"></rect>
-                                                                                    </g>
-                                                                                    <g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)" clip-path="none"></g>
-                                                                                    <g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)" clip-path="url(#highcharts-11)">
-                                                                                        <rect x="3" y="264" width="85" height="0" fill="#6dc8c0" rx="0" ry="0"></rect>
-                                                                                        <rect x="95" y="40" width="85" height="224" fill="#6dc8c0" rx="0" ry="0"></rect>
-                                                                                        <rect x="186" y="67" width="85" height="197" fill="#6dc8c0" rx="0" ry="0"></rect>
-                                                                                        <rect x="278" y="40" width="85" height="224" fill="#6dc8c0" rx="0" ry="0"></rect>
-                                                                                        <rect x="369" y="40" width="85" height="224" fill="#6dc8c0" rx="0" ry="0"></rect>
-                                                                                        <rect x="460" y="93" width="85" height="171" fill="#6dc8c0" rx="0" ry="0"></rect>
-                                                                                        <rect x="552" y="264" width="85" height="0" fill="#6dc8c0" rx="0" ry="0"></rect>
-                                                                                    </g>
-                                                                                    <g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)" clip-path="none"></g>
-                                                                                </g>
-                                                                                <g class="highcharts-data-labels" visibility="visible" zIndex="6" transform="translate(10,10) scale(1 1)" opacity="1">
-                                                                                    <g zIndex="1" style="" transform="translate(3,237)"></g>
-                                                                                    <g zIndex="1" style="" transform="translate(95,18)"></g>
-                                                                                    <g zIndex="1" style="" transform="translate(186,38)"></g>
-                                                                                    <g zIndex="1" style="" transform="translate(278,18)"></g>
-                                                                                    <g zIndex="1" style="" transform="translate(369,18)"></g>
-                                                                                    <g zIndex="1" style="" transform="translate(460,65)"></g>
-                                                                                    <g zIndex="1" style="" transform="translate(552,237)"></g>
-                                                                                </g>
-                                                                                <g class="highcharts-data-labels" visibility="visible" zIndex="6" transform="translate(10,10) scale(1 1)" opacity="1">
-                                                                                    <g zIndex="1" style="" transform="translate(41,258)" opacity="0" visibility="hidden"></g>
-                                                                                    <g zIndex="1" style="" transform="translate(95,137)"></g>
-                                                                                    <g zIndex="1" style="" transform="translate(186,150)"></g>
-                                                                                    <g zIndex="1" style="" transform="translate(278,137)"></g>
-                                                                                    <g zIndex="1" style="" transform="translate(369,137)"></g>
-                                                                                    <g zIndex="1" style="" transform="translate(460,163)"></g>
-                                                                                    <g zIndex="1" style="" transform="translate(590,258)" opacity="0" visibility="hidden"></g>
-                                                                                </g>
-                                                                                <g class="highcharts-legend" zIndex="7" transform="translate(244,310)">
-                                                                                    <g zIndex="1">
-                                                                                        <g>
-                                                                                            <g class="highcharts-legend-item" zIndex="1" transform="translate(8,3)">
-                                                                                                <text x="21" style="color:#505050;font-size:13px;font-weight:regular;cursor:pointer;fill:#505050;" text-anchor="start" zIndex="2" y="16">Meetings</text>
-                                                                                                <rect x="0" y="4" width="16" height="13" zIndex="3" fill="#e6e6e6"></rect>
-                                                                                            </g>
-                                                                                            <g class="highcharts-legend-item" zIndex="1" transform="translate(106.09375,3)">
-                                                                                                <text x="21" y="16" style="color:#505050;font-size:13px;font-weight:regular;cursor:pointer;fill:#505050;" text-anchor="start" zIndex="2">Focus</text>
-                                                                                                <rect x="0" y="4" width="16" height="13" zIndex="3" fill="#6dc8c0"></rect>
-                                                                                            </g>
-                                                                                        </g>
-                                                                                    </g>
-                                                                                </g>
-                                                                                <g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7">
-                                                                                    <text x="55.714285714285715" style="color:#000000;cursor:default;font-size:11px;fill:#000000;width:81px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="292" opacity="1">
-                                                                                        <tspan>Sun, 1/22</tspan>
-                                                                                    </text>
-                                                                                    <text x="147.14285714285714" style="color:#000000;cursor:default;font-size:11px;fill:#000000;width:81px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="292" opacity="1">
-                                                                                        <tspan>Mon, 1/23</tspan>
-                                                                                    </text>
-                                                                                    <text x="238.57142857142856" style="color:#000000;cursor:default;font-size:11px;fill:#000000;width:81px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="292" opacity="1">
-                                                                                        <tspan>Tue, 1/24</tspan>
-                                                                                    </text>
-                                                                                    <text x="330" style="color:#000000;cursor:default;font-size:11px;fill:#000000;width:81px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="292" opacity="1">
-                                                                                        <tspan>Wed, 1/25</tspan>
-                                                                                    </text>
-                                                                                    <text x="421.42857142857144" style="color:#000000;cursor:default;font-size:11px;fill:#000000;width:81px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="292" opacity="1">
-                                                                                        <tspan>Thu, 1/26</tspan>
-                                                                                    </text>
-                                                                                    <text x="512.8571428571429" style="color:#000000;cursor:default;font-size:11px;fill:#000000;width:81px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="292" opacity="1">
-                                                                                        <tspan>Fri, 1/27</tspan>
-                                                                                    </text>
-                                                                                    <text x="604.2857142857143" style="color:#000000;cursor:default;font-size:11px;fill:#000000;width:81px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="292" opacity="1">
-                                                                                        <tspan>Sat, 1/28</tspan>
-                                                                                    </text>
-                                                                                </g>
-                                                                                <g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"></g>
-                                                                            </svg>
-                                                                            <div class="highcharts-data-labels" style="position: absolute; left: 10px; top: 10px; visibility: visible;">
-                                                                                <div style="position: absolute; left: 3px; top: 237px;">
-                                                                                    <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1">
-                                                                                        <div class="ColumnChart-module_rowStyle_delve">
-                                                                                            <div class="ColumnChart-module_rowCenter_delve">
-                                                                                                <div class="ColumnChart-module_rowContainer_delve">
-                                                                                                    <div class="ColumnChart-module_icon_delve"></div>
-                                                                                                    <div class="ColumnChart-module_dataLabelText_delve fabric-module_ms-font-weight-semilight_delve">0.5 hr</div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </span>
-                                                                                </div>
-                                                                                <div style="position: absolute; left: 95px; top: 18px;">
-                                                                                    <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1">
-                                                                                        <div class="ColumnChart-module_rowStyle_delve">
-                                                                                            <div class="ColumnChart-module_rowCenter_delve">
-                                                                                                <div class="ColumnChart-module_rowContainer_delve">
-                                                                                                    <div class="ColumnChart-module_icon_delve"></div>
-                                                                                                    <div class="ColumnChart-module_dataLabelText_delve fabric-module_ms-font-weight-semilight_delve">0.5 hr</div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </span>
-                                                                                </div>
-                                                                                <div style="position: absolute; left: 186px; top: 38px;">
-                                                                                    <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1">
-                                                                                        <div class="ColumnChart-module_rowStyle_delve">
-                                                                                            <div class="ColumnChart-module_rowCenter_delve">
-                                                                                                <div class="ColumnChart-module_rowContainer_delve">
-                                                                                                    <div class="ColumnChart-module_icon_delve"></div>
-                                                                                                    <div class="ColumnChart-module_dataLabelText_delve fabric-module_ms-font-weight-semilight_delve">1 hr</div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </span>
-                                                                                </div>
-                                                                                <div style="position: absolute; left: 278px; top: 18px;">
-                                                                                    <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1">
-                                                                                        <div class="ColumnChart-module_rowStyle_delve">
-                                                                                            <div class="ColumnChart-module_rowCenter_delve">
-                                                                                                <div class="ColumnChart-module_rowContainer_delve">
-                                                                                                    <div class="ColumnChart-module_icon_delve"></div>
-                                                                                                    <div class="ColumnChart-module_dataLabelText_delve fabric-module_ms-font-weight-semilight_delve">0.5 hr</div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </span>
-                                                                                </div>
-                                                                                <div style="position: absolute; left: 369px; top: 18px;">
-                                                                                    <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1">
-                                                                                        <div class="ColumnChart-module_rowStyle_delve">
-                                                                                            <div class="ColumnChart-module_rowCenter_delve">
-                                                                                                <div class="ColumnChart-module_rowContainer_delve">
-                                                                                                    <div class="ColumnChart-module_icon_delve"></div>
-                                                                                                    <div class="ColumnChart-module_dataLabelText_delve fabric-module_ms-font-weight-semilight_delve">0.5 hr</div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </span>
-                                                                                </div>
-                                                                                <div style="position: absolute; left: 460px; top: 65px;">
-                                                                                    <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1">
-                                                                                        <div class="ColumnChart-module_rowStyle_delve">
-                                                                                            <div class="ColumnChart-module_rowCenter_delve">
-                                                                                                <div class="ColumnChart-module_rowContainer_delve">
-                                                                                                    <div class="ColumnChart-module_icon_delve"></div>
-                                                                                                    <div class="ColumnChart-module_dataLabelText_delve fabric-module_ms-font-weight-semilight_delve">1 hr</div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </span>
-                                                                                </div>
-                                                                                <div style="position: absolute; left: 552px; top: 237px;">
-                                                                                    <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1">
-                                                                                        <div class="ColumnChart-module_rowStyle_delve">
-                                                                                            <div class="ColumnChart-module_rowCenter_delve">
-                                                                                                <div class="ColumnChart-module_rowContainer_delve">
-                                                                                                    <div class="ColumnChart-module_icon_delve"></div>
-                                                                                                    <div class="ColumnChart-module_dataLabelText_delve fabric-module_ms-font-weight-semilight_delve">0.5 hr</div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </span>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="highcharts-data-labels" style="position: absolute; left: 10px; top: 10px; visibility: visible;">
-                                                                                <div style="position: absolute; left: 41px; top: 258px; visibility: hidden;">
-                                                                                    <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1"></span>
-                                                                                </div>
-                                                                                <div style="position: absolute; left: 95px; top: 137px;">
-                                                                                    <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1">
-                                                                                        <div class="ColumnChart-module_rowStyle_delve">
-                                                                                            <div class="ColumnChart-module_rowCenter_delve">
-                                                                                                <div class="ColumnChart-module_rowContainer_delve">
-                                                                                                    <div class="ColumnChart-module_icon_delve"></div>
-                                                                                                    <div class="ColumnChart-module_dataLabelText_delve fabric-module_ms-font-weight-semilight_delve">8.5 hrs</div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </span>
-                                                                                </div>
-                                                                                <div style="position: absolute; left: 186px; top: 150px;">
-                                                                                    <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1">
-                                                                                        <div class="ColumnChart-module_rowStyle_delve">
-                                                                                            <div class="ColumnChart-module_rowCenter_delve">
-                                                                                                <div class="ColumnChart-module_rowContainer_delve">
-                                                                                                    <div class="ColumnChart-module_icon_delve"></div>
-                                                                                                    <div class="ColumnChart-module_dataLabelText_delve fabric-module_ms-font-weight-semilight_delve">7.5 hrs</div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </span>
-                                                                                </div>
-                                                                                <div style="position: absolute; left: 278px; top: 137px;">
-                                                                                    <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1">
-                                                                                        <div class="ColumnChart-module_rowStyle_delve">
-                                                                                            <div class="ColumnChart-module_rowCenter_delve">
-                                                                                                <div class="ColumnChart-module_rowContainer_delve">
-                                                                                                    <div class="ColumnChart-module_icon_delve"></div>
-                                                                                                    <div class="ColumnChart-module_dataLabelText_delve fabric-module_ms-font-weight-semilight_delve">8.5 hrs</div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </span>
-                                                                                </div>
-                                                                                <div style="position: absolute; left: 369px; top: 137px;">
-                                                                                    <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1">
-                                                                                        <div class="ColumnChart-module_rowStyle_delve">
-                                                                                            <div class="ColumnChart-module_rowCenter_delve">
-                                                                                                <div class="ColumnChart-module_rowContainer_delve">
-                                                                                                    <div class="ColumnChart-module_icon_delve"></div>
-                                                                                                    <div class="ColumnChart-module_dataLabelText_delve fabric-module_ms-font-weight-semilight_delve">8.5 hrs</div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </span>
-                                                                                </div>
-                                                                                <div style="position: absolute; left: 460px; top: 163px;">
-                                                                                    <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1">
-                                                                                        <div class="ColumnChart-module_rowStyle_delve">
-                                                                                            <div class="ColumnChart-module_rowCenter_delve">
-                                                                                                <div class="ColumnChart-module_rowContainer_delve">
-                                                                                                    <div class="ColumnChart-module_icon_delve"></div>
-                                                                                                    <div class="ColumnChart-module_dataLabelText_delve fabric-module_ms-font-weight-semilight_delve">6.5 hrs</div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </span>
-                                                                                </div>
-                                                                                <div style="position: absolute; left: 590px; top: 258px; visibility: hidden;">
-                                                                                    <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1"></span>
-                                                                                </div>
-                                                                            </div>
+                                                                            
+
+
+
+                                                                            
                                                                         </div>
-                                                                    </div>
-                                                                    <div aria-hidden="true" id="focusTimeDetailChart_hiddenTable" class="Chart-module_hiddenTable_delve">
-                                                                        <div>On Sun, 1/22 you spent 0.5 hours in meetings and had 0 hours in focus time.</div>
-                                                                        <div>On Mon, 1/23 you spent 0.5 hours in meetings and had 8.5 hours in focus time.</div>
-                                                                        <div>On Tue, 1/24 you spent 1 hours in meetings and had 7.5 hours in focus time.</div>
-                                                                        <div>On Wed, 1/25 you spent 0.5 hours in meetings and had 8.5 hours in focus time.</div>
-                                                                        <div>On Thu, 1/26 you spent 0.5 hours in meetings and had 8.5 hours in focus time.</div>
-                                                                        <div>On Fri, 1/27 you spent 1 hours in meetings and had 6.5 hours in focus time.</div>
-                                                                        <div>On Sat, 1/28 you spent 0.5 hours in meetings and had 0 hours in focus time.</div>
-                                                                    </div>
+                                                                    </div>                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -39609,7 +39582,7 @@
                                             </div>
                                             <div class="SectionSeparator-module_row_delve" style="max-width: 1052px;">
                                                 <hr class="SectionSeparator-module_line_delve">
-                                                <div tabindex="-1" aria-label="After hours" class="SectionSeparator-module_box_delve fabric-module_ms-font-weight-semilight_delve" role="heading" aria-level="2">After hours</div>
+                                                <div tabindex="-1" aria-label="After hours" class="SectionSeparator-module_box_delve fabric-module_ms-font-weight-semilight_delve" role="heading" aria-level="2"><a id="After"> After hours</a></div>
                                             </div>
                                             <div class="DetailSection-module_row_delve fabric-module_ms-Grid-row_delve">
                                                 <div class="DetailSection-module_component_delve fabric-module_ms-Grid-col_delve pulse-responsive-module_ms-u-sm4_delve pulse-responsive-module_ms-u-md4_delve" id="afterhours_details">
@@ -39657,12 +39630,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="WorkHoursDetail-module_trend_delve">
-                                                                    <div class="WorkHoursTrendChart-module_comingSoon_delve">
-                                                                        <div class="WorkHoursTrendChart-module_messagePosition_delve" aria-label="We don&#39;t have enough data to tell your story.">
-                                                                            <div class="WorkHoursTrendChart-module_messageBoxInner_delve">
-                                                                                <div class="WorkHoursTrendChart-module_messagePositionInner_delve">We don't have enough data to tell your story.</div>
-                                                                            </div>
-                                                                        </div>
+                                                                    <div class="WorkHoursTrendChart-module_comingSoon_delve" id="afterHours">
+                                                                       
                                                                     </div>
                                                                 </div>
                                                                 <div class="WorkHoursDetail-module_viewDetails_delve pulse-responsive-module_ms-u-hiddenSm_delve">
@@ -39687,215 +39656,11 @@
                                                             <div tabindex="0" aria-label="You are on chart After hours. On Sun, 1/22 you spent 0.5 hours in meetings and 0 hours in emails., On Mon, 1/23 you spent 0 hours in meetings and 0 hours in emails., On Tue, 1/24 you spent 0 hours in meetings and 0 hours in emails., On Wed, 1/25 you spent 0 hours in meetings and 0 hours in emails., On Thu, 1/26 you spent 0 hours in meetings and 0 hours in emails., On Fri, 1/27 you spent 0 hours in meetings and 0 hours in emails., On Sat, 1/28 you spent 0.5 hours in meetings and 0 hours in emails., " class="Chart-module_outerDiv_delve">
                                                                 <div aria-hidden="true" id="afterTimeDetailChart" data-highcharts-chart="6">
                                                                     <div class="highcharts-container" id="highcharts-12" style="position: relative; overflow: hidden; width: 660px; height: 356px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                                                                        <svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="660" height="356" focusable="false">
-                                                                            <desc>Created with Highcharts 4.1.8</desc>
-                                                                            <defs>
-                                                                                <pattern id="highcharts-default-pattern-0" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                    <path d="M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11" stroke="#7cb5ec" stroke-width="2"></path>
-                                                                                </pattern>
-                                                                                <pattern id="highcharts-default-pattern-1" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                    <path d="M 0 10 L 10 0 M -1 1 L 1 -1 M 9 11 L 11 9" stroke="#434348" stroke-width="2"></path>
-                                                                                </pattern>
-                                                                                <pattern id="highcharts-default-pattern-2" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                    <path d="M 3 0 L 3 10 M 8 0 L 8 10" stroke="#90ed7d" stroke-width="2"></path>
-                                                                                </pattern>
-                                                                                <pattern id="highcharts-default-pattern-3" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                    <path d="M 0 3 L 10 3 M 0 8 L 10 8" stroke="#f7a35c" stroke-width="2"></path>
-                                                                                </pattern>
-                                                                                <pattern id="highcharts-default-pattern-4" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                    <path d="M 0 3 L 5 3 L 5 0 M 5 10 L 5 7 L 10 7" stroke="#8085e9" stroke-width="2"></path>
-                                                                                </pattern>
-                                                                                <pattern id="highcharts-default-pattern-5" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                    <path d="M 3 3 L 8 3 L 8 8 L 3 8 Z" stroke="#f15c80" stroke-width="2"></path>
-                                                                                </pattern>
-                                                                                <pattern id="highcharts-default-pattern-6" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                    <path d="M 5 5 m -4 0 a 4 4 0 1 1 8 0 a 4 4 0 1 1 -8 0" stroke="#e4d354" stroke-width="2"></path>
-                                                                                </pattern>
-                                                                                <pattern id="highcharts-default-pattern-7" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                    <path d="M 10 3 L 5 3 L 5 0 M 5 10 L 5 7 L 0 7" stroke="#2b908f" stroke-width="2"></path>
-                                                                                </pattern>
-                                                                                <pattern id="highcharts-default-pattern-8" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                    <path d="M 2 5 L 5 2 L 8 5 L 5 8 Z" stroke="#f45b5b" stroke-width="2"></path>
-                                                                                </pattern>
-                                                                                <pattern id="highcharts-default-pattern-9" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                    <path d="M 0 0 L 5 10 L 10 0" stroke="#91e8e1" stroke-width="2"></path>
-                                                                                </pattern>
-                                                                                <pattern id="custom-pattern" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                    <path d="M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11" stroke="#7cb5ec" stroke-width="3"></path>
-                                                                                </pattern>
-                                                                                <clippath id="highcharts-13">
-                                                                                    <rect x="0" y="0" width="640" height="263"></rect>
-                                                                                </clippath>
-                                                                            </defs>
-                                                                            <rect x="0" y="0" width="660" height="356" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect>
-                                                                            <g class="highcharts-grid" zIndex="1"></g>
-                                                                            <g class="highcharts-grid" zIndex="1"></g>
-                                                                            <g class="highcharts-axis" zIndex="2">
-                                                                                <path fill="none" d="M 100.5 273 L 100.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                <path fill="none" d="M 192.5 273 L 192.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                <path fill="none" d="M 283.5 273 L 283.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                <path fill="none" d="M 375.5 273 L 375.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                <path fill="none" d="M 466.5 273 L 466.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                <path fill="none" d="M 558.5 273 L 558.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                <path fill="none" d="M 650.5 273 L 650.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                <path fill="none" d="M 9.5 273 L 9.5 283" stroke="#C0D0E0" stroke-width="1" opacity="1"></path>
-                                                                                <path fill="none" d="M 10 273.5 L 650 273.5" stroke="#C0D0E0" stroke-width="1" zIndex="7" visibility="visible"></path>
-                                                                            </g>
-                                                                            <g class="highcharts-axis" zIndex="2"></g>
-                                                                            <g class="highcharts-series-group" zIndex="3">
-                                                                                <g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)" clip-path="url(#highcharts-13)">
-                                                                                    <rect x="3" y="45" width="85" height="219" fill="#e6e6e6" rx="0" ry="0"></rect>
-                                                                                    <rect x="95" y="264" width="85" height="0" fill="#e6e6e6" rx="0" ry="0"></rect>
-                                                                                    <rect x="186" y="264" width="85" height="0" fill="#e6e6e6" rx="0" ry="0"></rect>
-                                                                                    <rect x="278" y="264" width="85" height="0" fill="#e6e6e6" rx="0" ry="0"></rect>
-                                                                                    <rect x="369" y="264" width="85" height="0" fill="#e6e6e6" rx="0" ry="0"></rect>
-                                                                                    <rect x="460" y="264" width="85" height="0" fill="#e6e6e6" rx="0" ry="0"></rect>
-                                                                                    <rect x="552" y="45" width="85" height="219" fill="#e6e6e6" rx="0" ry="0"></rect>
-                                                                                </g>
-                                                                                <g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)" clip-path="none"></g>
-                                                                                <g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)" clip-path="url(#highcharts-13)">
-                                                                                    <rect x="3" y="264" width="85" height="0" fill="#6cc5a6" rx="0" ry="0"></rect>
-                                                                                    <rect x="95" y="264" width="85" height="0" fill="#6cc5a6" rx="0" ry="0"></rect>
-                                                                                    <rect x="186" y="264" width="85" height="0" fill="#6cc5a6" rx="0" ry="0"></rect>
-                                                                                    <rect x="278" y="264" width="85" height="0" fill="#6cc5a6" rx="0" ry="0"></rect>
-                                                                                    <rect x="369" y="264" width="85" height="0" fill="#6cc5a6" rx="0" ry="0"></rect>
-                                                                                    <rect x="460" y="264" width="85" height="0" fill="#6cc5a6" rx="0" ry="0"></rect>
-                                                                                    <rect x="552" y="264" width="85" height="0" fill="#6cc5a6" rx="0" ry="0"></rect>
-                                                                                </g>
-                                                                                <g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)" clip-path="none"></g>
-                                                                            </g>
-                                                                            <g class="highcharts-data-labels" visibility="visible" zIndex="6" transform="translate(10,10) scale(1 1)" opacity="1">
-                                                                                <g zIndex="1" style="" transform="translate(3,139)"></g>
-                                                                                <g zIndex="1" style="" transform="translate(133,258)"></g>
-                                                                                <g zIndex="1" style="" transform="translate(224,258)"></g>
-                                                                                <g zIndex="1" style="" transform="translate(316,258)"></g>
-                                                                                <g zIndex="1" style="" transform="translate(407,258)"></g>
-                                                                                <g zIndex="1" style="" transform="translate(498,258)"></g>
-                                                                                <g zIndex="1" style="" transform="translate(552,139)"></g>
-                                                                            </g>
-                                                                            <g class="highcharts-data-labels" visibility="visible" zIndex="6" transform="translate(10,10) scale(1 1)" opacity="1">
-                                                                                <g zIndex="1" style="" transform="translate(41,258)"></g>
-                                                                                <g zIndex="1" style="" transform="translate(133,258)" opacity="0" visibility="hidden"></g>
-                                                                                <g zIndex="1" style="" transform="translate(224,258)" opacity="0" visibility="hidden"></g>
-                                                                                <g zIndex="1" style="" transform="translate(316,258)" opacity="0" visibility="hidden"></g>
-                                                                                <g zIndex="1" style="" transform="translate(407,258)" opacity="0" visibility="hidden"></g>
-                                                                                <g zIndex="1" style="" transform="translate(498,258)" opacity="0" visibility="hidden"></g>
-                                                                                <g zIndex="1" style="" transform="translate(590,258)"></g>
-                                                                            </g>
-                                                                            <g class="highcharts-legend" zIndex="7" transform="translate(242,310)">
-                                                                                <g zIndex="1">
-                                                                                    <g>
-                                                                                        <g class="highcharts-legend-item" zIndex="1" transform="translate(8,3)">
-                                                                                            <text x="21" style="color:#505050;font-size:13px;font-weight:regular;cursor:pointer;fill:#505050;" text-anchor="start" zIndex="2" y="16">Meetings</text>
-                                                                                            <rect x="0" y="4" width="16" height="13" zIndex="3" fill="#e6e6e6"></rect>
-                                                                                        </g>
-                                                                                        <g class="highcharts-legend-item" zIndex="1" transform="translate(106.09375,3)">
-                                                                                            <text x="21" y="16" style="color:#505050;font-size:13px;font-weight:regular;cursor:pointer;fill:#505050;" text-anchor="start" zIndex="2">Emails</text>
-                                                                                            <rect x="0" y="4" width="16" height="13" zIndex="3" fill="#6cc5a6"></rect>
-                                                                                        </g>
-                                                                                    </g>
-                                                                                </g>
-                                                                            </g>
-                                                                            <g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7">
-                                                                                <text x="55.714285714285715" style="color:#000000;cursor:default;font-size:11px;fill:#000000;width:81px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="292" opacity="1">
-                                                                                    <tspan>Sun, 1/22</tspan>
-                                                                                </text>
-                                                                                <text x="147.14285714285714" style="color:#000000;cursor:default;font-size:11px;fill:#000000;width:81px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="292" opacity="1">
-                                                                                    <tspan>Mon, 1/23</tspan>
-                                                                                </text>
-                                                                                <text x="238.57142857142856" style="color:#000000;cursor:default;font-size:11px;fill:#000000;width:81px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="292" opacity="1">
-                                                                                    <tspan>Tue, 1/24</tspan>
-                                                                                </text>
-                                                                                <text x="330" style="color:#000000;cursor:default;font-size:11px;fill:#000000;width:81px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="292" opacity="1">
-                                                                                    <tspan>Wed, 1/25</tspan>
-                                                                                </text>
-                                                                                <text x="421.42857142857144" style="color:#000000;cursor:default;font-size:11px;fill:#000000;width:81px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="292" opacity="1">
-                                                                                    <tspan>Thu, 1/26</tspan>
-                                                                                </text>
-                                                                                <text x="512.8571428571429" style="color:#000000;cursor:default;font-size:11px;fill:#000000;width:81px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="292" opacity="1">
-                                                                                    <tspan>Fri, 1/27</tspan>
-                                                                                </text>
-                                                                                <text x="604.2857142857143" style="color:#000000;cursor:default;font-size:11px;fill:#000000;width:81px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="292" opacity="1">
-                                                                                    <tspan>Sat, 1/28</tspan>
-                                                                                </text>
-                                                                            </g>
-                                                                            <g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"></g>
-                                                                        </svg>
-                                                                        <div class="highcharts-data-labels" style="position: absolute; left: 10px; top: 10px; visibility: visible;">
-                                                                            <div style="position: absolute; left: 3px; top: 139px;">
-                                                                                <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1">
-                                                                                    <div class="ColumnChart-module_rowStyle_delve">
-                                                                                        <div class="ColumnChart-module_rowCenter_delve">
-                                                                                            <div class="ColumnChart-module_rowContainer_delve">
-                                                                                                <div class="ColumnChart-module_icon_delve"></div>
-                                                                                                <div class="ColumnChart-module_dataLabelText_delve fabric-module_ms-font-weight-semilight_delve">0.5 hr</div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </span>
-                                                                            </div>
-                                                                            <div style="position: absolute; left: 133px; top: 258px;">
-                                                                                <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1"></span>
-                                                                            </div>
-                                                                            <div style="position: absolute; left: 224px; top: 258px;">
-                                                                                <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1"></span>
-                                                                            </div>
-                                                                            <div style="position: absolute; left: 316px; top: 258px;">
-                                                                                <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1"></span>
-                                                                            </div>
-                                                                            <div style="position: absolute; left: 407px; top: 258px;">
-                                                                                <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1"></span>
-                                                                            </div>
-                                                                            <div style="position: absolute; left: 498px; top: 258px;">
-                                                                                <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1"></span>
-                                                                            </div>
-                                                                            <div style="position: absolute; left: 552px; top: 139px;">
-                                                                                <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1">
-                                                                                    <div class="ColumnChart-module_rowStyle_delve">
-                                                                                        <div class="ColumnChart-module_rowCenter_delve">
-                                                                                            <div class="ColumnChart-module_rowContainer_delve">
-                                                                                                <div class="ColumnChart-module_icon_delve"></div>
-                                                                                                <div class="ColumnChart-module_dataLabelText_delve fabric-module_ms-font-weight-semilight_delve">0.5 hr</div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </span>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="highcharts-data-labels" style="position: absolute; left: 10px; top: 10px; visibility: visible;">
-                                                                            <div style="position: absolute; left: 41px; top: 258px;">
-                                                                                <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1"></span>
-                                                                            </div>
-                                                                            <div style="position: absolute; left: 133px; top: 258px; visibility: hidden;">
-                                                                                <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1"></span>
-                                                                            </div>
-                                                                            <div style="position: absolute; left: 224px; top: 258px; visibility: hidden;">
-                                                                                <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1"></span>
-                                                                            </div>
-                                                                            <div style="position: absolute; left: 316px; top: 258px; visibility: hidden;">
-                                                                                <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1"></span>
-                                                                            </div>
-                                                                            <div style="position: absolute; left: 407px; top: 258px; visibility: hidden;">
-                                                                                <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1"></span>
-                                                                            </div>
-                                                                            <div style="position: absolute; left: 498px; top: 258px; visibility: hidden;">
-                                                                                <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1"></span>
-                                                                            </div>
-                                                                            <div style="position: absolute; left: 590px; top: 258px;">
-                                                                                <span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: bold; color: rgb(0, 0, 0); margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1"></span>
-                                                                            </div>
-                                                                        </div>
+                                                                       
+                                                                        
                                                                     </div>
                                                                 </div>
-                                                                <div aria-hidden="true" id="afterTimeDetailChart_hiddenTable" class="Chart-module_hiddenTable_delve">
-                                                                    <div>On Sun, 1/22 you spent 0.5 hours in meetings and 0 hours in emails.</div>
-                                                                    <div>On Mon, 1/23 you spent 0 hours in meetings and 0 hours in emails.</div>
-                                                                    <div>On Tue, 1/24 you spent 0 hours in meetings and 0 hours in emails.</div>
-                                                                    <div>On Wed, 1/25 you spent 0 hours in meetings and 0 hours in emails.</div>
-                                                                    <div>On Thu, 1/26 you spent 0 hours in meetings and 0 hours in emails.</div>
-                                                                    <div>On Fri, 1/27 you spent 0 hours in meetings and 0 hours in emails.</div>
-                                                                    <div>On Sat, 1/28 you spent 0.5 hours in meetings and 0 hours in emails.</div>
-                                                                </div>
+                                                               
                                                             </div>
                                                         </div>
                                                     </div>
