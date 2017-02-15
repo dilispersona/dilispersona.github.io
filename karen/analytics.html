@@ -328,9 +328,31 @@
                 $scope.goal4 = 10;
                 $scope.edit_goal_title = ""; 
                 $scope.tab = 'important';
+                $scope.JamieChild = false;
+                $scope.JamieParent = true;
+                $scope.GregChild = false;
+                $scope.GregParent = true;
+                $scope.SpencerChild = false;
+                $scope.SpencerParent = true;
+                $scope.JulianChild = false;
+                $scope.JulianParent = true;
+                $scope.time1 = true;
+                $scope.time2 = false;            
+                
+                
                 $scope.editGoal = function(title){
                     $scope.edit_goal_title = title;
                 }   
+                $scope.reloadRoute = function(){
+                    window.location.reload();
+                    var dateValue = "1/15/2017 - 1/21/2017";
+                    localStorage.setItem("dateValue", dateValue);
+                }
+                $scope.reloadNext =  function(){
+                     window.location.reload();
+                     localStorage.removeItem("dateValue");
+                }
+
                 $scope.saveGoal = function(goal){                    
                     if($scope.edit_goal_title === 'Meeting'){
                          $scope.goal1 = goal;
@@ -403,7 +425,12 @@
          $(document).ready(function(){
 
 
-          
+            var dateVal  = localStorage.getItem("dateValue");
+            if(dateVal){
+                console.log(dateVal);
+                $("#datetime").html(dateVal);
+            }
+
             $('#content2').hide();
             $("#loader2").delay(800).fadeOut();
             $('#content2').delay(1000).fadeIn();
@@ -492,17 +519,27 @@
                 $("#timeSettingsPopup").hide();
             })
 
+            // $("#weekPickerPreviousButton").click(function(){
+            //     document.location.reload();
+            // })
+
+            // $("#weekPickerPreviousButton").click(function(){
+            //     document.location.reload();
+            // })
+
             var x = 0, y =0;
 
-            $("#nextCarouselBtn").click(function(){
-                
+            $("#nextCarouselBtn").click(function(){                
              x += -16.66;  
                 $(".CollaboratorCarousel-module_slideWrapper_delve").css("transform","translateX("+x+"%)");
             });
 
-            $("#prevCarouselBtn").click(function(){
-                x += 16.66;
-                $(".CollaboratorCarousel-module_slideWrapper_delve").css("transform","translateX("+x+"%)");
+            $("#prevCarouselBtn").click(function(){               
+                if(!x <= 0){
+                     x += 16.66;                
+                    $(".CollaboratorCarousel-module_slideWrapper_delve").css("transform","translateX("+x+"%)");
+                }
+               
             })
 
 
@@ -32939,13 +32976,14 @@
                                 <!-- react-empty: 76294 -->
                                 <div class="PersonalInsightsPage-module_weekPicker_delve">
                                     <div class="WeekPicker-module_weekPicker_delve fabric-module_ms-font-weight-regular_delve">
-                                        <button tabindex="0" aria-label="Go to previous week" title="Go to previous week" id="weekPickerPreviousButton" class="WeekPicker-module_arrow_delve">
+                                        <button tabindex="0" aria-label="Go to previous week" title="Go to previous week" id="weekPickerPreviousButton" class="WeekPicker-module_arrow_delve" ng-click="reloadRoute()">
                                             <span class="WeekPicker-module_chevronThickLeft_delve fabric-module_ms-Icon_delve"></span>
                                         </button>
                                         <div tabindex="0" class="WeekPicker-module_date_delve" aria-label="From 1/22/2017 to 1/28/2017">
-                                            <span aria-hidden="true">1/22/2017 - 1/28/2017</span>
+                                            <span aria-hidden="true" id="datetime" >1/22/2017 to 1/28/2017</span>
+                                            
                                         </div>
-                                        <button aria-label="Next week disabled" title="Next week disabled" id="weekPickerNextDisabledButton" class="WeekPicker-module_arrowDisabled_delve"></button>
+                                       <button ng-click="reloadNext()" aria-label="Go to next week" title="Go to next week" id="weekPickerNextButton" class="WeekPicker-module_arrow_delve" tabindex="0"><span class="WeekPicker-module_chevronThickRight_delve fabric-module_ms-Icon_delve"></span></button>
                                     </div>
                                 </div>
                                 <div>
@@ -36279,7 +36317,9 @@
                                                                 </div>
                                                                 <div class="CollaboratorCarousel-module_slideWrapper_delve" tabindex="-1" style="transform: translateX(0%); width: 100%;">
                                                         <article class="CollaboratorCarousel-module_slideSingle_delve fabric-module_ms-font-l_delve fabric-module_ms-font-weight-semilight_delve" tabindex="-1" style="width: 100%;" >
-                                                                        <div class="CollaboratorCard-module_pinnedUserContainerExtra_delve CollaboratorCard-module_pinnedUserContainer_delve" id="headOfPinneeList" tabindex="0" aria-label="Collaboration Details for user Jamie Reding Total time 5.5 hrs
+                                                                        
+                                                                        
+                                                                        <div ng-show="JamieParent" class="CollaboratorCard-module_pinnedUserContainerExtra_delve CollaboratorCard-module_pinnedUserContainer_delve" id="headOfPinneeList" tabindex="0" aria-label="Collaboration Details for user Jamie Reding Total time 5.5 hrs
                             Read percent Not applicable
                             Response time Not applicable">
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
@@ -36289,7 +36329,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Jamie Reding (jamier@cie814173.onmicrosoft.com)">Jamie Reding</div>
-                                                                                <button title="Remove star" class="PersonalInsightsCommonStyles-module_icon_pin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--star_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Remove star Jamie Reding" tabindex="0"></button>
+                                                                                <button title="Remove star" class="PersonalInsightsCommonStyles-module_icon_pin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--star_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Remove star Jamie Reding" tabindex="0" ng-click="JamieChild=true;JamieParent=false"></button>
                                                                             </div>
                                                                             <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard00" aria-hidden="true">
                                                                                 <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
@@ -36310,7 +36350,37 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Greg Winston Total time 5.5 hrs
+
+
+
+     <div class="CollaboratorCard-module_pinnedUserContainerExtra_delve CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Click to star your top collaborator Jamie Reding" ng-show="JamieChild">
+                                                                            <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                                <div class="CollaboratorCard-module_userImage_delve">
+                                                                                    <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                                                                                        <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Jamie Reding (jamier@cie814173.onmicrosoft.com)">Jamie Reding</div>
+                                                                            </div>
+                                                                            <div class="CollaboratorCard-module_candidateGray_delve" id="mainCard02" aria-hidden="true">
+                                                                                <span class="CollaboratorCard-module_iconPlus_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--plus_delve" ng-click="JamieChild=false;JamieParent=true"></span>
+                                                                            </div>
+                                                                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                        <div ng-show="GregParent" class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Greg Winston Total time 5.5 hrs
                             Read percent Not applicable
                             Response time Not applicable">
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
@@ -36320,7 +36390,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Greg Winston (gregw@cie814173.onmicrosoft.com)">Greg Winston</div>
-                                                                                <button title="Remove star" class="PersonalInsightsCommonStyles-module_icon_pin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--star_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Remove star Greg Winston" tabindex="0"></button>
+                                                                                <button title="Remove star" class="PersonalInsightsCommonStyles-module_icon_pin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--star_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Remove star Greg Winston" tabindex="0"  ng-click="GregChild=true;GregParent=false"></button>
                                                                             </div>
                                                                             <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard01" aria-hidden="true">
                                                                                 <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
@@ -36341,7 +36411,27 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Spencer Low Total time 4.5 hrs
+
+
+
+                    <div class="CollaboratorCard-module_pinnedUserContainer_delve CollaboratorCard-module_pinCandidate_delve" id="" tabindex="0" aria-label="Click to star your top collaborator Jamie Reding" ng-show="GregChild">
+                <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                    <div class="CollaboratorCard-module_userImage_delve">
+                        <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
+                        </div>
+                    </div>
+                    <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Jamie Reding (jamier@cie814173.onmicrosoft.com)">Greg Winston</div>
+                </div>
+                <div class="CollaboratorCard-module_candidateGray_delve" id="mainCard02" aria-hidden="true">
+                    <span class="CollaboratorCard-module_iconPlus_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--plus_delve" ng-click="GregChild=false;GregParent=true"></span>
+                </div>
+            </div>
+
+
+
+
+                                                                        <div ng-show="SpencerParent" class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Spencer Low Total time 4.5 hrs
                             Read percent Not applicable
                             Response time Not applicable">
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
@@ -36351,7 +36441,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Spencer Low (spencerl@cie814173.onmicrosoft.com)">Spencer Low</div>
-                                                                                <button title="Remove star" class="PersonalInsightsCommonStyles-module_icon_pin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--star_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Remove star Spencer Low" tabindex="0"></button>
+                                                                                <button title="Remove star" class="PersonalInsightsCommonStyles-module_icon_pin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--star_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Remove star Spencer Low" tabindex="0" ng-click="SpencerChild=true;SpencerParent=false"></button>
                                                                             </div>
                                                                             <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard02" aria-hidden="true">
                                                                                 <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
@@ -36372,7 +36462,25 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Julian Isla Total time 4.5 hrs
+
+
+            <div class="CollaboratorCard-module_pinnedUserContainer_delve CollaboratorCard-module_pinCandidate_delve" id="" tabindex="0" aria-label="Click to star your top collaborator Jamie Reding" ng-show="SpencerChild">
+                <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                    <div class="CollaboratorCard-module_userImage_delve">
+                        <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
+                        </div>
+                    </div>
+                    <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Jamie Reding (jamier@cie814173.onmicrosoft.com)">Spencer Low</div>
+                </div>
+                <div class="CollaboratorCard-module_candidateGray_delve" id="mainCard02" aria-hidden="true">
+                    <span class="CollaboratorCard-module_iconPlus_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--plus_delve" ng-click="SpencerChild=false;SpencerParent=true"></span>
+                </div>
+            </div>
+
+
+
+                                                                        <div ng-show="JulianParent" class="CollaboratorCard-module_pinnedUserContainer_delve" id="" tabindex="0" aria-label="Collaboration Details for user Julian Isla Total time 4.5 hrs
                             Read percent Not applicable
                             Response time Not applicable">
                                                                             <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
@@ -36382,7 +36490,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Julian Isla (juliani@cie814173.onmicrosoft.com)">Julian Isla</div>
-                                                                                <button title="Remove star" class="PersonalInsightsCommonStyles-module_icon_pin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--star_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Remove star Julian Isla" tabindex="0"></button>
+                                                                                <button title="Remove star" class="PersonalInsightsCommonStyles-module_icon_pin_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--star_delve CollaboratorCard-module_rightFloatAndMargin_delve" aria-label="Click to Remove star Julian Isla" tabindex="0" ng-click="JulianChild=true;JulianParent=false"></button>
                                                                             </div>
                                                                             <div class="CollaboratorCard-module_matricsContainer_delve" id="mainCard03" aria-hidden="true">
                                                                                 <div class="CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
@@ -36403,6 +36511,24 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+
+                
+                    <div class="CollaboratorCard-module_pinnedUserContainer_delve CollaboratorCard-module_pinCandidate_delve" id="" tabindex="0" aria-label="Click to star your top collaborator Jamie Reding" ng-show="JulianChild">
+                <div class="CollaboratorCard-module_topPartOfInfo_delve CollaboratorCard-module_infoContainerGray_delve fabric-module_ms-font-weight-semilight_delve">
+                    <div class="CollaboratorCard-module_userImage_delve">
+                        <div class="PersonalInsightsCommonStyles-module_personaPhotoClass_delve" role="gridcell">
+                            <div class="PersonalInsightsCommonStyles-module_roundImage_delve personImage circularImage silhouette" style="background-image: url(anonymous.jpg);"></div>
+                        </div>
+                    </div>
+                    <div class="CollaboratorCard-module_userDataLeftName_delve fabric-module_ms-font-weight-regular_delve" title="Jamie Reding (jamier@cie814173.onmicrosoft.com)">Julian Isla</div>
+                </div>
+                <div class="CollaboratorCard-module_candidateGray_delve" id="mainCard02" aria-hidden="true">
+                    <span class="CollaboratorCard-module_iconPlus_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--plus_delve" ng-click="JulianChild=false;JulianParent=true"></span>
+                </div>
+            </div>
+
+
+
                                                                     </article>
                                                                 </div>
                                                                 <div class="CollaboratorCarousel-module_nav_delve">
