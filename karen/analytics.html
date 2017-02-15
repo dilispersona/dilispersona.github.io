@@ -56,7 +56,14 @@
                                 pointWidth: 70,                                
                                 dataLabels: {
                                     enabled: true,
-                                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'grey'
+                                }
+                            },
+                            series: {
+                                states: {
+                                    hover: {
+                                        enabled: false
+                                    }
                                 }
                             }
                         },
@@ -113,7 +120,14 @@
                                 pointWidth: 70,                                
                                 dataLabels: {
                                     enabled: true,
-                                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'grey'
+                                }
+                            },
+                            series: {
+                                states: {
+                                    hover: {
+                                        enabled: false
+                                    }
                                 }
                             }
                         },
@@ -146,7 +160,12 @@
                             text: ''
                         },
                         xAxis: {
-                            categories: 'Weeks'
+                            title:{
+                                text:'Weeks'
+                            },
+                            labels:{
+                                enabled:false
+                            }
                         },
                         exporting: { 
                             enabled: false
@@ -183,7 +202,12 @@
                             text: ''
                         },
                         xAxis: {
-                            categories: 'Weeks'
+                           title:{
+                                text:'Weeks'
+                            },
+                            labels:{
+                                enabled:false
+                            }
                         },
                         exporting: { 
                             enabled: false
@@ -220,7 +244,12 @@
                             text: ''
                         },
                         xAxis: {
-                            categories: 'Weeks'
+                           title:{
+                                text:'Weeks'
+                            },
+                            labels:{
+                                enabled:false
+                            }
                         },
                         exporting: { 
                             enabled: false
@@ -258,7 +287,12 @@
                             text: ''
                         },
                         xAxis: {
-                            categories: 'Weeks'
+                            title:{
+                                text:'Weeks'
+                            },
+                            labels:{
+                                enabled:false
+                            }
                         },
                         exporting: { 
                             enabled: false
@@ -450,6 +484,14 @@
                  $(".FixedDataTable-module_scrollRegion_delve.meeting-habbits").hide();
             })
 
+
+            $("#timeSettings").click(function(){
+                $("#timeSettingsPopup").show();
+            })
+            $(".TimeSettings-module_crossButton_delve").click(function(){
+                $("#timeSettingsPopup").hide();
+            })
+
             var x = 0, y =0;
 
             $("#nextCarouselBtn").click(function(){
@@ -469,7 +511,46 @@
         </script>
         <!--<link rel="shortcut icon" href="https://cie814173-my.sharepoint.com/_layouts/15/images/ME.ico?rev=44" type="image/vnd.microsoft.icon" id="favicon">-->
         <title>Delve – MyAnalytics</title>
-        <style type="text/css">
+        <style type="text/css">  
+
+        .TimeSettings-module_scrollRegion_delve {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -o-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                position: fixed;
+                top: 50px;
+                height: calc(100% - 50px);
+                width: 100%;
+                overflow-y: auto;
+                z-index: 119
+            }
+
+            html[dir=ltr] .TimeSettings-module_scrollRegion_delve {
+                left: 0;
+                border: none;
+                background-color: rgba(0,0,0,.5)
+            }
+
+            html[dir=rtl] .TimeSettings-module_scrollRegion_delve {
+                right: 0;
+                border: none;
+                background-color: rgba(0,0,0,.5)
+            }
+
+            .TimeSettings-module_scrollRegion_delve:active {
+                outline: 0
+            }
+
+            .TimeSettings-module_scrollRegion_delve:hover {
+                cursor: default
+            }      
+
+            .highcharts-label text tspan{
+                stroke: none !important;
+            }
             .fabric-module_clearfix_delve,.fabric-module_ms-u-clearfix_delve {
                 zoom:1}
 
@@ -32970,6 +33051,89 @@
                                                         <a id="timeSettings" tabindex="0" href="javascript:void(0)" aria-label="Time settings">Time settings</a>
                                                     </div>
                                                 </div>
+
+
+<!--*************************Time setting popups***********************************************-->
+
+
+<div class="TimeSettings-module_scrollRegion_delve" id="timeSettingsPopup">
+                                                <div class="TimeSettings-module_container_delve fabric-module_ms-u-scaleUpIn100_delve fabric-module_ms-font-m_delve">
+                                                    <div class="TimeSettings-module_content_delve">
+                                                        <div class="TimeSettings-module_titleRow_delve">
+                                                            <div id="timeSettings" class="TimeSettings-module_title_delve fabric-module_ms-font-weight-semilight_delve" tabindex="0" aria-label="Your time settings determine your focus hours and after hours calculation.">Your time settings determine your focus hours and after hours calculation.</div>
+                                                            <button class="TimeSettings-module_crossButton_delve fabric-module_ms-Icon_delve fabric-module_ms-Icon--x_delve" tabindex="0" title="Close"></button>
+                                                        </div>
+                                                        <div class="TimeSettings-module_row_delve" tabindex="0" aria-label="Time Zone(s)(UTC-08:00) Pacific Time (US &amp; Canada)">
+                                                            <div class="TimeSettings-module_rowLabel_delve fabric-module_ms-font-weight-semilight_delve">
+                                                            <!-- react-text: 1557 -->
+                                                            Time Zone(s)
+                                                            <!-- /react-text -->
+                                                            <!-- react-text: 1558 -->
+                                                            :
+                                                            <!-- /react-text -->
+                                                            </div>
+                                                            <div class="TimeSettings-module_rowValue_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                <!-- react-text: 1560 -->
+                                                                (UTC-08:00) Pacific Time (US &amp;Canada)
+                                                                <!-- /react-text -->
+                                                                <!-- react-text: 1561 -->
+                                                                (
+                                                                <!-- /react-text -->
+                                                                <a aria-label="change" class="TimeSettings-module_changeLink_delve" href="javascript:void(0)" tabindex="0">change</a>
+                                                                <!-- react-text: 1563 -->
+                                                                )
+                                                                <!-- /react-text -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="TimeSettings-module_row_delve" tabindex="0" aria-label="Work week">
+                                                            <div class="TimeSettings-module_rowLabel_delve fabric-module_ms-font-weight-semilight_delve">
+                                                            <!-- react-text: 1566 -->
+                                                            Work week
+                                                            <!-- /react-text -->
+                                                            <!-- react-text: 1567 -->
+                                                            :
+                                                            <!-- /react-text -->
+                                                            </div>
+                                                            <div class="TimeSettings-module_rowValue_delve fabric-module_ms-font-weight-semilight_delve">
+                                                                <div tabindex="0" aria-label="Monday, Tuesday, Wednesday, Thursday, Friday">Monday, Tuesday, Wednesday, Thursday, Friday</div>
+                                                                <div tabindex="0" aria-label="8:00am - 5:00pm">
+                                                                    <!-- react-text: 1571 -->
+                                                                    8:00am - 5:00pm
+                                                                    <!-- /react-text -->
+                                                                    <!-- react-text: 1572 -->
+                                                                    (
+                                                                    <!-- /react-text -->
+                                                                    <a aria-label="change" class="TimeSettings-module_changeLink_delve" href="javascript:void(0)" tabindex="0">change</a>
+                                                                    <!-- react-text: 1574 -->
+                                                                    )
+                                                                    <!-- /react-text -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="TimeSettings-module_notes_delve fabric-module_ms-font-weight-semilight_delve" tabindex="0" aria-label="Changes made will be reflected in your next week&#39;s data">Changes made will be reflected in your next week's data</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="WeekCardSummary-module_weekCardContent_delve fabric-module_ms-Grid-row_delve" id="loader2">
