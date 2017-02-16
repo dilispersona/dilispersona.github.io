@@ -51,8 +51,7 @@
                                 },
                                 series: [{
                                     name: '',
-                                    data: [ 23, 8 ,7 , 5.5, 6.5],
-                                    color:'#00b0c4'
+                                    data: [ {y:23,color:'#69c8c0'}, {y:1,color:'#00b0c4'}, {y:7,color:'#00b0c2'} , {y:5.5,color:'#37a1bf'} , {y:6.5,color:'#3f8eab'}]                                    
                                 }]
                     });
 
@@ -33263,7 +33262,7 @@
                                                             </div>
                                                             <div class="">
                                                                 <div aria-hidden="true" class="WeekTypeCard-module_row_delve fabric-module_ms-Grid-row_delve WeekTypeCard-module_cardDataRow_delve fabric-module_ms-Grid-row_delve">
-                                                                    <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">4.5</div>
+                                                                    <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">23</div>
                                                                     <div class="WeekTypeCard-module_progressContainerRow_delve pulse-responsive-module_ms-u-sm8_delve fabric-module_ms-Grid-col_delve">
                                                                         <div class="WeekTypeCard-module_goalText_delve fabric-module_ms-Grid-row_delve">Goal &lt; {{goal1}} hrs</div>
                                                                         <div class="WeekTypeCard-module_progressRow_delve fabric-module_ms-Grid-row_delve">
@@ -33290,7 +33289,7 @@
                                                             </div>
                                                             <div class="">
                                                                 <div aria-hidden="true" class="WeekTypeCard-module_row_delve fabric-module_ms-Grid-row_delve WeekTypeCard-module_cardDataRow_delve fabric-module_ms-Grid-row_delve">
-                                                                    <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">5</div>
+                                                                    <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">15.2</div>
                                                                     <div class="WeekTypeCard-module_progressContainerRow_delve pulse-responsive-module_ms-u-sm8_delve fabric-module_ms-Grid-col_delve">
                                                                         <div class="WeekTypeCard-module_goalText_delve fabric-module_ms-Grid-row_delve">Goal &lt;{{goal2}} hrs</div>
                                                                         <div class="WeekTypeCard-module_progressRow_delve fabric-module_ms-Grid-row_delve">
@@ -33316,7 +33315,7 @@
                                                             </div>
                                                             <div class="">
                                                                 <div aria-hidden="true" class="WeekTypeCard-module_row_delve fabric-module_ms-Grid-row_delve WeekTypeCard-module_cardDataRow_delve fabric-module_ms-Grid-row_delve">
-                                                                    <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">39.5</div>
+                                                                    <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">5</div>
                                                                     <div class="WeekTypeCard-module_progressContainerRow_delve pulse-responsive-module_ms-u-sm8_delve fabric-module_ms-Grid-col_delve">
                                                                         <div class="WeekTypeCard-module_goalText_delve fabric-module_ms-Grid-row_delve">Goal &gt;{{goal3}} hrs</div>
                                                                         <div class="WeekTypeCard-module_progressRow_delve fabric-module_ms-Grid-row_delve">
@@ -33342,7 +33341,7 @@
                                                             </div>
                                                             <div class="">
                                                                 <div aria-hidden="true" class="WeekTypeCard-module_row_delve fabric-module_ms-Grid-row_delve WeekTypeCard-module_cardDataRow_delve fabric-module_ms-Grid-row_delve">
-                                                                    <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">1</div>
+                                                                    <div class="WeekTypeCard-module_cardNumber_delve pulse-responsive-module_ms-u-sm4_delve fabric-module_ms-Grid-col_delve">3.1</div>
                                                                     <div class="WeekTypeCard-module_progressContainerRow_delve pulse-responsive-module_ms-u-sm8_delve fabric-module_ms-Grid-col_delve">
                                                                         <div class="WeekTypeCard-module_goalText_delve fabric-module_ms-Grid-row_delve">Goal &lt;{{goal4}} hrs</div>
                                                                         <div class="WeekTypeCard-module_progressRow_delve fabric-module_ms-Grid-row_delve">
@@ -36304,7 +36303,7 @@
                             <div class="fixedDataTableLayout_bottomShadow public_fixedDataTable_bottomShadow" style="top: 438px;"></div>
                         </div>
                         <div class="ScrollbarLayout_main ScrollbarLayout_mainVertical public_Scrollbar_main" tabindex="-1" style="top: 40px; height: 398px; z-index: 99; right: 0px;">
-                            <div class="ScrollbarLayout_face ScrollbarLayout_faceVertical public_Scrollbar_face" style="height: 164.178px; transform: translate3d(0px, 90.5217px, 0px); backface-visibility: hidden;"></div>
+                            <div class="ScrollbarLayout_face ScrollbarLayout_faceVertical public_Scrollbar_face" style="display:none"></div>
                         </div>
                     </div>
                 </div>
@@ -37241,10 +37240,9 @@
                                                                             <div class="WorkHoursCurrentWeek-module_trendAndUnit_delve">
                                                                                 <div class="WorkHoursCurrentWeek-module_trendIndicator_delve">
                                                                                     <span aria-hidden="true" class="TrendIndicator-module_trendIndicator_delve">
-                                                                                        <span class="TrendIndicator-module_medium_delve">0</span>
-                                                                                        <!-- react-text: 76620 -->
-                                                                                        - 
-                                                                                        <!-- /react-text -->
+                                                                                        <span class="TrendIndicator-module_medium_delve" style="color:red">+0.5</span>
+                                                                                         <span class="TrendIndicator-module_msIcon_delve fabric-module_ms-Icon_delve TrendIndicator-module_msIconTriangleUp_delve TrendIndicator-module_medium_delve" style="color:red" title="+1"></span>
+                                                                                       
                                                                                     </span>
                                                                                 </div>
                                                                                 <div class="WorkHoursCurrentWeek-module_unit_delve">hrs</div>
@@ -38915,10 +38913,10 @@
                                                                             <div class="WorkHoursCurrentWeek-module_trendAndUnit_delve">
                                                                                 <div class="WorkHoursCurrentWeek-module_trendIndicator_delve">
                                                                                     <span aria-hidden="true" class="TrendIndicator-module_trendIndicator_delve">
-                                                                                        <span class="TrendIndicator-module_medium_delve">0</span>
-                                                                                        <!-- react-text: 76599 -->
-                                                                                        - 
-                                                                                        <!-- /react-text -->
+                                                                                        <span class="TrendIndicator-module_medium_delve" style="color:green">-2.5</span>
+                                                                                         <span class="TrendIndicator-module_msIcon_delve fabric-module_ms-Icon_delve TrendIndicator-module_msIconTriangleDown_delve TrendIndicator-module_medium_delve" style="color:green" title="+1"></span>
+
+                                                                                       
                                                                                     </span>
                                                                                 </div>
                                                                                 <div class="WorkHoursCurrentWeek-module_unit_delve">hrs</div>
@@ -39654,9 +39652,7 @@
                                                                             <div class="EmailEffectiveness-module_trendIndicator_delve">
                                                                                 <span aria-hidden="true" class="TrendIndicator-module_trendIndicator_delve">
                                                                                     <span class="TrendIndicator-module_medium_delve">0</span>
-                                                                                    <!-- react-text: 76450 -->
-                                                                                    - 
-                                                                                    <!-- /react-text -->
+                                                                                   
                                                                                 </span>
                                                                             </div>
                                                                             <div class="EmailEffectiveness-module_responseText_delve" aria-label="hours">hrs</div>
@@ -39719,10 +39715,10 @@
                                                                             <div class="WorkHoursCurrentWeek-module_trendAndUnit_delve">
                                                                                 <div class="WorkHoursCurrentWeek-module_trendIndicator_delve">
                                                                                     <span aria-hidden="true" class="TrendIndicator-module_trendIndicator_delve">
-                                                                                        <span class="TrendIndicator-module_medium_delve">0</span>
-                                                                                        <!-- react-text: 76641 -->
-                                                                                        - 
-                                                                                        <!-- /react-text -->
+                                                                                        <span class="TrendIndicator-module_medium_delve" style="color:red">-6.5</span>
+                                                                                        <span class="TrendIndicator-module_msIcon_delve fabric-module_ms-Icon_delve TrendIndicator-module_msIconTriangleDown_delve TrendIndicator-module_medium_delve" style="color:red" title="+1"></span>
+
+                                                                                       
                                                                                     </span>
                                                                                 </div>
                                                                                 <div class="WorkHoursCurrentWeek-module_unit_delve">hrs</div>
@@ -39805,10 +39801,9 @@
                                                                             <div class="WorkHoursCurrentWeek-module_trendAndUnit_delve">
                                                                                 <div class="WorkHoursCurrentWeek-module_trendIndicator_delve">
                                                                                     <span aria-hidden="true" class="TrendIndicator-module_trendIndicator_delve">
-                                                                                        <span class="TrendIndicator-module_medium_delve">0</span>
-                                                                                        <!-- react-text: 76662 -->
-                                                                                        - 
-                                                                                        <!-- /react-text -->
+                                                                                        <span class="TrendIndicator-module_medium_delve" style="color:green">-7.7</span>
+                                                                                    <span class="TrendIndicator-module_msIcon_delve fabric-module_ms-Icon_delve TrendIndicator-module_msIconTriangleDown_delve TrendIndicator-module_medium_delve" style="color:green" title="+1"></span>
+
                                                                                     </span>
                                                                                 </div>
                                                                                 <div class="WorkHoursCurrentWeek-module_unit_delve">hrs</div>
