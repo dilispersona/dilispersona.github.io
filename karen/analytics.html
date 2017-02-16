@@ -8,14 +8,264 @@
         <meta name="google" value="notranslate">
         <!-- g_wsaEnabled flag should be set to true for enabling SLAPI logging -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>      
+        <script src="http://code.highcharts.com/highcharts-more.js"></script>
+        <script src="http://code.highcharts.com/modules/solid-gauge.js"></script>
         
         <script src="angular.min.js"></script>
 
-        <script>
+        <script>  
+
+
             
-            $(document).ready(function(){
+            $(document).ready(function(){  
+
+               
+
+                        Highcharts.chart('highcharts-0', {
+
+                                'chart': {
+                                    'type': 'solidgauge'
+                                },
+
+                                'credits': { 
+                                    'enabled': false
+                                },
+
+                                'title': null,
+
+                                'tooltip': {
+                                    'enabled': false
+                                },
+                                
+                                'pane': {
+                                'center': ['50%', '50%'],
+                                'size': '110px',
+                                'startAngle': 0,
+                                'endAngle': 360,
+                                'background': {
+                                    'backgroundColor': '#EEE',
+                                    'innerRadius': '90%',
+                                    'outerRadius': '100%',
+                                    'borderWidth': 0
+                                }
+                                },
+
+                                'yAxis': {
+                                'min': 0,
+                                'max': 100,
+                                'labels': {
+                                    'enabled': false
+                                },
+                            
+                                'lineWidth': 0,
+                                'minorTickInterval': null,
+                                'tickPixelInterval': 400,
+                                'tickWidth': 0
+                                },
+
+                                'plotOptions': {
+                                    'solidgauge': {
+                                        'innerRadius': '90%'
+                                    }
+                                },
+                                
+                                'series': [{
+                                    'name': 'Speed',
+                                    'data': [{y:90,color:'#60cad6'}],
+                                    'dataLabels': {
+                                        'enabled': false
+                                    }
+                                }]  
+
+                           });
+
+                        //    highcharts circular 2.....................
+
+
+                         Highcharts.chart('highcharts-6', {
+
+                                'chart': {
+                                    'type': 'solidgauge'
+                                },
+
+                                'credits': { 
+                                    'enabled': false
+                                },
+
+                                'title': null,
+
+                                'tooltip': {
+                                    'enabled': false
+                                },
+                                
+                                'pane': {
+                                'center': ['50%', '50%'],
+                                'size': '110px',
+                                'startAngle': 0,
+                                'endAngle': 360,
+                                'background': {
+                                    'backgroundColor': '#EEE',
+                                    'innerRadius': '90%',
+                                    'outerRadius': '100%',
+                                    'borderWidth': 0
+                                }
+                                },
+
+                                'yAxis': {
+                                'min': 0,
+                                'max': 100,
+                                'labels': {
+                                    'enabled': false
+                                },
+                            
+                                'lineWidth': 0,
+                                'minorTickInterval': null,
+                                'tickPixelInterval': 400,
+                                'tickWidth': 0
+                                },
+
+                                'plotOptions': {
+                                    'solidgauge': {
+                                        'innerRadius': '90%'
+                                    }
+                                },
+                                
+                                'series': [{
+                                    'name': 'Speed',
+                                    'data': [{y:100,color:'#69c4a8'}],
+                                    'dataLabels': {
+                                        'enabled': false
+                                    }
+                                }]  
+
+                           });
+
+                           // circular highchart 3
+
+
+                            Highcharts.chart('highcharts-4', {
+
+                                'chart': {
+                                    'type': 'solidgauge'
+                                },
+
+                                'credits': { 
+                                    'enabled': false
+                                },
+
+                                'title': null,
+
+                                'tooltip': {
+                                    'enabled': false
+                                },
+                                
+                                'pane': {
+                                'center': ['50%', '50%'],
+                                'size': '110px',
+                                'startAngle': 0,
+                                'endAngle': 360,
+                                'background': {
+                                    'backgroundColor': '#EEE',
+                                    'innerRadius': '90%',
+                                    'outerRadius': '100%',
+                                    'borderWidth': 0
+                                }
+                                },
+
+                                'yAxis': {
+                                'min': 0,
+                                'max': 100,
+                                'labels': {
+                                    'enabled': false
+                                },
+                            
+                                'lineWidth': 0,
+                                'minorTickInterval': null,
+                                'tickPixelInterval': 400,
+                                'tickWidth': 0
+                                },
+
+                                'plotOptions': {
+                                    'solidgauge': {
+                                        'innerRadius': '90%'
+                                    }
+                                },
+                                
+                                'series': [{
+                                    'name': 'Speed',
+                                    'data': [{y:93,color:'#69c4a8'}],
+                                    'dataLabels': {
+                                        'enabled': false
+                                    }
+                                }]  
+
+                           });
+
+                           //Circular last highchart
+
+
+                            Highcharts.chart('highcharts-2', {
+
+                                'chart': {
+                                    'type': 'solidgauge'
+                                },
+
+                                'credits': { 
+                                    'enabled': false
+                                },
+
+                                'title': null,
+
+                                'tooltip': {
+                                    'enabled': false
+                                },
+                                
+                                'pane': {
+                                'center': ['50%', '50%'],
+                                'size': '110px',
+                                'startAngle': 0,
+                                'endAngle': 360,
+                                'background': {
+                                    'backgroundColor': '#EEE',
+                                    'innerRadius': '90%',
+                                    'outerRadius': '100%',
+                                    'borderWidth': 0
+                                }
+                                },
+
+                                'yAxis': {
+                                'min': 0,
+                                'max': 100,
+                                'labels': {
+                                    'enabled': false
+                                },
+                            
+                                'lineWidth': 0,
+                                'minorTickInterval': null,
+                                'tickPixelInterval': 400,
+                                'tickWidth': 0
+                                },
+
+                                'plotOptions': {
+                                    'solidgauge': {
+                                        'innerRadius': '90%'
+                                    }
+                                },
+                                
+                                'series': [{
+                                    'name': 'Speed',
+                                    'data': [{y:73,color:'#60cad6'}],
+                                    'dataLabels': {
+                                        'enabled': false
+                                    }
+                                }]  
+
+                           });
+                             
+
+                    //    First Bar chart/////////////////////////////////     
+
 
                         Highcharts.chart('highcharts-8', {
                                 chart: {
@@ -39358,63 +39608,17 @@
                                                                             <div tabindex="0" aria-label=" 0%, Sent to individual,
                                         (To/CC) " class="Chart-module_outerDiv_delve">
                                                                                 <div aria-hidden="true" id="emailReadSentByMeToCCDonutsData" data-highcharts-chart="0">
-                                                                                    <div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 130px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                                                                                        <svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="130" height="150" focusable="false">
-                                                                                            <desc>Created with Highcharts 4.1.8</desc>
-                                                                                            <defs>
-                                                                                                <pattern id="highcharts-default-pattern-0" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11" stroke="#7cb5ec" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-1" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 10 L 10 0 M -1 1 L 1 -1 M 9 11 L 11 9" stroke="#434348" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-2" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 3 0 L 3 10 M 8 0 L 8 10" stroke="#90ed7d" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-3" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 3 L 10 3 M 0 8 L 10 8" stroke="#f7a35c" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-4" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 3 L 5 3 L 5 0 M 5 10 L 5 7 L 10 7" stroke="#8085e9" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-5" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 3 3 L 8 3 L 8 8 L 3 8 Z" stroke="#f15c80" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-6" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 5 5 m -4 0 a 4 4 0 1 1 8 0 a 4 4 0 1 1 -8 0" stroke="#e4d354" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-7" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 10 3 L 5 3 L 5 0 M 5 10 L 5 7 L 0 7" stroke="#2b908f" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-8" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 2 5 L 5 2 L 8 5 L 5 8 Z" stroke="#f45b5b" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-9" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 0 L 5 10 L 10 0" stroke="#91e8e1" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="custom-pattern" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11" stroke="#7cb5ec" stroke-width="3"></path>
-                                                                                                </pattern>
-                                                                                                <clippath id="highcharts-1">
-                                                                                                    <rect x="0" y="0" width="110" height="125"></rect>
-                                                                                                </clippath>
-                                                                                            </defs>
-                                                                                            <rect x="0" y="0" width="130" height="150" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect>
-                                                                                            <g class="highcharts-series-group" zIndex="3">
-                                                                                                <g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)">
-                                                                                                    <path fill="#66cad7" d="M 54.987779607778286 2.5000012444832294 A 60 60 0 0 1 54.92777962513298 2.500043464870288 L 54.936807171991354 10.000038031761505 A 52.5 52.5 0 0 0 54.98930715680601 10.00000108892283 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path>
-                                                                                                    <path fill="#F5F5F5" d="M 54.987779607778286 2.5000012444832294 A 60 60 0 1 1 54.916661203715705 2.5000578779859666 L 54.92707855325124 10.00005064323772 A 52.5 52.5 0 1 0 54.98930715680601 10.00000108892283 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path>
-                                                                                                </g>
-                                                                                                <g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)"></g>
-                                                                                            </g>
-                                                                                            <g class="highcharts-legend" zIndex="7">
-                                                                                                <g zIndex="1">
-                                                                                                    <g></g>
-                                                                                                </g>
-                                                                                            </g>
-                                                                                        </svg>
-                                                                                        <span style="position: absolute; font-family: &quot;Segoe UI Web Semilight&quot;, &quot;Segoe UI Semilight&quot;, &quot;Segoe WP Semilight&quot;, &quot;Segoe UI&quot;, &quot;Segoe WP&quot;, Tahoma, Arial, sans-serif; font-size: 32px; white-space: nowrap; color: rgb(33, 33, 33); padding-left: 5px; margin-left: 0px; margin-top: 0px; left: 41px; top: 52px;" class="highcharts-title" zindex="4" transform="translate(0,0)">0%</span>
+                                                                                    <div class="highcharts-container"  id="highcharts-0" style="position: relative; overflow: hidden; width: 130px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">                                                                                     
+
+
+
+
+
+
+
+                                                                                     
                                                                                     </div>
+                                                                                       <span style="position: absolute; font-family: &quot;Segoe UI Web Semilight&quot;, &quot;Segoe UI Semilight&quot;, &quot;Segoe WP Semilight&quot;, &quot;Segoe UI&quot;, &quot;Segoe WP&quot;, Tahoma, Arial, sans-serif; font-size: 32px; white-space: nowrap; color: rgb(33, 33, 33); padding-left: 5px; margin-left: 0px; margin-top: 0px; left: 41px; top: 52px;" class="highcharts-title" zindex="4" transform="translate(0,0)">90%</span>
                                                                                 </div>
                                                                                 <div aria-hidden="true" id="emailReadSentByMeToCCDonutsData_hiddenTable" class="Chart-module_hiddenTable_delve">0%, Sent to individual,
                                         (To/CC) </div>
@@ -39424,62 +39628,14 @@
                                                                             <div tabindex="0" aria-label=" 0%, Sent to group" class="Chart-module_outerDiv_delve">
                                                                                 <div aria-hidden="true" id="emailReadSentByMeGroupDonutsData" data-highcharts-chart="1">
                                                                                     <div class="highcharts-container" id="highcharts-2" style="position: relative; overflow: hidden; width: 130px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                                                                                        <svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="130" height="150" focusable="false">
-                                                                                            <desc>Created with Highcharts 4.1.8</desc>
-                                                                                            <defs>
-                                                                                                <pattern id="highcharts-default-pattern-0" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11" stroke="#7cb5ec" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-1" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 10 L 10 0 M -1 1 L 1 -1 M 9 11 L 11 9" stroke="#434348" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-2" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 3 0 L 3 10 M 8 0 L 8 10" stroke="#90ed7d" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-3" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 3 L 10 3 M 0 8 L 10 8" stroke="#f7a35c" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-4" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 3 L 5 3 L 5 0 M 5 10 L 5 7 L 10 7" stroke="#8085e9" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-5" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 3 3 L 8 3 L 8 8 L 3 8 Z" stroke="#f15c80" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-6" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 5 5 m -4 0 a 4 4 0 1 1 8 0 a 4 4 0 1 1 -8 0" stroke="#e4d354" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-7" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 10 3 L 5 3 L 5 0 M 5 10 L 5 7 L 0 7" stroke="#2b908f" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-8" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 2 5 L 5 2 L 8 5 L 5 8 Z" stroke="#f45b5b" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-9" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 0 L 5 10 L 10 0" stroke="#91e8e1" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="custom-pattern" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11" stroke="#7cb5ec" stroke-width="3"></path>
-                                                                                                </pattern>
-                                                                                                <clippath id="highcharts-3">
-                                                                                                    <rect x="0" y="0" width="110" height="125"></rect>
-                                                                                                </clippath>
-                                                                                            </defs>
-                                                                                            <rect x="0" y="0" width="130" height="150" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect>
-                                                                                            <g class="highcharts-series-group" zIndex="3">
-                                                                                                <g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)">
-                                                                                                    <path fill="#66cad7" d="M 54.987779607778286 2.5000012444832294 A 60 60 0 0 1 54.92777962513298 2.500043464870288 L 54.936807171991354 10.000038031761505 A 52.5 52.5 0 0 0 54.98930715680601 10.00000108892283 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path>
-                                                                                                    <path fill="#F5F5F5" d="M 54.987779607778286 2.5000012444832294 A 60 60 0 1 1 54.916661203715705 2.5000578779859666 L 54.92707855325124 10.00005064323772 A 52.5 52.5 0 1 0 54.98930715680601 10.00000108892283 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path>
-                                                                                                </g>
-                                                                                                <g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)"></g>
-                                                                                            </g>
-                                                                                            <g class="highcharts-legend" zIndex="7">
-                                                                                                <g zIndex="1">
-                                                                                                    <g></g>
-                                                                                                </g>
-                                                                                            </g>
-                                                                                        </svg>
-                                                                                        <span style="position: absolute; font-family: &quot;Segoe UI Web Semilight&quot;, &quot;Segoe UI Semilight&quot;, &quot;Segoe WP Semilight&quot;, &quot;Segoe UI&quot;, &quot;Segoe WP&quot;, Tahoma, Arial, sans-serif; font-size: 32px; white-space: nowrap; color: rgb(33, 33, 33); padding-left: 5px; margin-left: 0px; margin-top: 0px; left: 41px; top: 52px;" class="highcharts-title" zindex="4" transform="translate(0,0)">0%</span>
+                                                                                        
+
+
+
+
+                                                                                        
                                                                                     </div>
+                                                                                    <span style="position: absolute; font-family: &quot;Segoe UI Web Semilight&quot;, &quot;Segoe UI Semilight&quot;, &quot;Segoe WP Semilight&quot;, &quot;Segoe UI&quot;, &quot;Segoe WP&quot;, Tahoma, Arial, sans-serif; font-size: 32px; white-space: nowrap; color: rgb(33, 33, 33); padding-left: 5px; margin-left: 0px; margin-top: 0px; left: 41px; top: 52px;" class="highcharts-title" zindex="4" transform="translate(0,0)">73%</span>
                                                                                 </div>
                                                                                 <div aria-hidden="true" id="emailReadSentByMeGroupDonutsData_hiddenTable" class="Chart-module_hiddenTable_delve">0%, Sent to group</div>
                                                                             </div>
@@ -39494,62 +39650,15 @@
                                         (To/CC)" class="Chart-module_outerDiv_delve">
                                                                                 <div aria-hidden="true" id="emailReadByMeSentToCCDonutsData" data-highcharts-chart="2">
                                                                                     <div class="highcharts-container" id="highcharts-4" style="position: relative; overflow: hidden; width: 130px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                                                                                        <svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="130" height="150" focusable="false">
-                                                                                            <desc>Created with Highcharts 4.1.8</desc>
-                                                                                            <defs>
-                                                                                                <pattern id="highcharts-default-pattern-0" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11" stroke="#7cb5ec" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-1" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 10 L 10 0 M -1 1 L 1 -1 M 9 11 L 11 9" stroke="#434348" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-2" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 3 0 L 3 10 M 8 0 L 8 10" stroke="#90ed7d" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-3" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 3 L 10 3 M 0 8 L 10 8" stroke="#f7a35c" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-4" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 3 L 5 3 L 5 0 M 5 10 L 5 7 L 10 7" stroke="#8085e9" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-5" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 3 3 L 8 3 L 8 8 L 3 8 Z" stroke="#f15c80" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-6" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 5 5 m -4 0 a 4 4 0 1 1 8 0 a 4 4 0 1 1 -8 0" stroke="#e4d354" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-7" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 10 3 L 5 3 L 5 0 M 5 10 L 5 7 L 0 7" stroke="#2b908f" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-8" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 2 5 L 5 2 L 8 5 L 5 8 Z" stroke="#f45b5b" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-9" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 0 L 5 10 L 10 0" stroke="#91e8e1" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="custom-pattern" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11" stroke="#7cb5ec" stroke-width="3"></path>
-                                                                                                </pattern>
-                                                                                                <clippath id="highcharts-5">
-                                                                                                    <rect x="0" y="0" width="110" height="125"></rect>
-                                                                                                </clippath>
-                                                                                            </defs>
-                                                                                            <rect x="0" y="0" width="130" height="150" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect>
-                                                                                            <g class="highcharts-series-group" zIndex="3">
-                                                                                                <g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)">
-                                                                                                    <path fill="#6cc5a6" d="M 54.987779607778286 2.5000012444832294 A 60 60 0 0 1 54.92777962513298 2.500043464870288 L 54.936807171991354 10.000038031761505 A 52.5 52.5 0 0 0 54.98930715680601 10.00000108892283 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path>
-                                                                                                    <path fill="#F5F5F5" d="M 54.987779607778286 2.5000012444832294 A 60 60 0 1 1 54.916661203715705 2.5000578779859666 L 54.92707855325124 10.00005064323772 A 52.5 52.5 0 1 0 54.98930715680601 10.00000108892283 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path>
-                                                                                                </g>
-                                                                                                <g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)"></g>
-                                                                                            </g>
-                                                                                            <g class="highcharts-legend" zIndex="7">
-                                                                                                <g zIndex="1">
-                                                                                                    <g></g>
-                                                                                                </g>
-                                                                                            </g>
-                                                                                        </svg>
-                                                                                        <span style="position: absolute; font-family: &quot;Segoe UI Web Semilight&quot;, &quot;Segoe UI Semilight&quot;, &quot;Segoe WP Semilight&quot;, &quot;Segoe UI&quot;, &quot;Segoe WP&quot;, Tahoma, Arial, sans-serif; font-size: 32px; white-space: nowrap; color: rgb(33, 33, 33); padding-left: 5px; margin-left: 0px; margin-top: 0px; left: 41px; top: 52px;" class="highcharts-title" zindex="4" transform="translate(0,0)">0%</span>
+                                                                                       
+
+
+
+
+
+                                                                                       
                                                                                     </div>
+                                                                                     <span style="position: absolute; font-family: &quot;Segoe UI Web Semilight&quot;, &quot;Segoe UI Semilight&quot;, &quot;Segoe WP Semilight&quot;, &quot;Segoe UI&quot;, &quot;Segoe WP&quot;, Tahoma, Arial, sans-serif; font-size: 32px; white-space: nowrap; color: rgb(33, 33, 33); padding-left: 5px; margin-left: 0px; margin-top: 0px; left: 41px; top: 52px;" class="highcharts-title" zindex="4" transform="translate(0,0)">91%</span>
                                                                                 </div>
                                                                                 <div aria-hidden="true" id="emailReadByMeSentToCCDonutsData_hiddenTable" class="Chart-module_hiddenTable_delve">0%, Sent to you,
                                         (To/CC)</div>
@@ -39559,62 +39668,15 @@
                                                                             <div tabindex="0" aria-label=" 0%, Sent to group" class="Chart-module_outerDiv_delve">
                                                                                 <div aria-hidden="true" id="emailReadByMeSentGroupDonutsData" data-highcharts-chart="3">
                                                                                     <div class="highcharts-container" id="highcharts-6" style="position: relative; overflow: hidden; width: 130px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                                                                                        <svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="130" height="150" focusable="false">
-                                                                                            <desc>Created with Highcharts 4.1.8</desc>
-                                                                                            <defs>
-                                                                                                <pattern id="highcharts-default-pattern-0" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11" stroke="#7cb5ec" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-1" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 10 L 10 0 M -1 1 L 1 -1 M 9 11 L 11 9" stroke="#434348" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-2" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 3 0 L 3 10 M 8 0 L 8 10" stroke="#90ed7d" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-3" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 3 L 10 3 M 0 8 L 10 8" stroke="#f7a35c" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-4" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 3 L 5 3 L 5 0 M 5 10 L 5 7 L 10 7" stroke="#8085e9" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-5" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 3 3 L 8 3 L 8 8 L 3 8 Z" stroke="#f15c80" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-6" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 5 5 m -4 0 a 4 4 0 1 1 8 0 a 4 4 0 1 1 -8 0" stroke="#e4d354" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-7" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 10 3 L 5 3 L 5 0 M 5 10 L 5 7 L 0 7" stroke="#2b908f" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-8" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 2 5 L 5 2 L 8 5 L 5 8 Z" stroke="#f45b5b" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="highcharts-default-pattern-9" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 0 L 5 10 L 10 0" stroke="#91e8e1" stroke-width="2"></path>
-                                                                                                </pattern>
-                                                                                                <pattern id="custom-pattern" patternUnits="userSpaceOnUse" width="10" height="10">
-                                                                                                    <path d="M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11" stroke="#7cb5ec" stroke-width="3"></path>
-                                                                                                </pattern>
-                                                                                                <clippath id="highcharts-7">
-                                                                                                    <rect x="0" y="0" width="110" height="125"></rect>
-                                                                                                </clippath>
-                                                                                            </defs>
-                                                                                            <rect x="0" y="0" width="130" height="150" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect>
-                                                                                            <g class="highcharts-series-group" zIndex="3">
-                                                                                                <g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)">
-                                                                                                    <path fill="#6cc5a6" d="M 54.987779607778286 2.5000012444832294 A 60 60 0 0 1 54.92777962513298 2.500043464870288 L 54.936807171991354 10.000038031761505 A 52.5 52.5 0 0 0 54.98930715680601 10.00000108892283 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path>
-                                                                                                    <path fill="#F5F5F5" d="M 54.987779607778286 2.5000012444832294 A 60 60 0 1 1 54.916661203715705 2.5000578779859666 L 54.92707855325124 10.00005064323772 A 52.5 52.5 0 1 0 54.98930715680601 10.00000108892283 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path>
-                                                                                                </g>
-                                                                                                <g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)"></g>
-                                                                                            </g>
-                                                                                            <g class="highcharts-legend" zIndex="7">
-                                                                                                <g zIndex="1">
-                                                                                                    <g></g>
-                                                                                                </g>
-                                                                                            </g>
-                                                                                        </svg>
-                                                                                        <span style="position: absolute; font-family: &quot;Segoe UI Web Semilight&quot;, &quot;Segoe UI Semilight&quot;, &quot;Segoe WP Semilight&quot;, &quot;Segoe UI&quot;, &quot;Segoe WP&quot;, Tahoma, Arial, sans-serif; font-size: 32px; white-space: nowrap; color: rgb(33, 33, 33); padding-left: 5px; margin-left: 0px; margin-top: 0px; left: 41px; top: 52px;" class="highcharts-title" zindex="4" transform="translate(0,0)">0%</span>
+                                                                                       
+
+
+
+
+
+                                                                                        
                                                                                     </div>
+                                                                                    <span style="position: absolute; font-family: &quot;Segoe UI Web Semilight&quot;, &quot;Segoe UI Semilight&quot;, &quot;Segoe WP Semilight&quot;, &quot;Segoe UI&quot;, &quot;Segoe WP&quot;, Tahoma, Arial, sans-serif; font-size: 32px; white-space: nowrap; color: rgb(33, 33, 33); padding-left: 5px; margin-left: 0px; margin-top: 0px; left:30px; top: 52px;" class="highcharts-title" zindex="4" transform="translate(0,0)">100%</span>
                                                                                 </div>
                                                                                 <div aria-hidden="true" id="emailReadByMeSentGroupDonutsData_hiddenTable" class="Chart-module_hiddenTable_delve">0%, Sent to group</div>
                                                                             </div>
@@ -39647,12 +39709,12 @@
                                                                 <div class="EmailEffectiveness-module_responseContainerLeft_delve fabric-module_ms-Grid-col_delve pulse-responsive-module_ms-u-sm6_delve" tabindex="0" aria-label="Others replied to you in, 0 hours this week, 0 hours more than last week">
                                                                     <div class="EmailEffectiveness-module_responseRowTitle_delve fabric-module_ms-font-weight-semilight_delve" aria-label="Others replied to you in">Others replied to you in</div>
                                                                     <div class="EmailEffectiveness-module_responseNumbersRow_delve">
-                                                                        <div class="EmailEffectiveness-module_responseNumber_delve">0</div>
+                                                                        <div class="EmailEffectiveness-module_responseNumber_delve">6</div>
                                                                         <div class="EmailEffectiveness-module_responseUpdown_delve">
                                                                             <div class="EmailEffectiveness-module_trendIndicator_delve">
                                                                                 <span aria-hidden="true" class="TrendIndicator-module_trendIndicator_delve">
-                                                                                    <span class="TrendIndicator-module_medium_delve">0</span>
-                                                                                   
+                                                                                    <span class="TrendIndicator-module_medium_delve">-0.3</span>
+                                                                                    <span class="TrendIndicator-module_msIcon_delve fabric-module_ms-Icon_delve TrendIndicator-module_msIconTriangleDown_delve TrendIndicator-module_medium_delve" style="color:black" title="+1"></span>
                                                                                 </span>
                                                                             </div>
                                                                             <div class="EmailEffectiveness-module_responseText_delve" aria-label="hours">hrs</div>
@@ -39662,14 +39724,12 @@
                                                                 <div class="EmailEffectiveness-module_responseContainerRight_delve fabric-module_ms-Grid-col_delve pulse-responsive-module_ms-u-sm6_delve" tabindex="0" aria-label="You replied to others in, 0 hours this week, 0 hours more than last week">
                                                                     <div class="EmailEffectiveness-module_responseRowTitle_delve fabric-module_ms-font-weight-semilight_delve" aria-label="You replied to others in">You replied to others in</div>
                                                                     <div class="EmailEffectiveness-module_responseNumbersRow_delve">
-                                                                        <div class="EmailEffectiveness-module_responseNumber_delve">0</div>
+                                                                        <div class="EmailEffectiveness-module_responseNumber_delve">8.6</div>
                                                                         <div class="EmailEffectiveness-module_responseUpdown_delve">
                                                                             <div class="EmailEffectiveness-module_trendIndicator_delve">
                                                                                 <span aria-hidden="true" class="TrendIndicator-module_trendIndicator_delve">
-                                                                                    <span class="TrendIndicator-module_medium_delve">0</span>
-                                                                                    <!-- react-text: 76460 -->
-                                                                                    - 
-                                                                                    <!-- /react-text -->
+                                                                                    <span class="TrendIndicator-module_medium_delve">-1.1</span>
+                                                                                  <span class="TrendIndicator-module_msIcon_delve fabric-module_ms-Icon_delve TrendIndicator-module_msIconTriangleDown_delve TrendIndicator-module_medium_delve" style="color:black" title="+1"></span>
                                                                                 </span>
                                                                             </div>
                                                                             <div class="EmailEffectiveness-module_responseText_delve" aria-label="hours">hrs</div>
