@@ -4,14 +4,14 @@
     </div>
     <h3 class="modal-title" id="myModalLabel">{{title}}</h3>
     <div class="timeline-bar row">
-        <ul class='htimeline'>
-            <li class='step col-sm-1 orange'></li>
-            <li class='step col-sm-1 grey'></li>
-            <li class='step col-sm-1 grey'></li>
-            <li class='step col-sm-1 grey'></li>
-            <li class='step col-sm-1 grey'></li>
-            <li class='step col-sm-1 grey'></li>
-            <li class='step col-sm-1 grey'></li>
+        <ul class='htimeline'>            
+            <li class='step col-sm-1 to-be-completed' ng-class="{'current-step':step == 1, 'completed': step == 2}"></li>
+            <li class='step col-sm-1 to-be-completed' ng-class="{'current-step':step == 2, 'completed': step == 3}"></li>
+            <li class='step col-sm-1 to-be-completed' ng-class="{'current-step':step == 3, 'completed': step == 4}"></li>
+            <li class='step col-sm-1 to-be-completed' ng-class="{'current-step':step == 4, 'completed': step == 5}"></li>
+            <li class='step col-sm-1 to-be-completed' ng-class="{'current-step':step == 5, 'completed': step == 6}"></li>
+            <li class='step col-sm-1 to-be-completed' ng-class="{'current-step':step == 6, 'completed': step == 7}"></li>
+            <li class='step col-sm-1 to-be-completed' ng-class="{'current-step':step == 7, 'completed': step == 8}"></li>
         </ul>
     </div>
 </div>

@@ -168,11 +168,12 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label for="templateSelect" class="control-label-modal col-md-4 omega">Customer Template</label>
-                            <div class="col-md-8">
-                                <select id="templateSelect" name="templateSelect" ng-model="contactDetail.TemplateId" class="form-control" ng-change="customerTemplateChanged(contactDetail.TemplateId)">
+                            <div class="col-md-8 select-dropdown">
+                                <select id="templateSelect" name="templateSelect" ng-model="contactDetail.TemplateId" class="form-control" ng-change="customerTemplateChanged(contactDetail.TemplateId)" ng-click="arrowActive = !arrowActive">
                                     <option ng-selected="contactDetail.TemplateId == -1" value="-1"></option>
-                                    <option ng-repeat="t in contactDetail.Templates" ng-selected="contactDetail.TemplateId == t.Id" value="{{t.Id}}">{{t.Name}}</option>
+                                    <option ng-repeat="t in contactDetail.Templates" ng-selected="contactDetail.TemplateId == t.Id" value="{{t.Id}}">{{t.Name}}</option>                                    
                                 </select>
+                                <span ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !arrowActive, 'icons-icon mdl2-scroll-chevron-up-legacy': arrowActive }"></span>                               
                             </div>
                         </div>
                     </div>
@@ -205,9 +206,10 @@
                         </div>
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label for="industrySelect" class="control-label-modal col-md-4 omega">Industry<span class="asterisk">*</span></label>
-                            <div class="col-md-8" ng-class="{ 'has-error' : customerForm.industrySelect.$invalid }">
-                                <select class="form-control" id="opt-industry" name="industrySelect" data-ng-required="true" ng-change="industryChanged(contactDetail.Customer.IndustryId)" data-ng-model="contactDetail.Customer.IndustryId" data-ng-options="i.Id as i.Name for i in contactDetail.Industries" ng-disabled="contactDetail.TemplateId > 0"></select>
+                            <div class="col-md-8 select-dropdown" ng-class="{ 'has-error' : customerForm.industrySelect.$invalid }">
+                                <select class="form-control" id="opt-industry" name="industrySelect" data-ng-required="true" ng-change="industryChanged(contactDetail.Customer.IndustryId)" data-ng-model="contactDetail.Customer.IndustryId" data-ng-options="i.Id as i.Name for i in contactDetail.Industries" ng-disabled="contactDetail.TemplateId > 0" ng-click="arrow = !arrow"></select>
                                 <span ng-show="customerForm.industrySelect.$error.required && !customerForm.industrySelect.$pristine" class="help-block">Industry selection is required.</span>
+                                <span ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !arrow, 'icons-icon mdl2-scroll-chevron-up-legacy': arrow }"></span>
                             </div>
                         </div>
                     </div>
@@ -223,8 +225,9 @@
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label class="control-label-modal col-md-4 omega">Language</label>
                             <div ng-show="(IsEdit || contactDetail.Languages.length == 1)" id="txt-languageName" class="control-label-modal col-md-3"><b>{{contactDetail.Customer.LanguageName}}</b></div>
-                            <div class="col-md-8">
-                                <select ng-show="!IsEdit && contactDetail.Languages.length > 1" class="form-control  col-md-3" id="opt-language" name="languageSelect" data-ng-required="true" data-ng-model="contactDetail.Customer.LanguageId" data-ng-options="l.Id as l.FriendlyName for l in contactDetail.Languages" ng-disabled="contactDetail.TemplateId > 0"></select>
+                            <div class="col-md-8 select-dropdown">
+                                <select ng-show="!IsEdit && contactDetail.Languages.length > 1" class="form-control  col-md-3" id="opt-language" name="languageSelect" data-ng-required="true" data-ng-model="contactDetail.Customer.LanguageId" data-ng-options="l.Id as l.FriendlyName for l in contactDetail.Languages" ng-disabled="contactDetail.TemplateId > 0" ng-click="langArrow = !langArrow"></select>
+                                <span ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !langArrow, 'icons-icon mdl2-scroll-chevron-up-legacy': langArrow }"></span>
                             </div>
                         </div>
                     </div>
@@ -292,9 +295,10 @@
                             </div>
                             <div id="countrySection" ng-show="contactDetail.Countries.length > 1">
                                 <label for="countrySelect" class="control-label-modal col-md-4 omega">Country<span class="asterisk">*</span></label>
-                                <div class="col-md-8" ng-class="{ 'has-error' : customerForm.countrySelect.$invalid }">
-                                    <select class="form-control" id="opt-country" ng-change="countryChanged()" name="countrySelect" data-ng-required="true" data-ng-model="contactDetail.Customer.Address.CountryId" data-ng-options="c.Id as c.CountryName for c in contactDetail.Countries" ng-disabled="contactDetail.TemplateId > 0"></select>
+                                <div class="col-md-8 select-dropdown" ng-class="{ 'has-error' : customerForm.countrySelect.$invalid }">
+                                    <select class="form-control" id="opt-country" ng-change="countryChanged()" name="countrySelect" data-ng-required="true" data-ng-model="contactDetail.Customer.Address.CountryId" data-ng-options="c.Id as c.CountryName for c in contactDetail.Countries" ng-disabled="contactDetail.TemplateId > 0" ng-click="arrowCtry = !arrowCtry"></select>
                                     <span ng-show="customerForm.countrySelect.$error.required && !customerForm.countrySelect.$pristine" class="help-block">Country selection is required.</span>
+                                    <span ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !arrowCtry, 'icons-icon mdl2-scroll-chevron-up-legacy': arrowCtry }"></span>
                                 </div>
                             </div>
                         </div>
@@ -458,45 +462,51 @@
             <h2 class="title">1.Select up to 3 industry scenarios to recommend to your customer based upon their needs.</h2>
 
             <!--Accordion-->
-            <div class="col-lg-12">
+            <div class="col-lg-12 recommended-scenarios">
                 <!-- ReSharper disable Html.TagNotResolved -->
                 <span class="text-danger" ng-show="HasReachedLimit()"><span class="glyphicon glyphicon-exclamation-sign"></span> Maximum number of content items reached. Remove one to change selections.</span>
                 <accordion id="acc-recommendContent" close-others="oneAtATme" ng-class="isCustomerTemplate? 'isCustomerTemplate':''">
 
                     <accordion-group ng-repeat="industry in recommendContent" is-open="statusL1.open">
                         <accordion-heading>
-                            <div>
-                                {{industry.Name}} <img class="pull-right" style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-src="{{statusL1.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />
+                            <div class="accordion-dropdown">
+                                <!--{{industry.Name}} <img class="pull-right" style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-src="{{statusL1.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />-->
+                                {{industry.Name}}<span class="pull-right" ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !statusL1.open, 'icons-icon mdl2-scroll-chevron-up-legacy': statusL1.open }"></span>
                             </div>
                         </accordion-heading>
-                        <accordion close-others="oneAtATime">
+                        <accordion close-others="oneAtATime" class="sub-description-recommended">
                             <accordion-group ng-repeat="solution in industry.Contents" is-open="statusL2.open">
                                 <accordion-heading>
-                                    <div>
-                                        <label>
-                                            <input type="checkbox" ng-model="solution.IsRecommended" ng-disabled="rc_shouldDisable(solution.IsRecommended, industry.Name)" ng-click="rc_checkboxClick(industry.Name, $event)" /> {{solution.SolutionName}}
+                                    <div class="accordion-dropdown">
+                                        <label>                                            
+                                            <input type="checkbox" ng-model="solution.IsRecommended" ng-disabled="rc_shouldDisable(solution.IsRecommended, industry.Name)" ng-click="rc_checkboxClick(industry.Name, $event)"/> {{solution.SolutionName}}
+                                            <span class="icons-icon mdl2-check-mark-zero-width-legacy"></span>
                                         </label>
-                                        <img ng-show="!isCustomerTemplate" style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-click="previewSite($event, solution.SolutionId, 0)" ng-src="{{'/Images/glyphicons-search.png'}}" />
-                                        <img ng-show="!isCustomerTemplate" class="pull-right" style="width: 17px; height: 17px" ng-src="{{statusL2.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />
+                                        <img ng-show="!isCustomerTemplate" style="width: 17px; height: 17px; margin-right: 5px; vertical-align: middle; margin-bottom: 5px;" ng-click="previewSite($event, solution.SolutionId, 0)" ng-src="{{'/Images/info icon-blk-sm.png'}}" />
+                                        <!--<img ng-show="!isCustomerTemplate" class="pull-right" style="width: 17px; height: 17px" ng-src="{{statusL2.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />-->
+                                        
+                                        <span ng-show="!isCustomerTemplate" class="pull-right" ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !statusL2.open, 'icons-icon mdl2-scroll-chevron-up-legacy': statusL2.open }"></span>
                                     </div>
                                 </accordion-heading>
 
                                 <accordion close-others="oneAtATime" ng-show="!isCustomerTemplate">
                                     <accordion-group ng-repeat="topic in solution.ContentNodes" is-open="statusL3.open">
                                         <accordion-heading>
-                                            <div>
+                                            <div class="accordion-dropdown">
                                                 <label ng-click="rc_toggleView(topic.ChildrenNodes.length, $event)"> {{topic.Name}}</label>
-                                                <img style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-hide="topic.ChildrenNodes.length == 0" class="pull-right" ng-src="{{statusL3.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />
+                                                <!--<img style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-hide="topic.ChildrenNodes.length == 0" class="pull-right" ng-src="{{statusL3.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />-->
+                                                <span class="pull-right" ng-hide="topic.ChildrenNodes.length == 0" ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !statusL3.open, 'icons-icon mdl2-scroll-chevron-up-legacy': statusL3.open }"></span>
                                                 <i ng-show="topic.HasLink && !isCustomerTemplate" class="pull-right glyphicon glyphicon-paperclip" title="Edit customer note" ng-click="rc_editComment(topic, $event)"></i>
                                                 <img ng-src="{{topic.MessageId != null && '/Images/comment-filled.png' || '/Images/comment-unfilled.png'}}" class="pull-right pointer" ng-class="{'contentNote-filledComment': topic.MessageId != null, 'contentNote-unfilledComment': topic.MessageId == null}" title="Edit customer note" ng-click="rc_editComment(topic, $event)" />
+                                                
                                             </div>
                                         </accordion-heading>
                                         <ul ng-repeat="subtopic in topic.ChildrenNodes">
-                                            <li>
+                                            <li class="accordion-dropdown">
                                                 {{subtopic.Name}}
 												<i ng-show="subtopic.HasLink && !isCustomerTemplate" class="pull-right glyphicon glyphicon-paperclip"></i>
                                                 <img ng-src="{{subtopic.MessageId != null && '/Images/comment-filled.png' || '/Images/comment-unfilled.png'}}" class="pull-right pointer" ng-class="{'contentNote-filledComment': subtopic.MessageId != null, 'contentNote-unfilledComment': subtopic.MessageId == null}" title="Edit customer note" ng-click="rc_editComment(subtopic, $event)" />
-
+                                                
                                             </li>
                                         </ul>
                                     </accordion-group>
@@ -508,39 +518,42 @@
 
                 </accordion>
             </div>
-            <div class="col-lg-12">
-                <h2 class="title">Select workloads to highlight based on your customer's needs.</h2>
+            <div class="col-lg-12 recommended-scenarios">
+                <h2 class="title">2.Select workloads to highlight based on your customer's needs.</h2>
                 <accordion id="acc-recommendWorkloads" close-others="oneAtATme">
                     <accordion-group ng-repeat="workload in Workloads">
                         <accordion-heading>
-                            <div>
-                                {{workload.Name}} <img class="pull-right" style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-src="{{statusL1.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />
+                            <div class="accordion-dropdown">
+                                <!--{{workload.Name}} <img class="pull-right" style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-src="{{statusL1.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />-->
+                                {{workload.Name}}<span class="pull-right" ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !statusL1.open, 'icons-icon mdl2-scroll-chevron-up-legacy': statusL1.open }"></span>
                             </div>
                         </accordion-heading>
                         <accordion close-others="oneAtATime">
                             <accordion-group ng-repeat="load in workload.Contents" is-open="statusL2.open">
                                 <accordion-heading>
-                                    <div>
+                                    <div  class="accordion-dropdown">
                                         <label>
                                             <input type="checkbox" ng-model="load.IsRecommended" ng-click="rc_checkboxClick(workload.Name, $event)" /> {{load.SolutionName}}
                                         </label>
                                         <img ng-show="!isCustomerTemplate" style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-click="previewSite($event, solution.SolutionId, 0)" ng-src="{{'/Images/glyphicons-search.png'}}" />
-                                        <img ng-show="!isCustomerTemplate" class="pull-right" style="width: 17px; height: 17px" ng-src="{{statusL2.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />
+                                        <!--<img ng-show="!isCustomerTemplate" class="pull-right" style="width: 17px; height: 17px" ng-src="{{statusL2.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />-->
+                                        <span ng-show="!isCustomerTemplate" class="pull-right" ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !statusL2.open, 'icons-icon mdl2-scroll-chevron-up-legacy': statusL2.open }"></span>
                                     </div>
                                 </accordion-heading>
 
                                 <accordion close-others="oneAtATime" ng-show="!$parent.isContentTemplate">
                                     <accordion-group ng-repeat="topic in load.ContentNodes" is-open="statusL3.open">
                                         <accordion-heading>
-                                            <div>
+                                            <div class="accordion-dropdown">
                                                 <label ng-click="rc_toggleView(topic.ChildrenNodes.length, $event)"> {{topic.Name}}</label>
-                                                <img style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-hide="topic.ChildrenNodes.length == 0" class="pull-right" ng-src="{{statusL3.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />
+                                                <!--<img style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-hide="topic.ChildrenNodes.length == 0" class="pull-right" ng-src="{{statusL3.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />-->
+                                                <span class="pull-right" ng-hide="topic.ChildrenNodes.length == 0" ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !statusL3.open, 'icons-icon mdl2-scroll-chevron-up-legacy': statusL3.open }"></span>
                                                 <i ng-show="topic.HasLink" class="pull-right glyphicon glyphicon-paperclip" title="Edit customer note" ng-click="rc_editComment(topic, $event)"></i>
 												<img ng-show="!isCustomerTemplate" ng-src="{{topic.MessageId != null && '/Images/comment-filled.png' || '/Images/comment-unfilled.png'}}" class="pull-right pointer" ng-class="{'contentNote-filledComment': topic.MessageId != null, 'contentNote-unfilledComment': topic.MessageId == null}" title="Edit customer note" ng-click="rc_editComment(topic, $event)" />
                                             </div>
                                         </accordion-heading>
                                         <ul ng-repeat="subtopic in topic.ChildrenNodes">
-                                            <li>
+                                            <li class="accordion-dropdown">
                                                 {{subtopic.Name}}
                                                 <i ng-show="subtopic.HasLink" class="pull-right glyphicon glyphicon-paperclip"></i>
 												<img ng-show="!isCustomerTemplate" ng-src="{{subtopic.MessageId != null && '/Images/comment-filled.png' || '/Images/comment-unfilled.png'}}" class="pull-right pointer" ng-class="{'contentNote-filledComment': subtopic.MessageId != null, 'contentNote-unfilledComment': subtopic.MessageId == null}" title="Edit customer note" ng-click="rc_editComment(subtopic, $event)" />
@@ -562,27 +575,39 @@
     <div class="col-lg-12" ng-show="step == 3">
         <!--Section Title-->
         <div class="col-lg-12 alpha omega" ng-show="!isCustomerTemplate">
-            <h1 id="pageTitle"> Customers Like You</h1>
+            <!--<h1 id="pageTitle"> Customers Like You</h1>-->
         </div>
 
         <div class="col-lg-12 alpha omega" ng-show="dataLoaded3">
             <!--Section Caption-->
-            <h2> Select up to 3 case studies that will appear to your customer under <i>Customers Like You</i>.</h2>
+            <h2 class="title"> Select up to 3 case studies that will appear to your customer under <i>Customers Like You</i>.</h2>
             <!--Selected Case Studies-->
             <span class="text-danger" ng-show="HasReachedLimit()"><span class="glyphicon glyphicon-exclamation-sign"></span> Maximum number of case studies reached. Remove one to change selections.</span>
 
             <!--Available Case Studies-->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega tableContent">
-                <h1 class="smaller page-header">Available Case Studies</h1>
-                <div class="col-md-6 alpha"><input type="checkbox" id="chk-customerFilter" ng-click="cly_ToggleFilter()" ng-model="cly_IsFilterOn" /> Apply filter for your Customer's Industry</div>
-                <div class="col-md-6 omega text-right">
-                    Filter based on Company Size:
-                    <select id="companySizeSelect" ng-show="!isCustomerTemplate" ng-model="companySizeFilter" data-ng-options="companySize as companySize.Description for companySize in companySizes"></select><br />
-                    <select id="companySizeSelect2" ng-show="isCustomerTemplate" ng-model="companySizeFilter" data-ng-options="companySize as companySize.Description for companySize in clyCompanySizes"></select><br />
-                    Filter based on Country:
-                    <select id="countrySelect" ng-show="!isCustomerTemplate" ng-model="countryFilter" data-ng-options="country as country for country in countries" style="margin-top: 5px;"></select>
-                    <select id="countrySelect2" ng-show="isCustomerTemplate" ng-model="countryFilter" data-ng-options="country as country for country in clyCountries" style="margin-top: 5px;"></select>
+                <!--<h1 class="smaller page-header">Available Case Studies</h1>-->
+                <!--<div class="col-md-6 alpha"><input type="checkbox" id="chk-customerFilter" ng-click="cly_ToggleFilter()" ng-model="cly_IsFilterOn" /> Apply filter for your Customer's Industry</div>-->
+                <div class="col-sm-8 col-sm-offset-4 omega text-right">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="filter-by">Filter by Industry</label>
+                            <select id="companySizeSelect" ng-show="!isCustomerTemplate" ng-model="companySizeFilter" data-ng-options="companySize as companySize.Description for companySize in companySizes"></select>
+                            <select id="companySizeSelect2" ng-show="isCustomerTemplate" ng-model="companySizeFilter" data-ng-options="companySize as companySize.Description for companySize in clyCompanySizes"></select>                            
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="filter-by">Filter by Company Size</label>
+                            <select id="countrySelect" ng-show="!isCustomerTemplate" ng-model="countryFilter" data-ng-options="country as country for country in countries" style="margin-top: 5px;"></select>
+                            <select id="countrySelect2" ng-show="isCustomerTemplate" ng-model="countryFilter" data-ng-options="country as country for country in clyCountries" style="margin-top: 5px;"></select>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="filter-by">Filter by Country</label>
+                            <select id="countrySelect" ng-show="!isCustomerTemplate" ng-model="countryFilter" data-ng-options="country as country for country in countries" style="margin-top: 5px;"></select>
+                            <select id="countrySelect2" ng-show="isCustomerTemplate" ng-model="countryFilter" data-ng-options="country as country for country in clyCountries" style="margin-top: 5px;"></select>
+                        </div>
+                    </div>
                 </div><br>
+                <p class="hr-ruler"></p>
                 <table id="tbl-availableCaseStudies" class="table table-condensed table-hover" ts-wrapper>
                     <thead>
                         <tr ng-show="!isCustomerTemplate">
@@ -611,8 +636,8 @@
                             <td class="col-xs-2 hidden-xs">{{customer.Location}}</td>
                             <td class="col-xs-2 hidden-xs">{{customer.CompanySize.Description}}</td>
                             <td class="col-xs-3" ng-show="!isCustomerTemplate">
-                                <a ng-hide="customer.IsRecommended" ng-disabled="HasReachedLimit()" ng-click="cly_toggleSelect(customer)" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> Select </a>
-                                <a ng-show="customer.IsRecommended" ng-click="cly_toggleSelect(customer)" class="btn btn-info"><span class="glyphicon glyphicon-remove"></span> Remove </a>
+                                <a ng-hide="customer.IsRecommended" ng-disabled="HasReachedLimit()" ng-click="cly_toggleSelect(customer)" class="btn btn-success"> Select </a>
+                                <a ng-show="customer.IsRecommended" ng-click="cly_toggleSelect(customer)" class="btn btn-info"> Remove </a>
                                 <span ng-show="HasReachedLimit() && !customer.IsRecommended" class="annotation text-danger">Max limit reached</span>
                             </td>
                         </tr>
@@ -627,7 +652,7 @@
     <div class="col-lg-12" ng-show="step == 4">
         <!--Section Title-->
         <div class="col-lg-12 alpha omega" ng-show="!isCustomerTemplate">
-            <h1 id="pageTitle">Next Steps </h1>
+            <!--<h1 id="pageTitle">Next Steps </h1>-->
         </div>
 
         <div class="container-fluid" style="margin-top: -28px" ng-show="isCustomerTemplate && !IsEdit">
@@ -641,11 +666,11 @@
         <div class="col-lg-12 alpha omega" ng-show="dataLoaded4">
             <!--Section Caption-->
 
-            <h2> Select up to 3 CTA items that will appear to your customer under <i>Next Steps</i>.</h2>
+            <h2 class="title"> Select up to 3 CTA items that will appear to your customer under <i>Next Steps</i>.</h2>
             <span class="text-danger" ng-show="HasReachedLimit()"><span class="glyphicon glyphicon-exclamation-sign"></span> Maximum number of CTA items reached. Remove one to change selections.</span>
 
             <div id="ctaList" class="row" ng-show="!isCustomerTemplate">
-                <div id="cta-section" ng-repeat="cta in actions" class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-bottom-10">
+                <div id="cta-section" ng-repeat="cta in actions" class="col-lg-3 col-md-3 col-sm-12 col-xs-12 padding-bottom-10">
                     <div class="tryitout-container">
                         <!--Title-->
                         <div class="title">
@@ -654,7 +679,7 @@
                         <!--Description-->
                         <p>{{cta.Body}}</p>
                         <!--Checkbox-->
-                        <input type="checkbox" ng-disabled="ctaShouldDisable(cta.IsRecommended)" ng-click="cta_checkboxClick($event)" ng-model="cta.IsRecommended" value="{{cta.Id}}" ng-checked="{{ cta.IsRecommended }}" ng-required=""> Show this <br>
+                        <a class="btn btn-success" ng-disabled="ctaShouldDisable(cta.IsRecommended)" ng-click="cta_checkboxClick($event)" ng-model="cta.IsRecommended" value="{{cta.Id}}"> Show this </a>
                     </div>
                 </div>
             </div>
@@ -680,41 +705,43 @@
     </div>
 
     <!--ROI and Proposals-->
-    <div class="col-lg-12" ng-show="step == 5">
+    <div class="col-lg-12 pricing-roi" ng-show="step == 5">
         <!--Section Title-->
         <div class="col-lg-12 alpha omega">
-            <h1 id="pageTitle">ROI and Proposals</h1>
+            <!--<h1 id="pageTitle">ROI and Proposals</h1>-->
         </div>
         <!--<div class="col-lg-12 alpha omega margin-top-10">
             <input type="checkbox" id="roi-enabled" ng-change="rp_disabledClick()" ng-checked="{{contactDetail.Customer.HasRoi}}" ng-model="contactDetail.Customer.HasRoi" />
             <label for="roi-enabled" class="control-label">ROI Page Enabled</label>
         </div>-->
-        <div class="margin-top-5" style="margin-bottom: 42px">
-            <div class="col-md-8">
-                <p class="row" style="font-size: 14px">Disabling the ROI and Proposals page will eliminate the section from the site that is created and shared with your customer.</p>
-                <label for="rbl-roi_enabled" class="row control-label">ROI and Proposals Page</label>
-                <label style="margin-left: 30px">
-                    <input id="rbl-roi_enabled" type="radio" name="RoiRadio" ng-change="rp_disabledClick()" data-ng-checked="contactDetail.Customer.HasRoi === true" data-ng-model="contactDetail.Customer.HasRoi" value="true" />&nbsp;Enabled&nbsp;&nbsp;
-                </label>
-                <label>
-                    <input id="rbl-roi_disabled" type="radio" name="RoiRadio" ng-change="rp_disabledClick()" data-ng-checked="contactDetail.Customer.HasRoi === false" data-ng-model="contactDetail.Customer.HasRoi" value="false" />&nbsp;Disabled
-                </label>
+        <div class="margin-top-5 top-content">
+            <div class="col-md-12">
+                <h2 class="title">Disabling the <i>Pricing and ROI page</i> will eliminate the section from the site that is created and shared with your customer</h2>
+                <label for="rbl-roi_enabled" class="row control-label">Pricing and ROI Page</label>
+                <div class="radio-select">
+                    <label>
+                        <input id="rbl-roi_enabled" type="radio" name="RoiRadio" ng-change="rp_disabledClick()" data-ng-checked="contactDetail.Customer.HasRoi === true" data-ng-model="contactDetail.Customer.HasRoi" value="true" />&nbsp;Enabled&nbsp;&nbsp;
+                    </label>
+                    <label>
+                        <input id="rbl-roi_disabled" type="radio" name="RoiRadio" ng-change="rp_disabledClick()" data-ng-checked="contactDetail.Customer.HasRoi === false" data-ng-model="contactDetail.Customer.HasRoi" value="false" />&nbsp;Disabled
+                    </label>
+                </div>
             </div>
         </div>
-        <div class="col-lg-12 alpha omega" ng-show="dataLoaded5">
+        <div class="col-lg-12 alpha omega padding-left-none" ng-show="dataLoaded5">
 
             <div ng-show="systemRecommendations.length > 0">
-                <div class=" col-lg-12" ng-class="{ 'disabled-div' : (customRecommendation === true) }">
-                    <h2> Based on the provided information, we think this SKU best suits your customer's needs.</h2>
+                <div class="col-lg-12 padding-left-none" ng-class="{ 'disabled-div' : (customRecommendation === true) }">
+                    <h2 class="best-suits"> Based on the provided information, we think this SKU best suits your customer's needs.</h2>
                 </div>
 
                 <!--Section Caption-->
-                <div class="col-lg-12">
+                <div class="col-lg-12 padding-left-none">
                     <div id="prodList" class="col-lg-12 alpha omega">
 
                         <table class="col-lg-12 alpha omega recommendedProdRow modal-table" ng-repeat="product in systemRecommendations" ng-class="{ 'disabled-div' : (customRecommendation === true) }">
                             <tr>
-                                <td class=" col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
+                                <td class="col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
                                     <div class="div-table-header">
                                         <span>{{product.Name}}</span>
                                     </div>
@@ -749,8 +776,8 @@
                         </table>
 
                         <table id="prodListTotals" class="recommendedProdRow pull-right modal-table" ng-show="!customRecommendation">
-                            <tr>
-                                <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell">
+                            <tr>                               
+                                <td class="col-lg-6 col-md-6 hidden-sm hidden-xs recommendedProdCell">
                                     <div class="div-table-header">
                                         <span>Totals</span> <br />
                                     </div>
@@ -773,27 +800,28 @@
                 </div>
                 <br />
                 <div class="col-lg-12">
-                    <label class="col-md-9">
+                    <label class="col-md-9 padding-left-none">
                         <input type="checkbox" id="chk-editRecommendation" data-ng-model="customRecommendation" ng-click="rp_onCustomRecommendationChanged()" />
                         I would like to change this recommendation
                     </label>
                 </div>
             </div>
 
-            <form name="customRecommendationForm" class="col-lg-12" ng-show="customRecommendation" novalidate>
-                <h2>
-                    Select and combine up to 5 SKUs and Service Offerings (1 SKU required) to create a custom recommendation that will appear to your customer under <i>Solution Summary</i>.
-                </h2>
+            <form name="customRecommendationForm" class="col-lg-12 padding-left-none" ng-show="customRecommendation" novalidate>
+                <h2 class="title">
+                    Select and combine up to 5 Microsoft Product Offerings and Partner Service Offerings (1 offering required) to create a custom recommendation that will appear to your
+                    customer under <i>Pricing and ROI</i>.
+                </h2>                
                 <span ng-show="contactDetail.Customer.Employees">Please note your customer has <i>{{customerEmployeeCount}}</i> employees.</span>
                 <span class="text-danger" ng-show="HasReachedLimit()"><span class="glyphicon glyphicon-exclamation-sign"></span> Maximum number of SKUs reached. Remove one to change selections.</span>
 
-                <h3>SKUs</h3>
+                <h3>Microsoft Product Offerings</h3>
                 <div id="prodList" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
                     <table class="recommendedProdRow col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega modal-table-2">
                         <tr>
                             <td class=" col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
                                 <div class="div-table-header">
-                                    <span>SKU Name</span><br />
+                                    <span>Offering Name</span><br />
                                 </div>
                                 <select class="form-control" id="opt-sku1" name="sku1Select" data-ng-options="product as product.Name for product in productsandservices.RecommendedProducts|filter: rp_filter1" data-ng-model="selectedRecommendedProduct1" ng-change="rp_onProductSelectionChanged()">
                                     <option value="" ng-disabled="selectedRecommendedProduct2 != null">Please select a SKU</option>
@@ -828,7 +856,7 @@
                         </tr>
                     </table>
 
-                    <table class=" recommendedProdRow col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega modal-table-2" ng-show="selectedRecommendedProduct1 != null && (selectedCount < 5 || selectedRecommendedProduct2 != null)">
+                    <table class="recommendedProdRow col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega modal-table-2" ng-show="selectedRecommendedProduct1 != null && (selectedCount < 5 || selectedRecommendedProduct2 != null)">
                         <tr>
                             <td class=" col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
                                 <div class="div-table-header">
@@ -870,7 +898,7 @@
 
                     <table class="recommendedProdRow col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega modal-table-2" ng-show="selectedRecommendedProduct2 != null && (selectedCount < 5 || selectedRecommendedProduct3 != null)">
                         <tr>
-                            <td class=" col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
+                            <td class="col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
                                 <div class="div-table-header">
                                     <span>SKU Name</span><br />
                                 </div>
@@ -1205,14 +1233,14 @@
     </div>
 
     <!--Welcome Message-->
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-show="step == 6">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 welcome-message" ng-show="step == 6">
         <!--Section Title-->
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
-            <h1 id="pageTitle">Welcome Message</h1>
+            <!--<h1 id="pageTitle">Welcome Message</h1>-->
         </div>
 
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h2>Write a personalized introduction for your customer to see when they open up their site.</h2>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-left-none">
+            <h2 class="title">Write a personalized introduction for your customer to see when they open up their site.</h2>
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega" ng-show="dataLoaded6">
@@ -1242,7 +1270,7 @@
                         </div>
                         <div class="row video-row">
                             <div>
-                                <button type="file" class="btn btn-primary" style="margin-left: 5px;" ngf-select="uploadVideo($file)"
+                                <button type="file" class="btn btn-primary" ngf-select="uploadVideo($file)"
                                         accept="video/*" ng-disabled="suppressVideos || (FileName && FileName !== '')">
                                     <span class="glyphicon glyphicon-cloud-upload"></span>
                                     Upload Video
@@ -1253,7 +1281,7 @@
                             <br />
                             <div ng-hide="FileError == ''"><span class="has-error">{{FileError}}</span><br /></div>
                             <span ng-hide="$scope.FileName == ''">Default video will display if a video is not uploaded</span><br />
-                            <label class="col-md-12">
+                            <label class="col-md-12 no-video">
                                 <input type="checkbox" name="checkbox" class="pointer" ng-model="suppressVideos" ng-change="updateVideoEnabled()" id="checkbox_id">
                                 Do not show video for customer site
                             </label>
@@ -1315,14 +1343,13 @@
     </div>-->
     <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 padding-bottom-15 button-group">
         <div class="row">
-            <div class="left-container col-sm-4">
+            <div class="left-container buttons">
                 <button class="btn btn-primary tablesort-filter">Send to Customer</button>
                 <button class="btn btn-primary tablesort-filter">View Site</button>
-            </div> 
-            <div class="right-container col-sm-8">
+            
                 <button class="btn btn-primary cancel tablesort-filter">Cancel</button>
                 <button class="btn btn-primary tablesort-filter">Back</button>
-                <button class="btn btn-primary tablesort-filter" id="btn-next" data-ng-show="showNext()" data-ng-click="nextClick()" ng-disabled="(step == 5 && customRecommendationForm.$invalid) || Disable()">Next</button>
+                <button class="btn btn-primary tablesort-filter" id="btn-next" data-ng-show="showNext()" data-ng-click="nextClick()">Next</button>
                 <button class="btn btn-primary tablesort-filter">Save</button>
             </div>
         </div>
