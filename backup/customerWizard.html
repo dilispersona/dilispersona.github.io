@@ -1,0 +1,1360 @@
+﻿<div class="row">
+    <!--<div ng-show="showButtons()">
+        <button class="btn btn-primary button-right-site" ng-disabled="disablePreview()" ng-click="sendNote()" ng-show="!customerTemplate">Send to Customer</button>
+        <button class="btn btn-primary button-right-site-marg5" ng-disabled="disablePreview()" ng-click="openPreview($event)" ng-show="!customerTemplate">Save and View Site</button>
+    </div>-->
+    <div ng-show="Error">
+        <div class="container" ng-show="!isCustomerTemplate">
+            <p>{{ Error }}</p>
+        </div>
+        <div class="col-xs-12" ng-show="isCustomerTemplate">
+            <p>{{ Error }}</p>
+        </div>
+    </div>
+    <!--Customer Analytics-->
+    <div class="col-lg-12" ng-show="step == 0 && dataLoaded0">
+        <div class="col-lg-12">
+            <!--Section Title-->
+            <div class="row">
+                <h1 id="pageTitle" class="title">Customer Analytics</h1>
+            </div>
+
+            <!--Section Info-->
+            <div class="row">
+                <div class="clearfix">
+
+                    <div id="tile-siteVisits" class="metric-tile {{ (analytics.KeyIndicators.SiteVisits) ? 'metric-tile-blue' : 'metric-tile-grey' }}">
+                        {{ analytics.KeyIndicators.SiteVisits || "-" }}
+                        <div class="metric-name">Site Visits</div>
+                    </div>
+                    <div id="tile-pageViews" class="metric-tile {{ (analytics.KeyIndicators.PageViews) ? 'metric-tile-green' : 'metric-tile-grey' }} ">
+                        {{ analytics.KeyIndicators.PageViews || "-" }}
+                        <div class="metric-name">Page Views</div>
+                    </div>
+                    <div id="tile-siteShared" class="metric-tile {{ analytics.KeyIndicators.SiteShared ? 'metric-tile-green' : 'metric-tile-grey' }}">
+                        {{ analytics.KeyIndicators.SiteShared | boolToYesNo }}
+                        <div class="metric-name">Site Shared</div>
+                    </div>
+                    <!--<div id="tile-pinpointVisited" class="metric-tile {{ analytics.KeyIndicators.PinpointVisited ? 'metric-tile-green' : 'metric-tile-grey' }}">
+                        {{ analytics.KeyIndicators.PinpointVisited | boolToYesNo }}
+                        <div class="metric-name">Pinpoint Visited</div>
+                    </div>-->
+                    <div id="tile-hitCTA" class="metric-tile {{ analytics.KeyIndicators.TrialRequested ? 'metric-tile-green' : 'metric-tile-grey' }}">
+                        {{ analytics.KeyIndicators.TrialRequested | boolToYesNo }}
+                        <div class="metric-name">Hit CTA</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <h2>Top 8 Areas of Engagement</h2>
+            </div>
+            <div id="areasOfEngagement">
+                <div id="piechart" ng-show="showPageDetails" class="row">
+                    <div class="col-xs-6 pieChart-visual">
+
+                        <div class="demo-section k-content">
+                            <div class="box-col" style="width: 600px">
+                                <div kendo-chart
+                                     k-title="{ text: '', position: 'top' }"
+                                     k-legend="{margin: {left:30},
+                                    labels: {font: '18px Segoe Ui Light, Tahoma, Geneva, Verdana, sans-serif',
+                                            padding: {left: 10}}
+                                    }"
+                                     k-series-defaults="{ type: 'pie', labels: {color: 'white',background: 'none', position: 'center', visible: false} }"
+                                     k-series="[{
+                                field: 'TotalPageViews',
+                                categoryField: 'SolutionName',
+                                padding: 0,
+                                overlay: {gradient:'none'},
+                                highlight: {color:'yellow', line:{color: 'yellow'}}
+
+                         }]"
+                                     k-data-source="analytics.EngagementAreas"
+                                     k-series-hover="al_onSeriesHover"
+                                     k-legend-item-click="al_onLegendClick"
+                                     k-series-click="al_onItemClick"></div>
+
+                            </div>
+                            <!-- debug console -->
+                            <!--<div class="box-col">
+                                <h4>Console</h4>
+                                <div class="console"></div>
+                            </div>-->
+                        </div>
+                    </div>
+
+                    <div class="pieChart-details-container">
+                        {{PageDetailTitle}} - Details
+                        <div class="col-xs-6 pieChart-details">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Page Name</th>
+                                        <th class="text-center">Views</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-show="PageList.length > 0" ng-repeat="page in PageList">
+                                        <td class="col-xs-4">{{page.PageName}}</td>
+                                        <td class="col-xs-1 text-center">{{page.Count}}</td>
+                                    </tr>
+                                    <tr ng-show="PageList.length == 0">
+                                        <td class="col-xs-4">{{PageDetailTitle}}</td>
+                                        <td class="col-xs-1 text-center">{{SolutionPageCount}}</td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div ng-hide="showPageDetails"><i>No data to be shown. Customer has not clicked through site.</i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <div class="row">
+                <h2>Customer's Existing Products</h2>
+            </div>
+
+            <div id="existingProducts">
+                <div ng-repeat="item in analytics.CompetitiveProducts" ng-show="item.Products.length > 0">{{item.Category}}: <span ng-repeat="product in item.Products">{{product.Name}}</span></div>
+                <div ng-hide="analytics.CompetitiveProducts.length > 0"><i>No existing products have been entered.</i></div>
+            </div>
+
+            <div class="row">
+                <h2>Activity Stream</h2>
+            </div>
+            <div id="activityStream">
+                <div ng-show="analytics.ActivityStream.length > 0">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Event Date</th>
+                                <th>Event Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in analytics.ActivityStream">
+                                <td class="col-md-2">{{item.Date | localtime | date:'short'  }}</td>
+                                <td>{{item.Activity}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ng-hide="showPageDetails"><i>No data to be shown. Customer has not clicked through site.</i></div>
+            </div>
+            <br /><br />
+        </div>
+    </div>
+
+    <!--Contact Details View-->
+    <div class="col-lg-12 " ng-show="step == 1 && !isCustomerTemplate">
+        <div class="col-lg-12 alpha omega" ng-show="dataLoaded1">
+            <div class="col-lg-12 alpha omega">
+                <!--Section Title-->
+                <!--<h1 id="pageTitle">Contact Details</h1>-->
+                <!--Section Info-->
+                <h2 class="title">Fill out as much information as you can about your contact.</h2>
+            </div>
+            <form name="customerForm" class="form-horizontal" novalidate>
+                <!--<small><span class="asterisk">*</span>Indicates required field</small>-->
+                <!--Customer Template Info-->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                    <h3 class="attention">Customer Template</h3>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="templateSelect" class="control-label-modal col-md-4 omega">Customer Template</label>
+                            <div class="col-md-8 select-dropdown">
+                                <select id="templateSelect" name="templateSelect" ng-model="contactDetail.TemplateId" class="form-control" ng-change="customerTemplateChanged(contactDetail.TemplateId)" ng-click="arrowActive = !arrowActive">
+                                    <option ng-selected="contactDetail.TemplateId == -1" value="-1"></option>
+                                    <option ng-repeat="t in contactDetail.Templates" ng-selected="contactDetail.TemplateId == t.Id" value="{{t.Id}}">{{t.Name}}</option>                                    
+                                </select>
+                                <span ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !arrowActive, 'icons-icon mdl2-scroll-chevron-up-legacy': arrowActive }"></span>                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Company Info-->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                    <h3 class="attention">Company Information</h3>
+                    <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="control-label-modal col-md-4 omega">Product Type</label>
+                            <div id="txt-applicationName" class="control-label-modal col-md-8"><b>{{contactDetail.Customer.Application.Name}}</b></div>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="CRMIdInput" class="control-label-modal col-md-4 omega">CRM ID</label>
+                            <div class="col-md-8">
+                                <input type="text" ng-maxlength="50" maxlength="50" id="txt-cRMId" name="CRMIdInput" data-ng-model="contactDetail.Customer.CRMId" class="form-control" />
+                                <span ng-show="contactDetail.Customer.CRMId.length == 50" class="help-block warning">CRM ID length has reached its maximum of 50 characters.</span>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="companyNameInput" class="control-label-modal col-md-4 omega">Company Name<span class="asterisk">*</span></label>
+                            <div class="col-md-8" ng-class="{ 'has-error' : customerForm.companyNameInput.$invalid }">
+                                <input type="text" id="txt-companyName" ng-maxlength="100" maxlength="100" name="companyNameInput" data-ng-model="contactDetail.Customer.CompanyName" data-ng-required="true" class="form-control" />
+                                <span ng-show="customerForm.companyNameInput.$error.required && !customerForm.companyNameInput.$pristine" class="help-block">Company Name is required.</span>
+                                <span ng-show="customerForm.companyNameInput.$error.maxlength" class="help-block">Company Name length can be up to 100 characters.</span>
+                                <span ng-show="contactDetail.Customer.CompanyName.length == 100" class="help-block warning">Company Name length has reached its maximum of 100 characters.</span>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="industrySelect" class="control-label-modal col-md-4 omega">Industry<span class="asterisk">*</span></label>
+                            <div class="col-md-8 select-dropdown" ng-class="{ 'has-error' : customerForm.industrySelect.$invalid }">
+                                <select class="form-control" id="opt-industry" name="industrySelect" data-ng-required="true" ng-change="industryChanged(contactDetail.Customer.IndustryId)" data-ng-model="contactDetail.Customer.IndustryId" data-ng-options="i.Id as i.Name for i in contactDetail.Industries" ng-disabled="contactDetail.TemplateId > 0" ng-click="arrow = !arrow"></select>
+                                <span ng-show="customerForm.industrySelect.$error.required && !customerForm.industrySelect.$pristine" class="help-block">Industry selection is required.</span>
+                                <span ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !arrow, 'icons-icon mdl2-scroll-chevron-up-legacy': arrow }"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="employeeInput" class="control-label-modal col-md-4 omega">Number of Users</label>
+                            <div class="col-md-8" ng-class="{ 'has-error' : customerForm.employeeInput.$invalid || (contactDetail.Customer.Employees != null && (contactDetail.Customer.Employees < minEmployeeCount || contactDetail.Customer.Employees > maxEmployeeCount))}">
+                                <input ng-pattern="/^[0-9]{1,}$/" id="txt-employees" name="employeeInput" data-ng-model="contactDetail.Customer.Employees" class="form-control" maxlength="4" />
+                                <span ng-show="customerForm.employeeInput.$invalid || customerForm.employeeInput.$error.pattern" class="help-block"><span class="asterisk">*</span>Please enter a valid number without any special characters.</span>
+                                <span ng-show="(contactDetail.Customer.Employees != null && (contactDetail.Customer.Employees < minEmployeeCount || contactDetail.Customer.Employees > maxEmployeeCount))" class="help-block"><span class="asterisk">*</span>Please enter a value between {{minEmployeeCount}} and {{maxEmployeeCount}}.</span>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="control-label-modal col-md-4 omega">Language</label>
+                            <div ng-show="(IsEdit || contactDetail.Languages.length == 1)" id="txt-languageName" class="control-label-modal col-md-3"><b>{{contactDetail.Customer.LanguageName}}</b></div>
+                            <div class="col-md-8 select-dropdown">
+                                <select ng-show="!IsEdit && contactDetail.Languages.length > 1" class="form-control  col-md-3" id="opt-language" name="languageSelect" data-ng-required="true" data-ng-model="contactDetail.Customer.LanguageId" data-ng-options="l.Id as l.FriendlyName for l in contactDetail.Languages" ng-disabled="contactDetail.TemplateId > 0" ng-click="langArrow = !langArrow"></select>
+                                <span ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !langArrow, 'icons-icon mdl2-scroll-chevron-up-legacy': langArrow }"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Contact Info-->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                    <h3 class="attention">Contact Information</h3>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="firstNameInput" class="control-label-modal col-md-4 omega">First Name<span class="asterisk">*</span></label>
+                            <div class="col-md-8" ng-class="{ 'has-error' : customerForm.firstNameInput.$invalid }">
+                                <input type="text" id="txt-firstName" ng-maxlength="50" maxlength="50" name="firstNameInput" data-ng-required="true" data-ng-model="contactDetail.Customer.FirstName" ng-blur="updateSalutation()" class="form-control" />
+                                <span ng-show="customerForm.firstNameInput.$error.required && !customerForm.firstNameInput.$pristine" class="help-block">First Name is required.</span>
+                                <span ng-show="customerForm.firstNameInput.$error.maxlength" class="help-block">First Name length can be up to 50 characters.</span>
+                                <span ng-show="contactDetail.Customer.FirstName.length == 50" class="help-block warning">First Name length has reached its maximum of 50 characters.</span>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="lastNameInput" class="control-label-modal col-md-4 omega">Last Name<span class="asterisk">*</span></label>
+                            <div class="col-md-8" ng-class="{ 'has-error' : customerForm.lastNameInput.$invalid }">
+                                <input type="text" id="txt-lastName" ng-maxlength="50" maxlength="50" name="lastNameInput" data-ng-required="true" data-ng-model="contactDetail.Customer.LastName" class="form-control" />
+                                <span ng-show="customerForm.lastNameInput.$error.required && !customerForm.lastNameInput.$pristine" class="help-block">Last Name is required.</span>
+                                <span ng-show="customerForm.lastNameInput.$error.maxlength" class="help-block">Last Name length can be up to 50 characters.</span>
+                                <span ng-show="contactDetail.Customer.LastName.length == 50" class="help-block warning">Last Name length has reached its maximum of 50 characters.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                        <div class="form-group  col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="emailInput" class="control-label-modal col-md-4 omega">Email<span class="asterisk">*</span></label>
+                            <div class="col-md-8" ng-class="{ 'has-error' : customerForm.emailInput.$invalid }">
+                                <input type="email" id="txt-email" name="emailInput" data-ng-required="true" data-ng-model="contactDetail.Customer.Email" ng-maxlength="100" maxlength="100" ng-pattern="/[A-Za-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+\/=?^_`{|}~-]+)*\@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])+\b/" class="form-control" />
+                                <span ng-show="!customerForm.emailInput.$error.maxlength && customerForm.emailInput.$invalid && !customerForm.emailInput.$pristine" class="help-block">Email with valid format required.</span>
+                                <span ng-show="customerForm.emailInput.$error.maxlength" class="help-block">Email address length can be up to 100 characters.</span>
+                                <span ng-show="contactDetail.Customer.Email.length == 100" class="help-block warning">Email length has reached its maximum of 100 characters.</span>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="phoneInput" class="control-label-modal col-md-4 omega">Phone</label>
+                            <div class="col-md-8 " ng-class="{ 'has-error' : (customerForm.phoneInput.$invalid && !customerForm.phoneInput.$pristine) || ( customerForm.phoneExtensionInput.$invalid && !customerForm.phoneExtensionInput.$pristine) }">
+                                <input type="text" id="txt-phone" name="phoneInput" ng-required="contactDetail.Customer.Phone.Extension.length > 0" ng-minlength="10" ng-maxlength="20" maxlength="20" data-ng-model="contactDetail.Customer.Phone.PhoneNumber" international-phone-number class="form-control phoneInput" />
+                                <input type="text" id="txt-phoneExtension" name="phoneExtensionInput" ng-maxlength="10" data-ng-model="contactDetail.Customer.Phone.Extension" placeholder="123" ng-pattern="/^\d*$/" class="form-control phoneExtInput" />
+                                <span ng-show="customerForm.phoneInput.$invalid && !customerForm.phoneInput.$pristine" class="help-block"><span class="asterisk">* </span>Valid phone number required.</span>
+                                <span ng-show="customerForm.phoneExtensionInput.$error.maxlength" class="help-block"><span class="asterisk">* </span> Phone number extension can have up to 20 digits.</span>
+                                <span ng-show="contactDetail.Customer.Phone.PhoneNumber.length == 20" class="help-block warning">Phone length has reached its maximum of 20 characters.</span>
+                                <span ng-show="customerForm.phoneExtensionInput.$invalid && !customerForm.phoneExtensionInput.$error.maxlength" class="help-block"><span class="asterisk">* </span>Valid Phone number extension required.</span>
+                                <span ng-show="contactDetail.Customer.Phone.Extension.length > 0 && contactDetail.Customer.Phone.PhoneNumber.length == 0" class="help-block warning">Phone number is required if an extension is entered</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="salutationInput" class="control-label-modal col-md-4 omega">Display Name<span class="asterisk">*</span></label>
+                            <div class="col-md-8" ng-class="{ 'has-error' : customerForm.salutationInput.$invalid || contactDetail.Customer.Salutation.length > 49 }">
+                                <input type="text" id="txt-firstName" ng-maxlength="50" maxlength="50" name="salutationInput" data-ng-required="true" data-ng-model="contactDetail.Customer.Salutation" class="form-control" placeholder="e.g. Mr. Customer" ng-blur="salutationUpdated()" />
+                                <span ng-show="contactDetail.Customer.Salutation.length > 49" class="help-block has-error">Display Name length can be up to 50 characters.</span>
+                                <span>How your customer will be addressed on their site</span><br />
+                                <span>i.e. "Hello <b>Mr. Customer</b>, here is your site"</span><br />
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div ng-show="contactDetail.Countries.length === 1">
+                                <label class="control-label col-md-4 omega">Country</label>
+                                <label class="control-label col-md-8" id="txt-countryName"><b>{{contactDetail.Countries[0].CountryName}}</b></label>
+                            </div>
+                            <div id="countrySection" ng-show="contactDetail.Countries.length > 1">
+                                <label for="countrySelect" class="control-label-modal col-md-4 omega">Country<span class="asterisk">*</span></label>
+                                <div class="col-md-8 select-dropdown" ng-class="{ 'has-error' : customerForm.countrySelect.$invalid }">
+                                    <select class="form-control" id="opt-country" ng-change="countryChanged()" name="countrySelect" data-ng-required="true" data-ng-model="contactDetail.Customer.Address.CountryId" data-ng-options="c.Id as c.CountryName for c in contactDetail.Countries" ng-disabled="contactDetail.TemplateId > 0" ng-click="arrowCtry = !arrowCtry"></select>
+                                    <span ng-show="customerForm.countrySelect.$error.required && !customerForm.countrySelect.$pristine" class="help-block">Country selection is required.</span>
+                                    <span ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !arrowCtry, 'icons-icon mdl2-scroll-chevron-up-legacy': arrowCtry }"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12" ng-show="contactDetail.TeamSellers.length > 1 && !IsEdit">
+                            <label for="onBehalfSelect" class="control-label-modal col-md-4 omega">On Behalf Of<span class="asterisk"></span></label>
+                            <div class="col-md-8">
+                                <select name="onBehalfSelect" ng-required="true" ng-model="contactDetail.Customer.SellerId" class="form-control">
+                                    <option ng-repeat="c in contactDetail.TeamSellers | orderBy:onBehalfSorting" ng-selected="contactDetail.Customer.SellerId == c.Id" value="{{c.Id}}">{{master.contactDetail.Customer.SellerId == c.Id ? '' : (c.FirstName + ' ' + c.LastName)}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12" id="onBehalfLabel" ng-show="IsEdit">
+                            <label for="onBehalfLabel" class="control-label-modal col-md-4 omega">Created By</label>
+                            <label class="col-md-8 control-label-modal" id="onBehalfLabel">{{contactDetail.Customer.CreatedBySeller.FirstName}} {{contactDetail.Customer.CreatedBySeller.LastName}}</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Existing Products-->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                    <h3 class="attention">Existing Products</h3>
+                    <div ng-repeat="products in contactDetail.CompetitiveProductOptionModels">
+                        <div ng-repeat="product in products">
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label for="{{product.ProductCategory.replace(' ','')}}Input" class="control-label-modal col-md-4 omega">{{product.ProductCategory}}</label>
+                                <div class="col-md-8">
+                                    <input kendo-auto-complete class="k-list-container"  id="txt-{{product.ProductCategory.replace(' ','')}}" name="{{product.ProductCategory.replace(' ','')}}Input" ng-model="product.SelectedOption" k-data-source="product.ManagedOptions" ng-maxlength="50" maxlength="50" />
+                                    <span ng-show="product.SelectedOption.length == 50" class="help-block warning">{{product.ProductCategory}} length has reached its maximum of 50 characters.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Status-->
+                <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                    <h3>Status</h3>
+                    <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label for="statusRadio" class="control-label-modal col-md-4 omega">Customer Status</label>
+                        <div class="col-md-8 radio-modal">
+                            <label><input id="rbl-customerStatus_Active" type="radio" name="StatusRadio" data-ng-checked="contactDetail.Customer.IsActive == true" data-ng-model="contactDetail.Customer.IsActive" value="true" /> Active</label>
+                            <label><input id="rbl-customerStatus_Inactive" type="radio" name="StatusRadio" data-ng-checked="contactDetail.Customer.IsActive == false" data-ng-model="contactDetail.Customer.IsActive" value="false" /> Inactive</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12" ng-hide="contactDetail.Customer.SalesStatusId < 1">
+                        <label for="salesStatusSection" class="control-label-modal col-md-4 omega">Sales Status<span class="asterisk">*</span></label>
+                        <div class="col-md-8" ng-class="{ 'has-error' : customerForm.salesStatusSelect.$invalid }">
+                            <select class="form-control" id="opt-sales-status" name="salesStatusSelect" data-ng-required="true" data-ng-model="contactDetail.Customer.SalesStatusId" data-ng-options="c.Id as c.Status for c in contactDetail.SalesStatus"></select>
+                            <span ng-show="customerForm.salesStatusSelect.$error.required && !customerForm.salesStatusSelect.$pristine" class="help-block">Country selection is required.</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        Reminder: It is your responsibility to receive consent from the customer that their personal information (including first and last name and contact information) will be stored and processed by Microsoft for the purpose of creating the personalized DISCOVER Hub website, and for operating and improving Microsoft’s products and services.
+                    </div>
+                </div>-->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 reminder padding-0">
+                    <small><span class="asterisk">*</span>Indicates required field</small>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 reminder padding-0">
+                    Reminder: It is your responsibility to receive consent from the customer that their personal information (including first and last name and contact information) will be stored and processed by Microsoft for the purpose of creating the personalized DISCOVER Hub website, and for operating and improving Microsoft’s products and services.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Customer Template View-->
+    <div class="col-lg-12 " ng-show="step == 1 && isCustomerTemplate">
+        <div class="col-lg-12 alpha omega">
+            <form name="customerTemplateForm" class="form-horizontal" novalidate>
+                <!--Company Info-->
+                <div class="container-fluid" ng-show="IsEdit">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <span class="modal-active-check" style="margin-top: -50px"><input type="checkbox" name="isActiveCheckbox" ng-model="customerTemplate.IsActive"> Active</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="companyNameInput" class="control-label">Template Name<span class="asterisk">*</span></label>
+                            <div class="" ng-class="{ 'has-error' : customerTemplateForm.companyNameInput.$invalid }">
+                                <input type="text" id="txt-companyName" ng-maxlength="100" maxlength="100" name="companyNameInput" data-ng-model="customerTemplate.Name" data-ng-required="true" class="form-control" />
+                                <span ng-show="customerTemplateForm.companyNameInput.$error.required && !customerTemplateForm.companyNameInput.$pristine" class="help-block">Template Name is required.</span>
+                                <span ng-show="customerTemplateForm.companyNameInput.$error.maxlength" class="help-block">Template Name length can be up to 50 characters.</span>
+                                <span ng-show="contactDetail.Customer.CompanyName.length == 100" class="help-block warning">Template Name length has reached its maximum of 50 characters.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Company Size<span class="asterisk">*</span></label>
+                            <div class="">
+                                <select class="form-control  col-md-3" id="opt-companySize" name="companySizeSelect" data-ng-required="true" data-ng-model="customerTemplate.CompanySizeId" data-ng-options="c.Id as c.Description for c in companySizes"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="applicationSelect" class="control-label">Application<span class="asterisk">*</span></label>
+                            <div class="" ng-class="{ 'has-error' : customerTemplateForm.applicationSelect.$invalid }">
+                                <select class="form-control" id="opt-application" name="applicationSelect" data-ng-required="true" ng-change="applicationChanged(customerTemplate)" data-ng-model="customerTemplate.ApplicationId" data-ng-options="a.Id as a.Name for a in applications"></select>
+                                <span ng-show="customerTemplateForm.applicationSelect.$error.required && !customerTemplateForm.applicationSelect.$pristine" class="help-block">Application selection is required.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Language<span class="asterisk">*</span></label>
+                            <div class="">
+                                <select class="form-control  col-md-3" id="opt-language" name="languageSelect" data-ng-required="true" data-ng-model="customerTemplate.LanguageId" ng-change="languageChanged(customerTemplate)" data-ng-options="l.Id as l.FriendlyName for l in languages"></select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="container-fluid">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div ng-show="countries.length === 1">
+                                <label class="control-label" style="margin-top: 3px;">Country</label>
+                                <br />
+                                <label class="control-label" id="txt-countryName" style="margin-top: 2px;">
+                                    <b>{{getCountryById(customerTemplate.CountryId).CountryName}}</b>
+                                </label>
+                            </div>
+                            <div id="countrySection" ng-show="countries.length > 1">
+                                <label for="countrySelect" class="control-label">Country<span class="asterisk">*</span></label>
+                                <div class="" ng-class="{ 'has-error' : customerTemplateForm.countrySelect.$invalid }">
+                                    <select class="form-control" id="opt-country" ng-change="countryChanged()" name="countrySelect" data-ng-required="true" data-ng-model="customerTemplate.CountryId" data-ng-options="c.Id as c.CountryName for c in countries"></select>
+                                    <span ng-show="customerTemplateForm.countrySelect.$error.required && !customerTemplateForm.countrySelect.$pristine" class="help-block">Country selection is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" ng-show="industries.length > 1 && countries.length > 0">
+                            <label for="industrySelect" class="control-label">Industry<span class="asterisk">*</span></label>
+                            <div class="" ng-class="{ 'has-error' : customerTemplateForm.industrySelect.$invalid }">
+                                <select class="form-control" id="opt-industry" name="industrySelect" data-ng-required="true" ng-change="industryChanged(customerTemplate)" data-ng-model="customerTemplate.IndustryId" data-ng-options="i.Id as i.Name for i in industries"></select>
+                                <span ng-show="customerTemplateForm.industrySelect.$error.required && !customerTemplateForm.industrySelect.$pristine" class="help-block">Industry selection is required.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Recommended Scenarios-->
+    <div class="col-lg-12" ng-show="step == 2">
+        <div class="col-lg-12 alpha omega" ng-show="!isCustomerTemplate">
+            <!--Section Title-->
+            <!--<h1 id="pageTitle">Recommended Scenarios</h1>-->
+        </div>
+        <div class="col-lg-12 alpha omega" ng-show="dataLoaded2">
+            <!--Section Info-->
+            <h2 class="title">1.Select up to 3 industry scenarios to recommend to your customer based upon their needs.</h2>
+
+            <!--Accordion-->
+            <div class="col-lg-12 recommended-scenarios">
+                <!-- ReSharper disable Html.TagNotResolved -->
+                <span class="text-danger" ng-show="HasReachedLimit()"><span class="glyphicon glyphicon-exclamation-sign"></span> Maximum number of content items reached. Remove one to change selections.</span>
+                <accordion id="acc-recommendContent" close-others="oneAtATme" ng-class="isCustomerTemplate? 'isCustomerTemplate':''">
+
+                    <accordion-group ng-repeat="industry in recommendContent" is-open="statusL1.open">
+                        <accordion-heading>
+                            <div class="accordion-dropdown">
+                                <!--{{industry.Name}} <img class="pull-right" style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-src="{{statusL1.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />-->
+                                {{industry.Name}}<span class="pull-right" ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !statusL1.open, 'icons-icon mdl2-scroll-chevron-up-legacy': statusL1.open }"></span>
+                            </div>
+                        </accordion-heading>
+                        <accordion close-others="oneAtATime" class="sub-description-recommended">
+                            <accordion-group ng-repeat="solution in industry.Contents" is-open="statusL2.open">
+                                <accordion-heading>
+                                    <div class="accordion-dropdown">
+                                        <label>                                            
+                                            <input type="checkbox" ng-model="solution.IsRecommended" ng-disabled="rc_shouldDisable(solution.IsRecommended, industry.Name)" ng-click="rc_checkboxClick(industry.Name, $event)"/> {{solution.SolutionName}}
+                                            <span class="icons-icon mdl2-check-mark-zero-width-legacy"></span>
+                                        </label>
+                                        <img ng-show="!isCustomerTemplate" style="width: 17px; height: 17px; margin-right: 5px; vertical-align: middle; margin-bottom: 5px;" ng-click="previewSite($event, solution.SolutionId, 0)" ng-src="{{'/Images/info icon-blk-sm.png'}}" />
+                                        <!--<img ng-show="!isCustomerTemplate" class="pull-right" style="width: 17px; height: 17px" ng-src="{{statusL2.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />-->
+                                        
+                                        <span ng-show="!isCustomerTemplate" class="pull-right" ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !statusL2.open, 'icons-icon mdl2-scroll-chevron-up-legacy': statusL2.open }"></span>
+                                    </div>
+                                </accordion-heading>
+
+                                <accordion close-others="oneAtATime" ng-show="!isCustomerTemplate">
+                                    <accordion-group ng-repeat="topic in solution.ContentNodes" is-open="statusL3.open">
+                                        <accordion-heading>
+                                            <div class="accordion-dropdown">
+                                                <label ng-click="rc_toggleView(topic.ChildrenNodes.length, $event)"> {{topic.Name}}</label>
+                                                <!--<img style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-hide="topic.ChildrenNodes.length == 0" class="pull-right" ng-src="{{statusL3.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />-->
+                                                <span class="pull-right" ng-hide="topic.ChildrenNodes.length == 0" ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !statusL3.open, 'icons-icon mdl2-scroll-chevron-up-legacy': statusL3.open }"></span>
+                                                <i ng-show="topic.HasLink && !isCustomerTemplate" class="pull-right glyphicon glyphicon-paperclip" title="Edit customer note" ng-click="rc_editComment(topic, $event)"></i>
+                                                <img ng-src="{{topic.MessageId != null && '/Images/comment-filled.png' || '/Images/comment-unfilled.png'}}" class="pull-right pointer" ng-class="{'contentNote-filledComment': topic.MessageId != null, 'contentNote-unfilledComment': topic.MessageId == null}" title="Edit customer note" ng-click="rc_editComment(topic, $event)" />
+                                                
+                                            </div>
+                                        </accordion-heading>
+                                        <ul ng-repeat="subtopic in topic.ChildrenNodes">
+                                            <li class="accordion-dropdown">
+                                                {{subtopic.Name}}
+												<i ng-show="subtopic.HasLink && !isCustomerTemplate" class="pull-right glyphicon glyphicon-paperclip"></i>
+                                                <img ng-src="{{subtopic.MessageId != null && '/Images/comment-filled.png' || '/Images/comment-unfilled.png'}}" class="pull-right pointer" ng-class="{'contentNote-filledComment': subtopic.MessageId != null, 'contentNote-unfilledComment': subtopic.MessageId == null}" title="Edit customer note" ng-click="rc_editComment(subtopic, $event)" />
+                                                
+                                            </li>
+                                        </ul>
+                                    </accordion-group>
+                                </accordion>
+
+                            </accordion-group>
+                        </accordion>
+                    </accordion-group>
+
+                </accordion>
+            </div>
+            <div class="col-lg-12 recommended-scenarios">
+                <h2 class="title">2.Select workloads to highlight based on your customer's needs.</h2>
+                <accordion id="acc-recommendWorkloads" close-others="oneAtATme">
+                    <accordion-group ng-repeat="workload in Workloads">
+                        <accordion-heading>
+                            <div class="accordion-dropdown">
+                                <!--{{workload.Name}} <img class="pull-right" style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-src="{{statusL1.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />-->
+                                {{workload.Name}}<span class="pull-right" ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !statusL1.open, 'icons-icon mdl2-scroll-chevron-up-legacy': statusL1.open }"></span>
+                            </div>
+                        </accordion-heading>
+                        <accordion close-others="oneAtATime">
+                            <accordion-group ng-repeat="load in workload.Contents" is-open="statusL2.open">
+                                <accordion-heading>
+                                    <div  class="accordion-dropdown">
+                                        <label>
+                                            <input type="checkbox" ng-model="load.IsRecommended" ng-click="rc_checkboxClick(workload.Name, $event)" /> {{load.SolutionName}}
+                                        </label>
+                                        <img ng-show="!isCustomerTemplate" style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-click="previewSite($event, solution.SolutionId, 0)" ng-src="{{'/Images/glyphicons-search.png'}}" />
+                                        <!--<img ng-show="!isCustomerTemplate" class="pull-right" style="width: 17px; height: 17px" ng-src="{{statusL2.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />-->
+                                        <span ng-show="!isCustomerTemplate" class="pull-right" ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !statusL2.open, 'icons-icon mdl2-scroll-chevron-up-legacy': statusL2.open }"></span>
+                                    </div>
+                                </accordion-heading>
+
+                                <accordion close-others="oneAtATime" ng-show="!$parent.isContentTemplate">
+                                    <accordion-group ng-repeat="topic in load.ContentNodes" is-open="statusL3.open">
+                                        <accordion-heading>
+                                            <div class="accordion-dropdown">
+                                                <label ng-click="rc_toggleView(topic.ChildrenNodes.length, $event)"> {{topic.Name}}</label>
+                                                <!--<img style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-hide="topic.ChildrenNodes.length == 0" class="pull-right" ng-src="{{statusL3.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />-->
+                                                <span class="pull-right" ng-hide="topic.ChildrenNodes.length == 0" ng-class="{'icons-icon mdl2-scroll-chevron-down-legacy': !statusL3.open, 'icons-icon mdl2-scroll-chevron-up-legacy': statusL3.open }"></span>
+                                                <i ng-show="topic.HasLink" class="pull-right glyphicon glyphicon-paperclip" title="Edit customer note" ng-click="rc_editComment(topic, $event)"></i>
+												<img ng-show="!isCustomerTemplate" ng-src="{{topic.MessageId != null && '/Images/comment-filled.png' || '/Images/comment-unfilled.png'}}" class="pull-right pointer" ng-class="{'contentNote-filledComment': topic.MessageId != null, 'contentNote-unfilledComment': topic.MessageId == null}" title="Edit customer note" ng-click="rc_editComment(topic, $event)" />
+                                            </div>
+                                        </accordion-heading>
+                                        <ul ng-repeat="subtopic in topic.ChildrenNodes">
+                                            <li class="accordion-dropdown">
+                                                {{subtopic.Name}}
+                                                <i ng-show="subtopic.HasLink" class="pull-right glyphicon glyphicon-paperclip"></i>
+												<img ng-show="!isCustomerTemplate" ng-src="{{subtopic.MessageId != null && '/Images/comment-filled.png' || '/Images/comment-unfilled.png'}}" class="pull-right pointer" ng-class="{'contentNote-filledComment': subtopic.MessageId != null, 'contentNote-unfilledComment': subtopic.MessageId == null}" title="Edit customer note" ng-click="rc_editComment(subtopic, $event)" />
+                                            </li>
+                                        </ul>
+                                    </accordion-group>
+                                </accordion>
+                            </accordion-group>
+                        </accordion>
+                    </accordion-group>
+                </accordion>
+            </div>
+            <!-- ReSharper restore Html.TagNotResolved -->
+        </div>
+
+    </div>
+
+    <!--Customers Like You-->
+    <div class="col-lg-12" ng-show="step == 3">
+        <!--Section Title-->
+        <div class="col-lg-12 alpha omega" ng-show="!isCustomerTemplate">
+            <!--<h1 id="pageTitle"> Customers Like You</h1>-->
+        </div>
+
+        <div class="col-lg-12 alpha omega" ng-show="dataLoaded3">
+            <!--Section Caption-->
+            <h2 class="title"> Select up to 3 case studies that will appear to your customer under <i>Customers Like You</i>.</h2>
+            <!--Selected Case Studies-->
+            <span class="text-danger" ng-show="HasReachedLimit()"><span class="glyphicon glyphicon-exclamation-sign"></span> Maximum number of case studies reached. Remove one to change selections.</span>
+
+            <!--Available Case Studies-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega tableContent">
+                <!--<h1 class="smaller page-header">Available Case Studies</h1>-->
+                <!--<div class="col-md-6 alpha"><input type="checkbox" id="chk-customerFilter" ng-click="cly_ToggleFilter()" ng-model="cly_IsFilterOn" /> Apply filter for your Customer's Industry</div>-->
+                <div class="col-sm-8 col-sm-offset-4 omega text-right">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="filter-by">Filter by Industry</label>
+                            <select id="companySizeSelect" ng-show="!isCustomerTemplate" ng-model="companySizeFilter" data-ng-options="companySize as companySize.Description for companySize in companySizes"></select>
+                            <select id="companySizeSelect2" ng-show="isCustomerTemplate" ng-model="companySizeFilter" data-ng-options="companySize as companySize.Description for companySize in clyCompanySizes"></select>                            
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="filter-by">Filter by Company Size</label>
+                            <select id="countrySelect" ng-show="!isCustomerTemplate" ng-model="countryFilter" data-ng-options="country as country for country in countries" style="margin-top: 5px;"></select>
+                            <select id="countrySelect2" ng-show="isCustomerTemplate" ng-model="countryFilter" data-ng-options="country as country for country in clyCountries" style="margin-top: 5px;"></select>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="filter-by">Filter by Country</label>
+                            <select id="countrySelect" ng-show="!isCustomerTemplate" ng-model="countryFilter" data-ng-options="country as country for country in countries" style="margin-top: 5px;"></select>
+                            <select id="countrySelect2" ng-show="isCustomerTemplate" ng-model="countryFilter" data-ng-options="country as country for country in clyCountries" style="margin-top: 5px;"></select>
+                        </div>
+                    </div>
+                </div><br>
+                <p class="hr-ruler"></p>
+                <table id="tbl-availableCaseStudies" class="table table-condensed table-hover" ts-wrapper>
+                    <thead>
+                        <tr ng-show="!isCustomerTemplate">
+                            <th ng-show="isCustomerTemplate"></th>
+                            <th ts-criteria="CustomerName|lowercase">Case Study</th>
+                            <th ts-criteria="Industry|lowercase">Industry</th>
+                            <th class="hidden-xs hidden-sm">Related Workloads</th>
+                            <th class="hidden-xs" ts-criteria="Location|lowercase">Geography</th>
+                            <th class="hidden-xs" ts-criteria="CompanySizeId|parseInt">Company Size</th>
+                            <th></th>
+                        </tr>
+                        <tr ng-show="isCustomerTemplate">
+                            <th></th>
+                            <th>Case Study</th>
+                            <th>Industry</th>
+                            <th class="hidden-xs">Geography</th>
+                            <th class="hidden-xs">Company Size</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="customer in customerReferences | filter:cly_limitToCustomer | orderBy:['-IsRecommended', '-IsCustomersCountry', 'Location']" ng-class=" {'tablecontent-selected' : customer.isrecommended}" ts-repeat>
+                            <td ng-show="isCustomerTemplate"><input type="checkbox" ng-checked="{{customer.IsRecommended}}" ng-model="customer.IsRecommended" ng-change="cly_toggleSelect(customer)" ng-disabled="!customer.IsRecommended && HasReachedLimit()" /></td>
+                            <td class="col-xs-2"><a class="pointer" ng-click="openSite(customer.Website)">{{customer.CustomerName}}</a></td>
+                            <td>{{customer.Industry}}</td>
+                            <td class="col-xs-2 hidden-xs hidden-sm" ng-show="!isCustomerTemplate"><div ng-repeat="product in customer.MicrosoftProducts">{{product.Name}}</div></td>
+                            <td class="col-xs-2 hidden-xs">{{customer.Location}}</td>
+                            <td class="col-xs-2 hidden-xs">{{customer.CompanySize.Description}}</td>
+                            <td class="col-xs-3" ng-show="!isCustomerTemplate">
+                                <a ng-hide="customer.IsRecommended" ng-disabled="HasReachedLimit()" ng-click="cly_toggleSelect(customer)" class="btn btn-success"> Select </a>
+                                <a ng-show="customer.IsRecommended" ng-click="cly_toggleSelect(customer)" class="btn btn-info"> Remove </a>
+                                <span ng-show="HasReachedLimit() && !customer.IsRecommended" class="annotation text-danger">Max limit reached</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Next Steps-->
+    <div class="col-lg-12" ng-show="step == 4">
+        <!--Section Title-->
+        <div class="col-lg-12 alpha omega" ng-show="!isCustomerTemplate">
+            <!--<h1 id="pageTitle">Next Steps </h1>-->
+        </div>
+
+        <div class="container-fluid" style="margin-top: -28px" ng-show="isCustomerTemplate && !IsEdit">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <span class="modal-active-check"><input type="checkbox" name="isActiveCheckbox" ng-model="customerTemplate.IsActive"> Active</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12 alpha omega" ng-show="dataLoaded4">
+            <!--Section Caption-->
+
+            <h2 class="title"> Select up to 3 CTA items that will appear to your customer under <i>Next Steps</i>.</h2>
+            <span class="text-danger" ng-show="HasReachedLimit()"><span class="glyphicon glyphicon-exclamation-sign"></span> Maximum number of CTA items reached. Remove one to change selections.</span>
+
+            <div id="ctaList" class="row" ng-show="!isCustomerTemplate">
+                <div id="cta-section" ng-repeat="cta in actions" class="col-lg-3 col-md-3 col-sm-12 col-xs-12 padding-bottom-10">
+                    <div class="tryitout-container">
+                        <!--Title-->
+                        <div class="title">
+                            <h3>{{cta.Title}}</h3>
+                        </div>
+                        <!--Description-->
+                        <p>{{cta.Body}}</p>
+                        <!--Checkbox-->
+                        <a class="btn btn-success" ng-disabled="ctaShouldDisable(cta.IsRecommended)" ng-click="cta_checkboxClick($event)" ng-model="cta.IsRecommended" value="{{cta.Id}}"> Show this </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid" ng-show="isCustomerTemplate">
+                <table class="table table-condensed table-hover table-striped" ts-wrapper>
+                    <thead>
+                        <tr>
+                            <th class=""></th>
+                            <th class="">Name</th>
+                            <th class="">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="cta in actions">
+                            <td class=""><input type="checkbox" ng-disabled="ctaShouldDisable(cta.IsRecommended)" ng-click="cta_checkboxClick($event)" ng-model="cta.IsRecommended" value="{{cta.Id}}" ng-checked="{{ cta.IsRecommended }}" /></td>
+                            <td class="">{{cta.Title}}</td>
+                            <td class="" title="{{cta.Body}}">{{cta.Body.substring(0,50) + "..."}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--ROI and Proposals-->
+    <div class="col-lg-12 pricing-roi" ng-show="step == 5">
+        <!--Section Title-->
+        <div class="col-lg-12 alpha omega">
+            <!--<h1 id="pageTitle">ROI and Proposals</h1>-->
+        </div>
+        <!--<div class="col-lg-12 alpha omega margin-top-10">
+            <input type="checkbox" id="roi-enabled" ng-change="rp_disabledClick()" ng-checked="{{contactDetail.Customer.HasRoi}}" ng-model="contactDetail.Customer.HasRoi" />
+            <label for="roi-enabled" class="control-label">ROI Page Enabled</label>
+        </div>-->
+        <div class="margin-top-5 top-content">
+            <div class="col-md-12">
+                <h2 class="title">Disabling the <i>Pricing and ROI page</i> will eliminate the section from the site that is created and shared with your customer</h2>
+                <label for="rbl-roi_enabled" class="row control-label">Pricing and ROI Page</label>
+                <div class="radio-select">
+                    <label>
+                        <input id="rbl-roi_enabled" type="radio" name="RoiRadio" ng-change="rp_disabledClick()" data-ng-checked="contactDetail.Customer.HasRoi === true" data-ng-model="contactDetail.Customer.HasRoi" value="true" />&nbsp;Enabled&nbsp;&nbsp;
+                    </label>
+                    <label>
+                        <input id="rbl-roi_disabled" type="radio" name="RoiRadio" ng-change="rp_disabledClick()" data-ng-checked="contactDetail.Customer.HasRoi === false" data-ng-model="contactDetail.Customer.HasRoi" value="false" />&nbsp;Disabled
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 alpha omega padding-left-none" ng-show="dataLoaded5">
+
+            <div ng-show="systemRecommendations.length > 0">
+                <div class="col-lg-12 padding-left-none" ng-class="{ 'disabled-div' : (customRecommendation === true) }">
+                    <h2 class="best-suits"> Based on the provided information, we think this SKU best suits your customer's needs.</h2>
+                </div>
+
+                <!--Section Caption-->
+                <div class="col-lg-12 padding-left-none">
+                    <div id="prodList" class="col-lg-12 alpha omega">
+
+                        <table class="col-lg-12 alpha omega recommendedProdRow modal-table" ng-repeat="product in systemRecommendations" ng-class="{ 'disabled-div' : (customRecommendation === true) }">
+                            <tr>
+                                <td class="col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>{{product.Name}}</span>
+                                    </div>
+                                </td>
+
+                                <td class="col-lg-5 col-md-5 hidden-sm hidden-xs recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>Plan Information:</span> <br />
+                                    </div>
+                                    <div>
+                                        <span ng-repeat="f in product.Features|filter: {IsActive: true, IsIncluded:true}">
+                                            {{f.FeatureName}}<span ng-show="f.ConfigurationValue != null"> : {{f.ConfigurationValue}}</span><span ng-show="!$last">, </span>
+                                        </span>
+                                    </div>
+                                </td>
+
+                                <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span># of Users</span><br />
+                                    </div>
+                                    <div><span>{{customerEmployeeCount ? customerEmployeeCount : 'N/A' | number:2}}</span></div>
+                                </td>
+
+                                <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>MSRP(per user/month)</span><br />
+                                    </div>
+                                    <div><span>{{product.CurrencySymbol}}{{product.MSRP|number:2}}</span></div>
+                                </td>
+
+                            </tr>
+                        </table>
+
+                        <table id="prodListTotals" class="recommendedProdRow pull-right modal-table" ng-show="!customRecommendation">
+                            <tr>                               
+                                <td class="col-lg-6 col-md-6 hidden-sm hidden-xs recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>Totals</span> <br />
+                                    </div>
+                                </td>
+                                <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span># of Users</span> <br />
+                                    </div>
+                                    {{customerEmployeeCount ? customerEmployeeCount : 'N/A' | number:2}}
+                                </td>
+                                <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>Final {{systemRecommendations[0].CurrencySymbol}}</span><br />
+                                    </div>
+                                    {{systemRecommendations[0].CurrencySymbol}}{{recommendedPlanGrandTotal | number:2}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br />
+                <div class="col-lg-12">
+                    <label class="col-md-9 padding-left-none">
+                        <input type="checkbox" id="chk-editRecommendation" data-ng-model="customRecommendation" ng-click="rp_onCustomRecommendationChanged()" />
+                        I would like to change this recommendation
+                    </label>
+                </div>
+            </div>
+
+            <form name="customRecommendationForm" class="col-lg-12 padding-left-none" ng-show="customRecommendation" novalidate>
+                <h2 class="title">
+                    Select and combine up to 5 Microsoft Product Offerings and Partner Service Offerings (1 offering required) to create a custom recommendation that will appear to your
+                    customer under <i>Pricing and ROI</i>.
+                </h2>                
+                <span ng-show="contactDetail.Customer.Employees">Please note your customer has <i>{{customerEmployeeCount}}</i> employees.</span>
+                <span class="text-danger" ng-show="HasReachedLimit()"><span class="glyphicon glyphicon-exclamation-sign"></span> Maximum number of SKUs reached. Remove one to change selections.</span>
+
+                <h3>Microsoft Product Offerings</h3>
+                <div id="prodList" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                    <table class="recommendedProdRow col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega modal-table-2">
+                        <tr>
+                            <td class=" col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>Offering Name</span><br />
+                                </div>
+                                <select class="form-control" id="opt-sku1" name="sku1Select" data-ng-options="product as product.Name for product in productsandservices.RecommendedProducts|filter: rp_filter1" data-ng-model="selectedRecommendedProduct1" ng-change="rp_onProductSelectionChanged()">
+                                    <option value="" ng-disabled="selectedRecommendedProduct2 != null">Please select a SKU</option>
+                                </select>
+                            </td>
+
+                            <td class="col-lg-5 col-md-5 hidden-sm hidden-xs recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>Plan Information</span> <br />
+                                </div>
+                                <div ng-hide="selectedRecommendedProduct1 != null"><span>-</span></div>
+                                <div>
+                                    <span ng-repeat="f in selectedRecommendedProduct1.Features|filter: {IsActive: true, IsIncluded:true}">
+                                        {{f.FeatureName}}<span ng-show="f.ConfigurationValue != null"> : {{f.ConfigurationValue}}</span><span ng-show="!$last">, </span>
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell" ng-class="{ 'has-error' : customRecommendationForm.txtSeatCountInput1.$invalid }">
+                                <div class="div-table-header">
+                                    <span># of Users<span class="asterisk">*</span></span><br />
+                                </div>
+                                <input data-ng-required="selectedRecommendedProduct1 != null" ng-disabled="selectedRecommendedProduct1 == null" ng-pattern="/^(?!0*(\.0+)?$)(\d+|\d*\.\d+)$/" id="txtSeatCount-{{selectedRecommendedProduct1.ProductId}}" name="txtSeatCountInput1" ng-model="selectedRecommendedProduct1.EmployeeCount" ng-change="rp_calculateTotalPageEmployees()" class="form-control SkuSelect" maxlength="4" />
+                                <span ng-show="customRecommendationForm.txtSeatCountInput1.$invalid || customRecommendationForm.txtSeatCountInput1.$error.pattern" class="help-block"><span class="asterisk">*</span>Please enter a valid number without special characters.</span>
+                            </td>
+                            <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>MSRP(per user/month)</span><br />
+                                </div>
+                                <div ng-hide="selectedRecommendedProduct1 != null"><span>-</span></div>
+                                <div><span>{{selectedRecommendedProduct1.CurrencySymbol}}{{selectedRecommendedProduct1.MSRP|number:2}}</span></div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table class="recommendedProdRow col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega modal-table-2" ng-show="selectedRecommendedProduct1 != null && (selectedCount < 5 || selectedRecommendedProduct2 != null)">
+                        <tr>
+                            <td class=" col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>SKU Name</span><br />
+                                </div>
+                                <select class="form-control" id="opt-sku2" name="sku2Select" data-ng-options="product as product.Name for product in productsandservices.RecommendedProducts|filter: rp_filter2" data-ng-model="selectedRecommendedProduct2" ng-change="rp_onProductSelectionChanged()">
+                                    <option value="" ng-disabled="selectedRecommendedProduct3 != null">Please select a SKU</option>
+                                </select>
+                            </td>
+
+                            <td class="col-lg-5 col-md-5 hidden-sm hidden-xs recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>Plan Information</span> <br />
+                                </div>
+                                <div ng-hide="selectedRecommendedProduct2 != null"><span>-</span></div>
+                                <div>
+                                    <span ng-repeat="f in selectedRecommendedProduct2.Features|filter: {IsActive: true, IsIncluded:true}">
+                                        {{f.FeatureName}}<span ng-show="f.ConfigurationValue != null"> : {{f.ConfigurationValue}}</span><span ng-show="!$last">, </span>
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell" ng-class="{ 'has-error' : customRecommendationForm.txtSeatCountInput2.$invalid }">
+                                <div class="div-table-header">
+                                    <span># of Users<span class="asterisk">*</span></span><br />
+                                </div>
+                                <input data-ng-required="selectedRecommendedProduct2 != null" ng-disabled="selectedRecommendedProduct2 == null" ng-pattern="/^(?!0*(\.0+)?$)(\d+|\d*\.\d+)$/" id="txtSeatCount-{{selectedRecommendedProduct2.ProductId}}" name="txtSeatCountInput2" ng-model="selectedRecommendedProduct2.EmployeeCount" ng-change="rp_calculateTotalPageEmployees()" class="form-control" maxlength="4" />
+                                <span ng-show="customRecommendationForm.txtSeatCountInput2.$invalid || customRecommendationForm.txtSeatCountInput2.$error.pattern" class="help-block"><span class="asterisk">*</span>Please enter a valid number without special characters.</span>
+                            </td>
+                            <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>MSRP(per user/month)</span><br />
+                                </div>
+                                <div ng-hide="selectedRecommendedProduct2 != null"><span>-</span></div>
+                                <div><span>{{selectedRecommendedProduct2.CurrencySymbol}}{{selectedRecommendedProduct2.MSRP|number:2}}</span></div>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <table class="recommendedProdRow col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega modal-table-2" ng-show="selectedRecommendedProduct2 != null && (selectedCount < 5 || selectedRecommendedProduct3 != null)">
+                        <tr>
+                            <td class="col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>SKU Name</span><br />
+                                </div>
+                                <select class="form-control" id="opt-sku3" name="sku3Select" data-ng-options="product as product.Name for product in productsandservices.RecommendedProducts|filter: rp_filter3" data-ng-model="selectedRecommendedProduct3" ng-change="rp_onProductSelectionChanged()">
+                                    <option value="">Please select a SKU</option>
+                                </select>
+                            </td>
+
+                            <td class="col-lg-5 col-md-5 hidden-sm hidden-xs recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>Plan Information</span> <br />
+                                </div>
+                                <div ng-hide="selectedRecommendedProduct3 != null"><span>-</span></div>
+                                <div>
+                                    <span ng-repeat="f in selectedRecommendedProduct3.Features|filter: {IsActive: true, IsIncluded:true}">
+                                        {{f.FeatureName}}<span ng-show="f.ConfigurationValue != null"> : {{f.ConfigurationValue}}</span><span ng-show="!$last">, </span>
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell" ng-class="{ 'has-error' : customRecommendationForm.txtSeatCountInput3.$invalid }">
+                                <div class="div-table-header">
+                                    <span># of Users<span class="asterisk">*</span></span><br />
+                                </div>
+                                <input data-ng-required="selectedRecommendedProduct3 != null" ng-disabled="selectedRecommendedProduct3 == null" ng-pattern="/^(?!0*(\.0+)?$)(\d+|\d*\.\d+)$/" id="txtSeatCount-{{selectedRecommendedProduct3.ProductId}}" name="txtSeatCountInput3" ng-model="selectedRecommendedProduct3.EmployeeCount" ng-change="rp_calculateTotalPageEmployees()" class="form-control" maxlength="4" />
+                                <span ng-show="customRecommendationForm.txtSeatCountInput3.$invalid || customRecommendationForm.txtSeatCountInput3.$error.pattern" class="help-block"><span class="asterisk">*</span>Please enter a valid number without special characters.</span>
+                            </td>
+                            <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>MSRP(per user/month)</span><br />
+                                </div>
+                                <div ng-hide="selectedRecommendedProduct3 != null"><span>-</span></div>
+                                <div><span>{{selectedRecommendedProduct3.CurrencySymbol}}{{selectedRecommendedProduct3.MSRP|number:2}}</span></div>
+                            </td>
+                            <!--<td class="col-md-2 recommendedProdCell" ng-class="{ 'has-error' : customRecommendationForm.txtSellerPriceInput3.$invalid }">
+                                <span>Seller Price {{selectedRecommendedProduct3.CurrencySymbol}}</span><br/>
+                                <input type="number" step="0.01" data-ng-required="selectedRecommendedProduct3 != null" ng-disabled="selectedRecommendedProduct3 == null" ng-pattern="/^\-?\d+((\.)\d+)?$/" id="txtSellerPrice-{{selectedRecommendedProduct3.ProductId}}" name="txtSellerPriceInput3" ng-model="selectedRecommendedProduct3.Price" class="form-control"/>
+                                <span ng-show="customRecommendationForm.txtSellerPriceInput3.$invalid || customRecommendationForm.txtSellerPriceInput3.$error.pattern" class="help-block"><span class="asterisk">*</span>Please enter a valid number without any special characters.</span>
+                            </td>-->
+                        </tr>
+                    </table>
+
+                    <!--<table class="recommendedProdRow col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega modal-table-2" ng-show="selectedRecommendedProduct3 != null && (selectedCount < 5 || selectedRecommendedProduct4 != null)">
+                        <tr>
+                            <td class=" col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>SKU Name</span><br />
+                                </div>
+                                <select class="form-control" id="opt-sku4" name="sku4Select" data-ng-options="product as product.Name for product in productsandservices.RecommendedProducts|filter: rp_filter4" data-ng-model="selectedRecommendedProduct4" ng-change="rp_onProductSelectionChanged()">
+                                    <option value="">Please select a SKU</option>
+                                </select>
+                            </td>
+
+                            <td class="col-lg-5 col-md-5 hidden-sm hidden-xs recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>Plan Information</span> <br />
+                                </div>
+                                <div ng-hide="selectedRecommendedProduct4 != null"><span>-</span></div>
+                                <div>
+                                    <span ng-repeat="f in selectedRecommendedProduct4.Features|filter: {IsActive: true, IsIncluded:true}">
+                                        {{f.FeatureName}}<span ng-show="f.ConfigurationValue != null"> : {{f.ConfigurationValue}}</span><span ng-show="!$last">, </span>
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell" ng-class="{ 'has-error' : customRecommendationForm.txtSeatCountInput4.$invalid }">
+                                <div class="div-table-header">
+                                    <span># of Users<span class="asterisk">*</span></span><br />
+                                </div>
+                                <input data-ng-required="selectedRecommendedProduct4 != null" ng-disabled="selectedRecommendedProduct4 == null" ng-pattern="/^(?!0*(\.0+)?$)(\d+|\d*\.\d+)$/" id="txtSeatCount-{{selectedRecommendedProduct4.ProductId}}" name="txtSeatCountInput4" ng-model="selectedRecommendedProduct4.EmployeeCount" ng-change="rp_calculateTotalPageEmployees()" class="form-control" maxlength="4" />
+                                <span ng-show="customRecommendationForm.txtSeatCountInput4.$invalid || customRecommendationForm.txtSeatCountInput4.$error.pattern" class="help-block"><span class="asterisk">*</span>Please enter a valid number without special characters.</span>
+                            </td>
+                            <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>MSRP(per user/month)</span><br />
+                                </div>
+                                <div ng-hide="selectedRecommendedProduct4 != null"><span>-</span></div>
+                                <div><span>{{selectedRecommendedProduct4.CurrencySymbol}}{{selectedRecommendedProduct4.MSRP|number:2}}</span></div>
+                            </td>
+                        </tr>
+                    </table>-->
+                    <!--TODO REMOVE STYLING-->
+                    <table id="prodListTotals" class="row recommendedProdRow pull-right modal-table-3">
+                        <tr>
+                        <tr>
+                            <td class="col-md-2 recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>Totals</span> <br />
+                                </div>
+                            </td>
+                            <td class="col-md-2 recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span># of Users</span> <br />
+                                </div>
+                                {{pageEmployeeCount | number:0}}
+                            </td>
+                            <td class="col-md-2 recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>Plan 1</span><br />
+                                </div>
+                                {{selectedRecommendedProduct1.CurrencySymbol}}{{plan1Total | number:2}}
+                            </td>
+                            <td class="col-md-2 recommendedProdCell" ng-show="selectedRecommendedProduct2 != null">
+                                <div class="div-table-header">
+                                    <span>Plan 2</span><br />
+                                </div>
+                                {{selectedRecommendedProduct1.CurrencySymbol}}{{plan2Total | number:2}}
+                            </td>
+                            <td class="col-md-2 recommendedProdCell" ng-show="selectedRecommendedProduct3 != null">
+                                <div class="div-table-header">
+                                    <span>Plan 3</span><br />
+                                </div>
+                                {{selectedRecommendedProduct1.CurrencySymbol}}{{plan3Total | number:2}}
+                            </td>
+                            <td class="col-md-2 recommendedProdCell" ng-show="selectedRecommendedProduct4 != null">
+                                <div class="div-table-header">
+                                    <span>Plan 4</span><br />
+                                </div>
+                                {{selectedRecommendedProduct1.CurrencySymbol}}{{plan4Total | number:2}}
+                            </td>
+                            <td class="col-md-2 recommendedProdCell">
+                                <div class="div-table-header">
+                                    <span>Final {{selectedRecommendedProduct1.CurrencySymbol}}</span><br />
+                                </div>
+                                {{selectedRecommendedProduct1.CurrencySymbol}}{{grandTotal | number:2}}
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div ng-show="productsandservices.ServiceOfferings.length > 0">
+                    <h3>Service Offerings</h3>
+
+                    <div id="serviceList" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+                        <table class="recommendedProdRow col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega modal-table-2" ng-show="selectedCount < 5 || selectedService1 != null">
+                            <tr>
+                                <td class=" col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>Service Offering Name</span><br />
+                                    </div>
+                                    <select class="form-control" id="opt-service1" name="service1Select" data-ng-options="service as service.ServiceOfferingName for service in productsandservices.ServiceOfferings|filter: rp_servicefilter1" data-ng-model="selectedService1" ng-change="rp_onServiceSelectionChanged()">
+                                        <option value="" ng-disabled="selectedService2 != null">Please select a Service Offering</option>
+                                    </select>
+                                </td>
+
+                                <td class="col-lg-5 col-md-5 hidden-sm hidden-xs recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>Information</span> <br />
+                                    </div>
+                                    <div ng-hide="selectedService1 != null"><span>-</span></div>
+                                    <div>
+                                        <span>{{selectedService1.ServiceOfferingDescription}}</span>
+                                    </div>
+                                </td>
+                                <!--<td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell" ng-class="{ 'has-error' : customRecommendationForm.txtServiceSeatCountInput1.$invalid }">
+                                    <div class="div-table-header">
+                                        <span># of Users<span class="asterisk">*</span></span><br/>
+                                    </div>
+                                    <input data-ng-required="selectedService1 != null && selectedService1.FeeTypeId != 3" ng-disabled="selectedService1 == null || selectedService1.FeeTypeId == 3" ng-pattern="/^(?!0*(\.0+)?$)(\d+|\d*\.\d+)$/" id="txtSeatCount-{{selectedService1.ServiceOfferingId}}" name="txtServiceSeatCountInput1" ng-model="selectedService1.EmployeeCount" ng-change="rp_calculateTotalPageEmployees()" class="form-control SkuSelect" maxlength="4"/>
+                                    <span ng-show="customRecommendationForm.txtServiceSeatCountInput1.$invalid || customRecommendationForm.txtServiceSeatCountInput1.$error.pattern" class="help-block"><span class="asterisk">*</span>Please enter a valid number without special characters.</span>
+                                </td>-->
+                                <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>MSRP({{selectedService1.FeeTypeName}})</span><br />
+                                    </div>
+                                    <div ng-hide="selectedService1 != null"><span>-</span></div>
+                                    <div><span>{{selectedService1.CurrencySymbol}}{{selectedService1.MSRP|number:2}}</span></div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="recommendedProdRow col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega modal-table-2" ng-show="selectedService1 != null && (selectedCount < 5 || selectedService2 != null)">
+                            <tr>
+                                <td class=" col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>Service Offering Name</span><br />
+                                    </div>
+                                    <select class="form-control" id="opt-service2" name="service2Select" data-ng-options="service as service.ServiceOfferingName for service in productsandservices.ServiceOfferings|filter: rp_servicefilter2" data-ng-model="selectedService2" ng-change="rp_onServiceSelectionChanged()">
+                                        <option value="" ng-disabled="selectedService3 != null">Please select a Service Offering</option>
+                                    </select>
+                                </td>
+
+                                <td class="col-lg-5 col-md-5 hidden-sm hidden-xs recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>Information</span> <br />
+                                    </div>
+                                    <div ng-hide="selectedService2 != null"><span>-</span></div>
+                                    <div>
+                                        <span>{{selectedService2.ServiceOfferingDescription}}</span>
+                                    </div>
+                                </td>
+                                <!--<td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell" ng-class="{ 'has-error' : customRecommendationForm.txtServiceSeatCountInput2.$invalid }">
+                                    <div class="div-table-header">
+                                        <span># of Users<span class="asterisk">*</span></span><br/>
+                                    </div>
+                                    <input data-ng-required="selectedService2 != null && selectedService2.FeeTypeId != 3" ng-disabled="selectedService2 == null || selectedService2.FeeTypeId == 3" ng-pattern="/^(?!0*(\.0+)?$)(\d+|\d*\.\d+)$/" id="txtSeatCount-{{selectedService2.ServiceOfferingId}}" name="txtServiceSeatCountInput2" ng-model="selectedService2.EmployeeCount" ng-change="rp_calculateTotalPageEmployees()" class="form-control SkuSelect" maxlength="4"/>
+                                    <span ng-show="customRecommendationForm.txtServiceSeatCountInput2.$invalid || customRecommendationForm.txtServiceSeatCountInput2.$error.pattern" class="help-block"><span class="asterisk">*</span>Please enter a valid number without special characters.</span>
+                                </td>-->
+                                <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>MSRP({{selectedService2.FeeTypeName}})</span><br />
+                                    </div>
+                                    <div ng-hide="selectedService2 != null"><span>-</span></div>
+                                    <div><span>{{selectedService2.CurrencySymbol}}{{selectedService2.MSRP|number:2}}</span></div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="recommendedProdRow col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega modal-table-2" ng-show="selectedService2 != null && (selectedCount < 5 || selectedService3 != null)">
+                            <tr>
+                                <td class=" col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>Service Offering Name</span><br />
+                                    </div>
+                                    <select class="form-control" id="opt-service3" name="service3Select" data-ng-options="service as service.ServiceOfferingName for service in productsandservices.ServiceOfferings|filter: rp_servicefilter3" data-ng-model="selectedService3" ng-change="rp_onServiceSelectionChanged()">
+                                        <option value="" ng-disabled="selectedService4 != null">Please select a Service Offering</option>
+                                    </select>
+                                </td>
+
+                                <td class="col-lg-5 col-md-5 hidden-sm hidden-xs recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>Information</span> <br />
+                                    </div>
+                                    <div ng-hide="selectedService3 != null"><span>-</span></div>
+                                    <div>
+                                        <span>{{selectedService3.ServiceOfferingDescription}}</span>
+                                    </div>
+                                </td>
+                                <!--<td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell" ng-class="{ 'has-error' : customRecommendationForm.txtServiceSeatCountInput3.$invalid }">
+                                    <div class="div-table-header">
+                                        <span># of Users<span class="asterisk">*</span></span><br/>
+                                    </div>
+                                    <input data-ng-required="selectedService3 != null && selectedService3.FeeTypeId != 3" ng-disabled="selectedService3 == null || selectedService3.FeeTypeId == 3" ng-pattern="/^(?!0*(\.0+)?$)(\d+|\d*\.\d+)$/" id="txtSeatCount-{{selectedService3.ServiceOfferingId}}" name="txtServiceSeatCountInput3" ng-model="selectedService3.EmployeeCount" ng-change="rp_calculateTotalPageEmployees()" class="form-control SkuSelect" maxlength="4"/>
+                                    <span ng-show="customRecommendationForm.txtServiceSeatCountInput3.$invalid || customRecommendationForm.txtServiceSeatCountInput3.$error.pattern" class="help-block"><span class="asterisk">*</span>Please enter a valid number without special characters.</span>
+                                </td>-->
+                                <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>MSRP({{selectedService3.FeeTypeName}})</span><br />
+                                    </div>
+                                    <div ng-hide="selectedService3 != null"><span>-</span></div>
+                                    <div><span>{{selectedService3.CurrencySymbol}}{{selectedService3.MSRP|number:2}}</span></div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="recommendedProdRow col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega modal-table-2" ng-show="selectedService3 != null && (selectedCount < 5 || selectedService4 != null)">
+                            <tr>
+                                <td class=" col-lg-3 col-md-3 col-sm-4 col-xs-4 col-md-offset-1 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>Service Offering Name</span><br />
+                                    </div>
+                                    <select class="form-control" id="opt-service4" name="service4Select" data-ng-options="service as service.ServiceOfferingName for service in productsandservices.ServiceOfferings|filter: rp_servicefilter4" data-ng-model="selectedService4" ng-change="rp_onServiceSelectionChanged()">
+                                        <option value="">Please select a Service Offering</option>
+                                    </select>
+                                </td>
+
+                                <td class="col-lg-5 col-md-5 hidden-sm hidden-xs recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>Information</span> <br />
+                                    </div>
+                                    <div ng-hide="selectedService4 != null"><span>-</span></div>
+                                    <div>
+                                        <span>{{selectedService4.ServiceOfferingDescription}}</span>
+                                    </div>
+                                </td>
+                                <!--<td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell" ng-class="{ 'has-error' : customRecommendationForm.txtServiceSeatCountInput4.$invalid }">
+                                    <div class="div-table-header">
+                                        <span># of Users<span class="asterisk">*</span></span><br/>
+                                    </div>
+                                    <input data-ng-required="selectedService4 != null && selectedService4.FeeTypeId != 3" ng-disabled="selectedService4 == null || selectedService4.FeeTypeId == 3" ng-pattern="/^(?!0*(\.0+)?$)(\d+|\d*\.\d+)$/" id="txtSeatCount-{{selectedService4.ServiceOfferingId}}" name="txtServiceSeatCountInput4" ng-model="selectedService4.EmployeeCount" ng-change="rp_calculateTotalPageEmployees()" class="form-control SkuSelect" maxlength="4"/>
+                                    <span ng-show="customRecommendationForm.txtServiceSeatCountInput4.$invalid || customRecommendationForm.txtServiceSeatCountInput4.$error.pattern" class="help-block"><span class="asterisk">*</span>Please enter a valid number without special characters.</span>
+                                </td>-->
+                                <td class="col-md-2 col-lg-2 col-sm-4 col-xs-4 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>MSRP({{selectedService4.FeeTypeName}})</span><br />
+                                    </div>
+                                    <div ng-hide="selectedService4 != null"><span>-</span></div>
+                                    <div><span>{{selectedService4.CurrencySymbol}}{{selectedService4.MSRP|number:2}}</span></div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table id="prodListTotals" class="row recommendedProdRow pull-right modal-table-3">
+                            <tr>
+                                <td class="col-md-2 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>Totals</span> <br />
+                                    </div>
+                                </td>
+                                <!--<td class="col-md-2 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span># of Users</span> <br/>
+                                    </div>
+                                    {{pageEmployeeCount | number:0}}
+                                </td>-->
+                                <td class="col-md-2 recommendedProdCell" ng-show="bundlesProServicesTotal > 0">
+                                    ro
+                                    <div class="div-table-header">
+                                        <span>Professional Services</span><br />
+                                    </div>
+                                    {{systemRecommendations[0].CurrencySymbol}}{{bundlesProServicesTotal | number:2}}
+                                </td>
+                                <td class="col-md-2 recommendedProdCell" ng-show="bundlesTrainingTotal > 0">
+                                    <div class="div-table-header">
+                                        <span>Training</span><br />
+                                    </div>
+                                    {{systemRecommendations[0].CurrencySymbol}}{{bundlesTrainingTotal | number:2}}
+                                </td>
+                                <td class="col-md-2 recommendedProdCell" ng-show="bundlesSupportTotal > 0">
+                                    <div class="div-table-header">
+                                        <span>Support</span><br />
+                                    </div>
+                                    {{systemRecommendations[0].CurrencySymbol}}{{bundlesSupportTotal | number:2}}
+                                </td>
+                                <td class="col-md-2 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>One Time Cost {{systemRecommendations[0].CurrencySymbol}}</span><br />
+                                    </div>
+                                    {{systemRecommendations[0].CurrencySymbol}}{{bundlesTotalOneTime | number:2}}
+                                </td>
+                                <td class="col-md-2 recommendedProdCell">
+                                    <div class="div-table-header">
+                                        <span>Recurring Cost {{systemRecommendations[0].CurrencySymbol}}</span><br />
+                                    </div>
+                                    {{systemRecommendations[0].CurrencySymbol}}{{bundlesTotalMonthly | number:2}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Welcome Message-->
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 welcome-message" ng-show="step == 6">
+        <!--Section Title-->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+            <!--<h1 id="pageTitle">Welcome Message</h1>-->
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-left-none">
+            <h2 class="title">Write a personalized introduction for your customer to see when they open up their site.</h2>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega" ng-show="dataLoaded6">
+            <!--Section Info-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega" id="welcomeMsgEdit-container">
+                <div ng-app>
+                    <form name="welcomMessageForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div ng-class="{ 'has-error' : welcomMessageForm.welcomeMessage.$invalid && !welcomMessageForm.welcomeMessage.$pristine }">
+                                    <textarea class="form-control" rows="20" name="welcomeMessage" id="txt-welcomeMessage" ng-model="welcome.Body" ng-maxlength="1100" ng-trim="false" odh-select-text></textarea>
+                                    <div class="pull-right">
+                                        <span ng-show="welcomMessageForm.welcomeMessage.$invalid" class="help-block"><span class="asterisk">*</span>Welcome Message invalid (No HTML allowed) <span id="err-maxLengthReached" ng-show="welcomMessageForm.welcomeMessage.$error.maxlength">, 1100 character limit reached.</span></span>
+                                        <span id="lbl-charCount" ng-hide="welcomMessageForm.welcomeMessage.$error.maxlength">{{welcome.Body.length}} of 1100 Characters</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <!--Section Title-->
+                        <div class="row video-row">
+                            <h1 id="pageTitle" class="editCustomer-header">Welcome Video</h1>
+                        </div>
+                        <!--Section Info-->
+                        <div class="row video-row">
+                            <h2 class="editCustomer-header">Upload a Video for your customer to see when they open up their site.</h2>
+                        </div>
+                        <div class="row video-row">
+                            <div>
+                                <button type="file" class="btn btn-primary" ngf-select="uploadVideo($file)"
+                                        accept="video/*" ng-disabled="suppressVideos || (FileName && FileName !== '')">
+                                    <span class="glyphicon glyphicon-cloud-upload"></span>
+                                    Upload Video
+                                </button>
+                                <a ng-href="{{FileSource}}">{{FileName}}</a>
+								<input type="button" class="btn btn-default" ng-click="resetToDefaultVideo()" ng-show="FileName && FileName !== '' && customer.VideoId !== 1 && !suppressVideos" value="Reset to default" />
+                            </div>
+                            <br />
+                            <div ng-hide="FileError == ''"><span class="has-error">{{FileError}}</span><br /></div>
+                            <span ng-hide="$scope.FileName == ''">Default video will display if a video is not uploaded</span><br />
+                            <label class="col-md-12 no-video">
+                                <input type="checkbox" name="checkbox" class="pointer" ng-model="suppressVideos" ng-change="updateVideoEnabled()" id="checkbox_id">
+                                Do not show video for customer site
+                            </label>
+                            <br>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Page Notes-->
+    <div class="col-lg-12" ng-show="step == 7">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alpha omega">
+            <!--Section Title-->
+            <h1 id="pageTitle">Page Notes</h1>
+        </div>
+        <div ng-show="dataLoaded7">
+            <!--Section Info-->
+
+            <h2 class="title">Select the pages and sections you'd wish to add a personalized note to.</h2>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- ReSharper disable Html.TagNotResolved -->
+                <accordion id="acc-pageNotes" close-others="oneAtATme">
+                    <accordion-group ng-repeat="page in pages" is-open="statusL1.open">
+                        <accordion-heading>
+                            <div>
+                                {{page.Path}} <img class="pull-right" style="width: 17px; height: 17px; margin-right: 5px; vertical-align: top;" ng-src="{{statusL1.open && '/Images/glyphicons-circle-minus.png' || '/Images/glyphicons-circle-plus.png'}}" />
+                            </div>
+                        </accordion-heading>
+                        <ul ng-repeat="section in page.PageSections">
+                            <li>
+                                {{section.Name}}
+                                <i ng-show="section.PageNote.LinkURL != null" class="pull-right glyphicon glyphicon-paperclip"></i>
+                                <img ng-src="{{section.PageNote.Body != '' && '/Images/comment-filled.png' || '/Images/comment-unfilled.png'}}" class="pull-right pointer" ng-class="{'contentNote-filledComment': section.PageNote.Body != '', 'contentNote-unfilledComment': section.PageNote.Body == ''}" title="Edit customer note" ng-click="pn_editComment(section.PageNote, $event)" />
+                            </li>
+                        </ul>
+                    </accordion-group>
+                </accordion>
+                <!-- ReSharper restore Html.TagNotResolved -->
+            </div>
+        </div>
+    </div>
+
+    <!--Bottom Buttons-->
+    <!--<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 padding-bottom-15" ng-show="showButtons()">
+        <div class="form-group col-md-12 elementSpacing">
+            <a id="btn-cancel" ng-click="Cancel()" class="btn btn-default right-container">Cancel</a>
+            <button id="btn-back" class="btn btn-primary" ng-show="showBack()" ng-click="backClick()">Back</button>
+            <button id="btn-next" data-ng-show="showNext()" data-ng-click="nextClick()" ng-disabled="(step == 5 && customRecommendationForm.$invalid) || Disable()" class="btn btn-primary right-container">Next</button>
+            <button id="btn-adv" data-toggle="tooltip" title="Will save this customer and take you to advanced options" ng-disabled="DisableSave()" data-ng-show="step === 4" data-ng-click="advancedClick()" class="btn btn-primary right-container">Advanced</button>
+            <button id="btn-save" data-ng-show="showSave()" data-ng-click="saveCustomer()" ng-disabled="DisableSave()" class="btn btn-primary right-container">Save</button>
+            <div class="right-container">
+                <small><span class="asterisk">*</span>Indicates required field</small>
+                <div ng-show="customerForm.$invalid && !customerForm.$pristine" class="warning annotation text-danger ">Required fields missing or contain invalid data.<span class="asteriskWithRightPad">*</span></div>
+            </div>
+        </div>
+    </div>-->
+    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 padding-bottom-15 button-group">
+        <div class="row">
+            <div class="left-container buttons">
+                <button class="btn btn-primary tablesort-filter">Send to Customer</button>
+                <button class="btn btn-primary tablesort-filter">View Site</button>
+            
+                <button class="btn btn-primary cancel tablesort-filter">Cancel</button>
+                <button class="btn btn-primary tablesort-filter">Back</button>
+                <button class="btn btn-primary tablesort-filter" id="btn-next" data-ng-show="showNext()" data-ng-click="nextClick()">Next</button>
+                <button class="btn btn-primary tablesort-filter">Save</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
